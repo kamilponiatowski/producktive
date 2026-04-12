@@ -47,6 +47,7 @@ const steps = [
             v-for="(step, i) in steps"
             :key="step.key"
             class="relative reveal lg:flex lg:items-center lg:min-h-[140px] lg:py-8"
+            :class="i % 2 !== 0 ? 'lg:-mt-24' : ''"
             :style="{ transitionDelay: `${i * 100}ms` }"
           >
             <!-- Number dot -->

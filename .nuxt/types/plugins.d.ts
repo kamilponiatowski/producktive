@@ -10,9 +10,7 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/0.siteConfig.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/browser-devtools-timing.client.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/payload.client.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/dev-server-logs.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/navigation-repaint.client.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.server.js")> &
@@ -22,21 +20,15 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/titlesWaitI18n.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/defaultsWaitI18n.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-schema-org/dist/runtime/app/plugins/i18n/defaults.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt-link-checker/dist/runtime/app/plugins/ui.client.js")> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/robots/dist/runtime/app/plugins/robot-meta.server.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/i18n.js")> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused.js")> &
-  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server.js")> &
-  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js")> &
   InjectionType<typeof import("../pwa-icons-plugin")> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/switch-locale-path-ssr.js")> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/route-locale-detect.js")> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/preload.js")> &
-  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/dev.js")> &
   InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/warn.dev.server.js")> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/minifyScripts.server.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/1.absoluteImageUrls.server.js")> &
   InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/0.routeRules.js")> &
   InjectionType<typeof import("../../node_modules/@vite-pwa/nuxt/dist/runtime/plugins/pwa.client.js")> &
@@ -47,7 +39,7 @@ declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }
 
   interface NuxtAppLiterals {
-    pluginName: 'vue-devtools-client' | 'nuxt:revive-payload:client' | 'nuxt-site-config:init' | 'nuxt:head' | 'nuxt:router' | 'nuxt:browser-devtools-timing' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | 'nuxt-seo:fallback-titles' | 'nuxt-seo:defaults' | 'nuxt-schema-org:defaults' | 'nuxt-site-config:i18n' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'vite-pwa:nuxt:pwa-icons-plugin' | 'i18n:plugin:switch-locale-path-ssr' | 'i18n:plugin:route-locale-detect' | 'i18n:plugin:preload' | 'i18n:dev' | 'i18n:plugin' | 'nuxt:checkIfLayoutUsed' | 'vite-pwa:nuxt:client:plugin' | 'i18n:plugin:ssg-detect' | 'nuxt-schema-org:init'
+    pluginName: 'nuxt:revive-payload:client' | 'nuxt-site-config:init' | 'nuxt:head' | 'nuxt:router' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | 'nuxt-seo:fallback-titles' | 'nuxt-seo:defaults' | 'nuxt-schema-org:defaults' | 'nuxt-site-config:i18n' | 'nuxt:global-components' | 'nuxt:prefetch' | 'vite-pwa:nuxt:pwa-icons-plugin' | 'i18n:plugin:switch-locale-path-ssr' | 'i18n:plugin:route-locale-detect' | 'i18n:plugin:preload' | 'i18n:plugin' | 'vite-pwa:nuxt:client:plugin' | 'i18n:plugin:ssg-detect' | 'nuxt-schema-org:init'
   }
 }
 

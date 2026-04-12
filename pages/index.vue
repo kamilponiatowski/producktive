@@ -21,10 +21,11 @@ defineOgImageComponent('NuxtSeo', {
   <div>
     <SectionsHero />
     <SectionsTrustBar />
+    <SectionsAbout />
     <SectionsServices />
     <SectionsPortfolio />
-    <SectionsAbout />
     <SectionsProcess />
+    <SectionsCommunity />
     <SectionsContact />
   </div>
 </template>

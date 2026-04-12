@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import producktiveGlass from '~/assets/producktive-glass.png'
 const { t } = useI18n()
 </script>
 
@@ -22,8 +23,8 @@ const { t } = useI18n()
     <div
       class="absolute inset-0 opacity-[0.04]"
       style="
-        background-image: linear-gradient(rgba(108, 99, 255, 1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(108, 99, 255, 1) 1px, transparent 1px);
+        background-image: linear-gradient(rgba(0, 229, 255, 1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 1) 1px, transparent 1px);
         background-size: 48px 48px;
       "
       aria-hidden="true"
@@ -154,47 +155,24 @@ const { t } = useI18n()
           </div>
         </div>
 
-        <!-- Right: Floating mockup -->
+        <!-- Right: Glassmorphism image card -->
         <div class="hidden lg:flex justify-center items-center reveal">
           <div class="relative motion-safe:animate-float">
-            <!-- Main mockup card -->
-            <div class="card p-6 w-80 space-y-4 shadow-brand">
-              <!-- Browser chrome -->
-              <div class="flex items-center gap-2 pb-3 border-b border-white/10">
-                <div class="flex gap-1.5" aria-hidden="true">
-                  <div class="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div class="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div class="w-3 h-3 rounded-full bg-green-500/70" />
-                </div>
-                <div
-                  class="flex-1 bg-white/5 rounded-md px-3 py-1 text-xs text-brand-muted font-mono"
-                >
-                  {{ t('hero.mockupUrl') }}
-                </div>
-              </div>
-              <!-- Mockup content -->
-              <div class="space-y-3" aria-hidden="true">
-                <div class="h-2 bg-gradient-brand rounded-full w-3/4" />
-                <div class="h-2 bg-white/10 rounded-full w-full" />
-                <div class="h-2 bg-white/10 rounded-full w-5/6" />
-                <div
-                  class="h-8 bg-gradient-brand rounded-xl w-1/2 mt-4 flex items-center justify-center"
-                >
-                  <div class="h-2 bg-white/60 rounded w-1/2" />
-                </div>
-              </div>
-              <!-- Lighthouse score -->
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <span class="text-xs text-brand-muted">{{ t('hero.mockupLighthouse') }}</span>
-                <div class="flex gap-2">
-                  <span class="badge text-xs">⚡ 98</span>
-                  <span class="badge text-xs">♿ 100</span>
-                  <span class="badge text-xs">🔍 99</span>
-                </div>
-              </div>
+            <!-- Glassmorphism frame -->
+            <div
+              class="rounded-3xl overflow-hidden shadow-brand backdrop-blur-md
+                     bg-white/5 border border-brand-primary/25 p-1.5"
+            >
+              <img
+                :src="producktiveGlass"
+                alt="Producktive — dynamika i charakter strony"
+                class="w-96 rounded-2xl object-cover"
+                width="384"
+                loading="eager"
+              />
             </div>
 
-            <!-- Floating badges -->
+            <!-- Floating badges (kept from original) -->
             <div
               class="absolute -top-4 -right-6 badge-accent text-xs px-3 py-1.5 motion-safe:animate-pulse-slow"
               aria-hidden="true"

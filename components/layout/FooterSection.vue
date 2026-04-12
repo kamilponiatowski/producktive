@@ -10,7 +10,7 @@ const links = computed(() => [
 ])
 
 const legal = computed(() => [
-  { label: t('footer.privacy'), href: '/privacy' },
+  { label: t('footer.privacy'), href: '/polityka-prywatnosci' },
   { label: t('footer.terms'), href: '/terms' },
 ])
 </script>
@@ -68,21 +68,18 @@ const legal = computed(() => [
               kontakt@producktive.pl
             </a>
             <a
-              href="https://linkedin.com/in/producktive"
+              href="tel:+48886127854"
+              class="block hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+            >
+              +48 886 127 854
+            </a>
+            <a
+              href="https://www.linkedin.com/in/kamil-poniatowski-rev/"
               target="_blank"
               rel="noopener noreferrer"
               class="block hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
             >
               LinkedIn
-              <span class="sr-only">({{ t('a11y.externalLink') }})</span>
-            </a>
-            <a
-              href="https://github.com/producktive"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
-            >
-              GitHub
               <span class="sr-only">({{ t('a11y.externalLink') }})</span>
             </a>
           </div>

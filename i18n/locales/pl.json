@@ -26,7 +26,7 @@
     "ctaSecondary": "Moje realizacje",
     "proof1": "Odpowiedź w 24h",
     "proof2": "Umowa przed startem",
-    "proof3": "100% zadowolenia lub zwrot",
+    "proof3": "Gwarancja satysfakcji",
     "mockupUrl": "twojafirma.pl",
     "mockupLighthouse": "Lighthouse",
     "mockupBadge1": "✅ Gotowe w 14 dni",
@@ -51,37 +51,37 @@
       "website": {
         "title": "Strona wizytówka",
         "desc": "Twoja firma zasługuje na stronę, która nie tylko dobrze wygląda, ale i błyskawicznie działa. Szybka, mobilna, optymalna pod SEO.",
-        "price": "od 2 000 zł",
+        "price": "3 000 – 6 000 zł",
         "days": "7–10 dni"
       },
       "landing": {
         "title": "Landing Page",
         "desc": "Jedna strona, jeden cel — maksymalna konwersja. Idealna do kampanii reklamowych, premier produktów i generowania leadów.",
-        "price": "od 1 500 zł",
+        "price": "2 500 – 5 000 zł",
         "days": "5–7 dni"
       },
       "blog": {
         "title": "Blog & Content",
         "desc": "Twórz treści, które pozycjonują Twoją firmę jako eksperta. Panel CMS dostosowany do osób nietechnicznych — aktualizacja strony zajmie mniej czasu niż zaparzenie kawy.",
-        "price": "od 2 500 zł",
+        "price": "4 000 – 8 000 zł",
         "days": "10–14 dni"
       },
       "shop": {
         "title": "Sklep online",
-        "desc": "Sprzedawaj 24/7 bez ograniczeń geograficznych. Płatności, zarządzanie produktami, panel admina.",
-        "price": "od 4 000 zł",
+        "desc": "Sprzedawaj 24/7 bez ograniczeń geograficznych. Płatności Stripe, zarządzanie produktami, panel admina — bez WooCommerce.",
+        "price": "6 000 – 12 000 zł",
         "days": "14–21 dni"
       },
       "saas": {
         "title": "Produkt cyfrowy / SaaS",
         "desc": "MVP Twojego pomysłu w rekordowym czasie. Autoryzacja, baza danych, panel użytkownika — gotowe.",
-        "price": "od 6 000 zł",
+        "price": "8 000 – 20 000 zł",
         "days": "21–30 dni"
       },
       "design": {
         "title": "UI/UX Design",
-        "desc": "Projekt graficzny przed wdrożeniem. Makiety, system designu, prototyp do testów z użytkownikami.",
-        "price": "od 1 200 zł",
+        "desc": "Projekt graficzny realizowany we współpracy z doświadczonymi designerami i ekspertami UX. Makiety, system designu, prototyp do testów z użytkownikami.",
+        "price": "2 500 – 5 000 zł",
         "days": "5–7 dni"
       }
     }
@@ -105,7 +105,7 @@
     "projects": {
       "miralive": {
         "title": "Miralive — Agencja Ubezpieczeniowa",
-        "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej ze Włocławka. Priorytetem było SEO i wiarygodność — w pełni statyczna strona, która ładuje się w ułamku sekundy.",
+        "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej z Włocławka. Priorytetem było SEO i wiarygodność — w pełni statyczna strona, która ładuje się w ułamku sekundy.",
         "label": "Klient · Live",
         "result1": "⚡ Lighthouse 95+",
         "result2": "🔍 Schema.org SEO",
@@ -252,9 +252,9 @@
       "other": "Inne"
     },
     "budgets": {
-      "under2k": "do 2 000 zł",
-      "2k5k": "2 000 – 5 000 zł",
-      "5k15k": "5 000 – 15 000 zł",
+      "3k5k": "3 000 – 5 000 zł",
+      "5k9k": "5 000 – 9 000 zł",
+      "9k15k": "9 000 – 15 000 zł",
       "over15k": "ponad 15 000 zł",
       "unknown": "Nie wiem jeszcze"
     },
@@ -279,12 +279,13 @@
     },
     "direct": {
       "title": "Wolisz pisać bezpośrednio?",
-      "email": "kontakt{'@'}producktive.pl"
+      "email": "kontakt{'@'}producktive.pl",
+      "phone": "+48 886 127 854"
     },
     "guarantee": {
       "title": "Gwarancja satysfakcji",
-      "desc": "Jeśli nie będziesz zadowolony z projektu na etapie designu, {highlight} Chcę, żebyś polecił mnie swoim znajomym, nie żałował.",
-      "highlight": "zwracam 100% zaliczki."
+      "desc": "Jeśli nie będziesz zadowolony z projektu na etapie designu, {highlight} Zależy mi na Twojej rekomendacji, nie tylko na wykonaniu zlecenia.",
+      "highlight": "zwracam zaliczkę za ten etap."
     },
     "faq": {
       "title": "FAQ",
@@ -296,11 +297,32 @@
       "a3": "Tak. Dostajesz szkolenie z CMS i dostęp do kodu."
     }
   },
+  "community": {
+    "badge": "Sieć Producktive",
+    "title": "Jeden za wszystkich,",
+    "titleHighlight": "wszyscy za jednego.",
+    "subtitle": "Każdy klient Producktive dołącza do sieci przedsiębiorców, którzy wzajemnie sobie pomagają — priorytetowo, na atrakcyjnych warunkach, często poza standardowymi schematami.",
+    "networkTitle": "Co daje Ci sieć?",
+    "benefit1Title": "Priorytetowy dostęp",
+    "benefit1Desc": "Klienci Producktive obsługują się wzajemnie poza kolejką — szybciej i z lepszym podejściem.",
+    "benefit2Title": "Atrakcyjne warunki",
+    "benefit2Desc": "Specjalne stawki i warunki współpracy między klientami sieci, niedostępne dla klientów standardowych.",
+    "benefit3Title": "Poza schematami",
+    "benefit3Desc": "Elastyczna umowa ramowa, która daje przestrzeń na niestandardowe formy współpracy: bartery, projekty wymienne, partnerstwa.",
+    "resourcesTitle": "Darmowe zasoby produktywności",
+    "resourcesDesc": "Każdy klient Producktive otrzymuje dostęp do bazy wiedzy, która napędza wzrost:",
+    "resource1": "Przewodnik PDF: Narzędzia i techniki produktywności (80/20, Pomodoro, Deep Work)",
+    "resource2": "Techniki oddechowe i zarządzanie stresem dla przedsiębiorców",
+    "resource3": "Wzorce i szablony dla małych firm",
+    "resource4": "Dostęp do aktualizowanej bazy pigułek wiedzy",
+    "cta": "Zostań częścią sieci →"
+  },
   "footer": {
     "desc": "Tworzę strony i produkty cyfrowe, które pracują na Twój biznes. Korporacyjna jakość, ludzkie podejście.",
     "navTitle": "Nawigacja",
     "contactTitle": "Kontakt",
     "email": "kontakt{'@'}producktive.pl",
+    "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. Wszelkie prawa zastrzeżone.",
     "privacy": "Polityka prywatności",
     "terms": "Regulamin",
@@ -312,6 +334,17 @@
     "accept": "Akceptuję",
     "reject": "Odrzuć",
     "learnMore": "Dowiedz się więcej"
+  },
+  "popup": {
+    "title": "Porozmawiajmy!",
+    "desc": "Zostaw numer – oddzwonię w ciągu 24h i odpowiem na wszelkie pytania.",
+    "phonePlaceholder": "+48 xxx xxx xxx",
+    "consent": "Wyrażam zgodę na kontakt telefoniczny w celu omówienia możliwości współpracy.",
+    "submit": "Wyślij numer →",
+    "submitting": "Wysyłanie...",
+    "success": "Dziękuję! Odezwę się wkrótce.",
+    "close": "Zamknij",
+    "privacy": "Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim."
   },
   "a11y": {
     "logo": "Producktive — strona główna",

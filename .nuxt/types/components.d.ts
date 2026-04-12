@@ -17,13 +17,18 @@ interface _GlobalComponents {
   LayoutFooterSection: typeof import("../../components/layout/FooterSection.vue")['default']
   LayoutNavBar: typeof import("../../components/layout/NavBar.vue")['default']
   SectionsAbout: typeof import("../../components/sections/About.vue")['default']
+  SectionsCommunity: typeof import("../../components/sections/Community.vue")['default']
   SectionsContact: typeof import("../../components/sections/Contact.vue")['default']
   SectionsHero: typeof import("../../components/sections/Hero.vue")['default']
   SectionsPortfolio: typeof import("../../components/sections/Portfolio.vue")['default']
   SectionsProcess: typeof import("../../components/sections/Process.vue")['default']
   SectionsServices: typeof import("../../components/sections/Services.vue")['default']
   SectionsTrustBar: typeof import("../../components/sections/TrustBar.vue")['default']
+  UiContactPopup: typeof import("../../components/ui/ContactPopup.vue")['default']
   UiCookieConsent: typeof import("../../components/ui/CookieConsent.vue")['default']
+  UiLofiPlayer: typeof import("../../components/ui/LofiPlayer.vue")['default']
+  UiScrollButtons: typeof import("../../components/ui/ScrollButtons.vue")['default']
+  UiSiteSignature: typeof import("../../components/ui/SiteSignature.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -83,13 +88,18 @@ interface _GlobalComponents {
   LazyLayoutFooterSection: LazyComponent<typeof import("../../components/layout/FooterSection.vue")['default']>
   LazyLayoutNavBar: LazyComponent<typeof import("../../components/layout/NavBar.vue")['default']>
   LazySectionsAbout: LazyComponent<typeof import("../../components/sections/About.vue")['default']>
+  LazySectionsCommunity: LazyComponent<typeof import("../../components/sections/Community.vue")['default']>
   LazySectionsContact: LazyComponent<typeof import("../../components/sections/Contact.vue")['default']>
   LazySectionsHero: LazyComponent<typeof import("../../components/sections/Hero.vue")['default']>
   LazySectionsPortfolio: LazyComponent<typeof import("../../components/sections/Portfolio.vue")['default']>
   LazySectionsProcess: LazyComponent<typeof import("../../components/sections/Process.vue")['default']>
   LazySectionsServices: LazyComponent<typeof import("../../components/sections/Services.vue")['default']>
   LazySectionsTrustBar: LazyComponent<typeof import("../../components/sections/TrustBar.vue")['default']>
+  LazyUiContactPopup: LazyComponent<typeof import("../../components/ui/ContactPopup.vue")['default']>
   LazyUiCookieConsent: LazyComponent<typeof import("../../components/ui/CookieConsent.vue")['default']>
+  LazyUiLofiPlayer: LazyComponent<typeof import("../../components/ui/LofiPlayer.vue")['default']>
+  LazyUiScrollButtons: LazyComponent<typeof import("../../components/ui/ScrollButtons.vue")['default']>
+  LazyUiSiteSignature: LazyComponent<typeof import("../../components/ui/SiteSignature.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

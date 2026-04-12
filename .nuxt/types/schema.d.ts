@@ -155,14 +155,6 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
       version: string,
    },
 
-   "seo-utils-head": {
-      link: Array<{
-
-      }>,
-
-      meta: Array<any>,
-   },
-
    "nuxt-site-config": {
       stack: Array<{
 
@@ -211,68 +203,6 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
    calendlyUrl: string,
 
    siteUrl: string,
-
-   "nuxt-link-checker": {
-      version: string,
-
-      hasSitemapModule: boolean,
-
-      rootDir: string,
-
-      excludeLinks: Array<{
-
-      }>,
-
-      excludePages: Array<any>,
-
-      skipInspections: Array<any>,
-
-      fetchTimeout: number,
-
-      showLiveInspections: boolean,
-
-      fetchRemoteUrls: boolean,
-   },
-
-   "nuxt-schema-org": {
-      reactive: boolean,
-
-      minify: boolean,
-
-      scriptAttributes: {
-         "data-nuxt-schema-org": boolean,
-      },
-
-      identity: {
-         type: string,
-
-         name: string,
-
-         url: string,
-
-         description: string,
-
-         address: {
-            addressLocality: string,
-
-            addressRegion: string,
-
-            addressCountry: string,
-         },
-
-         areaServed: Array<{
-
-         }>,
-
-         sameAs: Array<string>,
-
-         email: string,
-
-         priceRange: string,
-      },
-
-      version: string,
-   },
 
    "nuxt-seo-utils-version": string,
 

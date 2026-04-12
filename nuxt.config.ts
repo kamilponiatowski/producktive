@@ -144,6 +144,14 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: undefined,
       globPatterns: ['**/*.{js,css,html,png,jpg,svg,webp,avif,woff2}'],
+      // Large portfolio/hero images are excluded from precache (>2 MB SW limit).
+      // They are fetched directly or cached at runtime.
+      globIgnores: [
+        '**/producktive-glass*',
+        '**/site-miralive*',
+        '**/site-neksuspng*',
+        '**/site-producktive*',
+      ],
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.bunny\.net\/.*/i,

@@ -13,12 +13,14 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#6C63FF',
-          accent:  '#FF6584',
-          dark:    '#0F0F1A',
-          card:    '#1A1A2E',
+          primary: '#00E5FF',  // neon cyan — main accent
+          accent:  '#D4AF37',  // gold — premium
+          gold:    '#FFD700',  // energy gold — data/indicators
+          dark:    '#0a0e14',  // deep dark base
+          card:    '#161B22',  // panel / card background
           muted:   '#8B8BA7',
           success: '#4ADE80',
+          text:    '#f0f6fc',  // main light text
         },
       },
       fontFamily: {
@@ -27,12 +29,12 @@ export default {
         mono:    ['"DM Mono"', 'monospace'],
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(135deg, #6C63FF, #FF6584)',
-        'gradient-dark':  'linear-gradient(180deg, #0F0F1A 0%, #1A1A2E 100%)',
-        'gradient-card':  'linear-gradient(135deg, rgba(108,99,255,0.12), rgba(255,101,132,0.08))',
+        'gradient-brand': 'linear-gradient(135deg, #00E5FF, #D4AF37)',
+        'gradient-dark':  'linear-gradient(180deg, #0a0e14 0%, #161B22 100%)',
+        'gradient-card':  'linear-gradient(135deg, rgba(0,229,255,0.07), rgba(212,175,55,0.05))',
       },
       animation: {
-        shimmer:      'shimmer 2.5s linear infinite',
+        shimmer:      'shimmer 9s linear infinite',
         float:        'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
@@ -47,9 +49,9 @@ export default {
         },
       },
       boxShadow: {
-        brand:       '0 0 40px rgba(108, 99, 255, 0.25)',
+        brand:       '0 0 40px rgba(0, 229, 255, 0.22)',
         card:        '0 8px 32px rgba(0,0,0,0.4)',
-        'card-hover': '0 16px 48px rgba(108,99,255,0.2)',
+        'card-hover': '0 16px 48px rgba(0,229,255,0.16)',
       },
     },
   },

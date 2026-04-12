@@ -1,6 +1,16 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+import miraliveSrc from '~/assets/site-miralive.png'
+import neksusScr from '~/assets/site-neksuspng.png'
+import producktiveSrc from '~/assets/site-producktive.png'
+
+const projectImages: Record<string, string> = {
+  miralive: miraliveSrc,
+  neksus: neksusScr,
+  producktive: producktiveSrc,
+}
+
 type ProjectType = 'client' | 'concept' | 'personal' | 'all'
 
 const activeFilter = ref<ProjectType>('all')
@@ -25,7 +35,7 @@ const projects = computed(() => [
     type: 'client' as ProjectType,
     key: 'neksus',
     tags: ['Nuxt 4', 'TailwindCSS', 'SSG', 'SEO'],
-    demoUrl: 'https://neksus.pl',
+    demoUrl: 'https://neksus-phi.vercel.app',
     labelType: 'badge-accent',
     initial: 'N',
   },
@@ -36,14 +46,6 @@ const projects = computed(() => [
     demoUrl: 'https://producktive.pl',
     labelType: 'badge',
     initial: 'P',
-  },
-  {
-    type: 'concept' as ProjectType,
-    key: 'zenbarber',
-    tags: ['Vue 3', 'Supabase', 'TailwindCSS'],
-    demoUrl: '#',
-    labelType: 'badge',
-    initial: 'Z',
   },
 ])
 
@@ -105,6 +107,19 @@ const filtered = computed(() =>
         >
           <!-- Image placeholder with gradient -->
           <div class="h-48 bg-gradient-brand relative overflow-hidden">
+            <!-- Etykieta typu projektu w prawym dolnym rogu -->
+            <span
+              v-if="project.demoUrl && project.demoUrl !== '#'"
+              :class="[
+                'absolute bottom-2 right-2 z-20 px-3 py-1 rounded-full text-xs font-mono shadow-lg backdrop-blur-md border border-white/20',
+                project.type === 'client' ? 'bg-green-500/80 text-white' : '',
+                project.type === 'personal' ? 'bg-brand-primary/80 text-brand-dark' : '',
+                project.type === 'concept' ? 'bg-yellow-400/80 text-brand-dark' : ''
+              ]"
+              style="letter-spacing:0.03em;"
+            >
+              {{ t(`portfolio.projects.${project.key}.label`) }}
+            </span>
             <!-- Browser chrome overlay -->
             <div
               class="absolute top-0 left-0 right-0 h-6 bg-white/10 backdrop-blur-sm flex items-center gap-1.5 px-3 z-10"
@@ -122,9 +137,7 @@ const filtered = computed(() =>
             </div>
             <!-- Type label -->
             <div class="absolute top-8 left-3 z-10">
-              <span :class="project.labelType" class="text-xs">
-                {{ t(`portfolio.projects.${project.key}.label`) }}
-              </span>
+              <!-- Usunięto etykietę z lewego górnego rogu -->
             </div>
             <!-- Hover overlay -->
             <div
@@ -147,10 +160,12 @@ const filtered = computed(() =>
                 {{ t('portfolio.nda') }}
               </span>
             </div>
-            <!-- Hover image scale -->
-            <div
-              class="absolute inset-0 bg-gradient-brand motion-safe:group-hover:scale-105 transition-transform duration-500"
-              aria-hidden="true"
+            <!-- Project screenshot (scales on hover) -->
+            <img
+              :src="projectImages[project.key]"
+              :alt="t(`portfolio.projects.${project.key}.title`)"
+              class="absolute inset-0 w-full h-full object-cover object-center motion-safe:group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
             />
           </div>
 

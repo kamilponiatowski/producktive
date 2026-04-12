@@ -21,10 +21,22 @@ const skills = [
 ]
 
 const values = [
-  { icon: '🎯', key: 'deadline' },
-  { icon: '💎', key: 'quality' },
-  { icon: '🤝', key: 'partnership' },
-  { icon: '📖', key: 'transparency' },
+  {
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>`,
+    key: 'deadline',
+  },
+  {
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    key: 'quality',
+  },
+  {
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`,
+    key: 'partnership',
+  },
+  {
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+    key: 'transparency',
+  },
 ]
 </script>
 
@@ -79,7 +91,7 @@ const values = [
               {{ t('about.ctaPrimary') }}
             </a>
             <a
-              href="https://linkedin.com/in/producktive"
+              href="https://www.linkedin.com/in/kamil-poniatowski-rev/"
               target="_blank"
               rel="noopener noreferrer"
               class="btn-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
@@ -134,7 +146,7 @@ const values = [
             <h3 class="text-white font-semibold mb-4">{{ t('about.howIWork') }}</h3>
             <div class="grid grid-cols-2 gap-3">
               <div v-for="v in values" :key="v.key" class="card p-4 flex flex-col gap-2">
-                <div class="text-2xl" aria-hidden="true">{{ v.icon }}</div>
+                <div class="text-brand-primary" v-html="v.svgPath" />
                 <div class="font-semibold text-white text-sm">
                   {{ t(`about.values.${v.key}.title`) }}
                 </div>

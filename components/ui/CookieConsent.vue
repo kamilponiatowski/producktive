@@ -27,15 +27,28 @@ const reject = () => {
       v-if="show"
       class="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
       role="dialog"
+      aria-live="polite"
       :aria-label="t('cookie.title')"
     >
       <div
-        class="max-w-2xl mx-auto bg-brand-card/95 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-card flex flex-col sm:flex-row items-start sm:items-center gap-4"
+        class="max-w-2xl mx-auto bg-brand-card/95 backdrop-blur-xl border border-brand-primary/15 rounded-2xl p-5 shadow-brand flex flex-col sm:flex-row items-start sm:items-center gap-4"
       >
+        <!-- Shield icon -->
+        <div class="shrink-0 text-brand-primary hidden sm:flex" aria-hidden="true">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
         <div class="flex-1">
           <p class="text-white text-sm font-semibold mb-1">{{ t('cookie.title') }}</p>
           <p class="text-brand-muted text-xs leading-relaxed">
             {{ t('cookie.desc') }}
+            <NuxtLink
+              to="/polityka-prywatnosci"
+              class="text-brand-primary hover:underline ml-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-primary rounded"
+            >
+              {{ t('cookie.learnMore') }}
+            </NuxtLink>
           </p>
         </div>
         <div class="flex gap-2 shrink-0">

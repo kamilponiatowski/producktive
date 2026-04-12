@@ -38,6 +38,12 @@ onMounted(async () => {
   let ringY = 0
 
   window.addEventListener('mousemove', (e: MouseEvent) => {
+    // Restore native cursor in scrollbar area (right edge)
+    if (e.clientX >= document.documentElement.clientWidth - 16) {
+      document.body.style.cursor = 'default'
+      return
+    }
+    document.body.style.cursor = 'none'
     mouseX = e.clientX
     mouseY = e.clientY
     if (!cursorReady.value) cursorReady.value = true
@@ -103,5 +109,8 @@ onMounted(async () => {
     </main>
     <LayoutFooterSection />
     <UiCookieConsent />
+    <UiLofiPlayer />
+    <UiContactPopup />
+    <UiScrollButtons />
   </div>
 </template>

@@ -42,12 +42,17 @@
   /* Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
+    cursor: default;
   }
   ::-webkit-scrollbar-track {
     @apply bg-brand-dark;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-brand-primary rounded-full;
+    cursor: grab;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
   }
 
   /* Selection color */
@@ -88,26 +93,27 @@
   /* Gradient text */
   .text-gradient {
     @apply text-transparent bg-clip-text;
-    background-image: linear-gradient(135deg, #6c63ff, #ff6584);
+    background-image: linear-gradient(135deg, #00E5FF, #D4AF37);
   }
   .text-gradient-animate {
     @apply text-transparent bg-clip-text;
-    background-image: linear-gradient(135deg, #6c63ff 0%, #ff6584 50%, #6c63ff 100%);
+    background-image: linear-gradient(135deg, #00E5FF 0%, #D4AF37 50%, #00E5FF 100%);
     background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 9s linear infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .text-gradient-animate {
       animation: none;
-      background-image: linear-gradient(135deg, #6c63ff, #ff6584);
+      background-image: linear-gradient(135deg, #00E5FF, #D4AF37);
       background-size: 100% auto;
     }
   }
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white
+    /* Dark text on bright gradient — passes WCAG AA (≥4.5:1) */
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-brand-dark
            bg-gradient-brand transition-all duration-300;
   }
   .btn-primary:hover {

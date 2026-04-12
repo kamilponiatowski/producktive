@@ -26,7 +26,7 @@
     "ctaSecondary": "My work",
     "proof1": "Response within 24h",
     "proof2": "Contract before start",
-    "proof3": "100% satisfaction or refund",
+    "proof3": "Satisfaction guarantee",
     "mockupUrl": "yourbusiness.com",
     "mockupLighthouse": "Lighthouse",
     "mockupBadge1": "✅ Ready in 14 days",
@@ -51,37 +51,37 @@
       "website": {
         "title": "Business Website",
         "desc": "Your company deserves a website that not only looks great but loads blazingly fast. Fast, mobile-first, SEO-optimized.",
-        "price": "from €500",
+        "price": "€700 – €1,400",
         "days": "7–10 days"
       },
       "landing": {
         "title": "Landing Page",
         "desc": "One page, one goal — maximum conversion. Perfect for ad campaigns, product launches and lead generation.",
-        "price": "from €350",
+        "price": "€600 – €1,200",
         "days": "5–7 days"
       },
       "blog": {
         "title": "Blog & Content",
-        "desc": "Create content that positions your company as an expert. A CMS panel tailored for non-technical users — updating your site will take less time than making a coffee.",
-        "price": "from €600",
+        "desc": "Create content that positions your company as an expert. A CMS panel tailored for non-technical users.",
+        "price": "€950 – €1,900",
         "days": "10–14 days"
       },
       "shop": {
         "title": "Online Store",
-        "desc": "Sell 24/7 without geographical limits. Payments, product management, admin panel.",
-        "price": "from €950",
+        "desc": "Sell 24/7 without geographical limits. Stripe payments, product management, admin panel — no WooCommerce.",
+        "price": "€1,400 – €2,800",
         "days": "14–21 days"
       },
       "saas": {
         "title": "Digital Product / SaaS",
         "desc": "MVP of your idea in record time. Authentication, database, user dashboard — ready.",
-        "price": "from €1,400",
+        "price": "€1,900 – €4,700",
         "days": "21–30 days"
       },
       "design": {
         "title": "UI/UX Design",
-        "desc": "Graphic design before implementation. Wireframes, design system, prototype for user testing.",
-        "price": "from €280",
+        "desc": "Design delivered in collaboration with experienced designers and UX experts. Wireframes, design system, prototype for user testing.",
+        "price": "€600 – €1,200",
         "days": "5–7 days"
       }
     }
@@ -252,9 +252,9 @@
       "other": "Other"
     },
     "budgets": {
-      "under2k": "up to €500",
-      "2k5k": "€500 – €1,200",
-      "5k15k": "€1,200 – €3,500",
+      "3k5k": "€700 – €1,200",
+      "5k9k": "€1,200 – €2,100",
+      "9k15k": "€2,100 – €3,500",
       "over15k": "over €3,500",
       "unknown": "Not sure yet"
     },
@@ -279,12 +279,13 @@
     },
     "direct": {
       "title": "Prefer to write directly?",
-      "email": "kontakt{'@'}producktive.pl"
+      "email": "kontakt{'@'}producktive.pl",
+      "phone": "+48 886 127 854"
     },
     "guarantee": {
       "title": "Satisfaction guarantee",
-      "desc": "If you're not satisfied with the project at the design stage, {highlight} I want you to recommend me to your friends, not regret it.",
-      "highlight": "I return 100% of the deposit."
+      "desc": "If you're not satisfied with the project at the design stage, {highlight} I care about your recommendation, not just completing the order.",
+      "highlight": "I return the deposit for that stage."
     },
     "faq": {
       "title": "FAQ",
@@ -296,11 +297,32 @@
       "a3": "Yes. You get CMS training and code access."
     }
   },
+  "community": {
+    "badge": "Producktive Network",
+    "title": "One for all,",
+    "titleHighlight": "all for one.",
+    "subtitle": "Every Producktive client joins a network of entrepreneurs who support each other — with priority service, preferential rates, and collaborations beyond standard market norms.",
+    "networkTitle": "What does the network give you?",
+    "benefit1Title": "Priority access",
+    "benefit1Desc": "Producktive clients serve each other ahead of the queue — faster and with a better approach.",
+    "benefit2Title": "Attractive terms",
+    "benefit2Desc": "Special rates and collaboration terms for network members, unavailable to standard clients.",
+    "benefit3Title": "Beyond the norm",
+    "benefit3Desc": "A flexible framework agreement that allows non-standard collaboration: barters, exchange projects, partnerships.",
+    "resourcesTitle": "Free productivity resources",
+    "resourcesDesc": "Every Producktive client gets access to a knowledge base that drives growth:",
+    "resource1": "PDF Guide: Productivity tools and techniques (80/20, Pomodoro, Deep Work)",
+    "resource2": "Breathing techniques and stress management for entrepreneurs",
+    "resource3": "Patterns and templates for small businesses",
+    "resource4": "Access to an updated knowledge pill database",
+    "cta": "Join the network →"
+  },
   "footer": {
     "desc": "I build websites and digital products that work for your business. Corporate quality, human approach.",
     "navTitle": "Navigation",
     "contactTitle": "Contact",
     "email": "kontakt{'@'}producktive.pl",
+    "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
@@ -312,6 +334,17 @@
     "accept": "Accept",
     "reject": "Reject",
     "learnMore": "Learn more"
+  },
+  "popup": {
+    "title": "Let's talk!",
+    "desc": "Leave your number – I'll call back within 24h to answer any questions.",
+    "phonePlaceholder": "+48 xxx xxx xxx",
+    "consent": "I consent to being contacted by phone to discuss collaboration possibilities.",
+    "submit": "Send number →",
+    "submitting": "Sending...",
+    "success": "Thank you! I'll reach out soon.",
+    "close": "Close",
+    "privacy": "Your data is safe. I don't share it with third parties."
   },
   "a11y": {
     "logo": "Producktive — home page",

@@ -1,30 +1,32 @@
 # Oryginalna lista zadań
-- dodaj numer telefonu do "Wolisz pisać bezpośrednio?" (jest tam już email)
-- zaktualizuj link do LinkedIn (aktualnie na czas rekrutacji: https://www.linkedin.com/in/kamil-poniatowski-rev/)
-- moje dane to Kamil Poniatowski – brakuje tej wzmianki na początku, dobrze by klient od razu widział z kim ma do czynienia; dodaj logo/avatar gdzieś z moją twarzą
-- tekst, który jest animowany "które pracują na Twój biznes." – za szybko przechodzą efekty, niech będzie wolniej, wzbudzi wtedy większy spokój
-- pasek z technologiami działa za szybko – też go spowolnić
-- pomyśl o dodaniu kojącej muzyki lofi na stronie z widocznym przyciskiem do jej wyłączenia
-- pomyśl o popup do kontaktu
-- dodaj stronę z polityką prywatności + przejrzyj jeszcze cookies czy są dobrze zrobione
-- 100% zadowolenia lub zwrot jest ryzykowne, nie ma zwrotu jak usługa lekarska – usunąć/zmienić na coś bardziej optymalnego; zmień w kafelku na coś mniej zobowiązującego: "Gwarancja satysfakcji: Jeśli nie będziesz zadowolony z projektu na etapie designu, zwracam 100% zaliczki. Chcę, żebyś polecił mnie swoim znajomym, nie żałował."
-- brakuje przycisków do szybkiego przewinięcia strony góra i dół
-- daj przedział cenowy – unikaj małych kwot, na początku będę dawał promocje/zniżki/rabaty
-- pomyśl o dodaniu i stworzeniu "jeden za wszystkich" umowy, która będzie obowiązywała pomiędzy moimi klientami dla świadczenia sobie usług wzajemnie priorytetowo i na atrakcyjnych warunkach, często poza schematami
-- pomyśl o gratisach odnośnie produktywności jako PDF czy dostęp do portalu/strony z pigułkami wiedzy na różne tematy – główny benefit: zwiększenie produktywności (narzędzia/techniki/wzorce) i rozwiązania na bolączki (techniki oddechowe, 80/20, itp.)
-- SEO – tłumacz takie skróty od razu w nawiasie (roboty które widzą Twoją stronę i wpływają na pozycje w wyszukiwaniach czy źródła w wyszukiwarkach wspieranych AI) – mogą to być tooltipy, ale wtedy musi być intuicyjne by na nie najechać + WCAG
-- zastanów się z czego będę korzystał przy sklepach – na pewno nie z WooCommerce – usuń
-- we współpracy z Designerem → UI/UX Design
-- pomyśl o stronie ze współpracami: z kim mogę np. Filip z KKK odnośnie SEO, Designer Marcin Jakiel, etc.?
-- literówka z Włocławka: "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej ze Włocławka."
-- usuń z portfolio ZenBarber — Salon fryzjerski
-- dodaj info o bezpieczeństwie jak np. honeypot w formularzach
-- zastanów się gdzie umieścić sekcję o mnie + wygeneruj jakieś profesjonalne zdjęcie
-- w formularzu kontaktu select nie działa płynnie z animacją kursora i ma brzydkie style (może zamienić na mały kafelek do zaznaczenia?)
-- dodaj przedział cenowy 5-9
+-= dodaj numer telefonu do "Wolisz pisać bezpośrednio?" (jest tam już email) +48886127854
+-= zaktualizuj link do LinkedIn (aktualnie na czas rekrutacji: https://www.linkedin.com/in/kamil-poniatowski-rev/)
+-= moje dane to Kamil Poniatowski – brakuje gdzieś wzmianki, dobrze by klient od razu widział z kim ma do czynienia, dodaj logo/avatar gdzieś z moją twarzą - avatar w assets,
+-= podmień ikony bo wyglądają jak z lat 80 są basic
+-= tekst, który jest animowany "które pracują na Twój biznes." – za szybko przechodzą efekty, niech będzie wolniej, wzbudzi wtedy większy spokój
+-= pasek z technologiami działa za szybko – też go spowolnić
+-= pomyśl o dodaniu kojącej muzyki lofi na stronie z widocznym przyciskiem do jej wyłączenia
+-= popup do kontaktu by pokazywał się raz dziennie w którym ktoś zostawi numer telefonu i zaznaczy zgodę na kontakt,
+-= dodaj stronę z polityką prywatności + przejrzyj jeszcze cookies czy są dobrze zrobione
+-= 100% zadowolenia lub zwrot jest ryzykowne, nie ma zwrotu jak usługa lekarska – usunąć/zmienić na coś bardziej optymalnego; zmień w kafelku na coś mniej zobowiązującego: "Gwarancja satysfakcji: Jeśli nie będziesz zadowolony z projektu na etapie designu, zwracam 100% zaliczki. Chcę, żebyś polecił mnie swoim znajomym, nie żałował."
+-= brakuje przycisków do szybkiego przewinięcia strony góra i dół gdzie na dole znika i pojawia się jak zaczynamy przewijać do góry i vice versa z górnym przyciskiem - powinny być w prawym dolnym rogu
+-= daj przedział cenowy – unikaj małych kwot, na początku będę dawał promocje/zniżki/rabaty
+-= pomyśl o dodaniu i stworzeniu "jeden za wszystkich" umowy, która będzie obowiązywała pomiędzy moimi klientami dla świadczenia sobie usług wzajemnie priorytetowo i na atrakcyjnych warunkach, często poza schematami
+-= pomyśl o gratisach odnośnie produktywności jako PDF czy dostęp do portalu/strony z pigułkami wiedzy na różne tematy – główny benefit: zwiększenie produktywności (narzędzia/techniki/wzorce) i rozwiązania na bolączki (techniki oddechowe, 80/20, itp.)
+-= SEO – tłumacz takie skróty (roboty które widzą Twoją stronę i wpływają na pozycje w wyszukiwaniach czy źródła w wyszukiwarkach wspieranych AI) – mogą to być tooltipy, ale wtedy musi być intuicyjne by na nie najechać + WCAG
+-= zastanów się z czego będę korzystał przy sklepach – na pewno nie z WooCommerce – usuń
+-= we współpracy z Designerem dodaj etykietę → UI/UX Design - będę analizował projekty wymagające designu z doświadczonymi designerami i UX ekspertami
+- pomyśl o sekcji/pod-stronie co będzie leprze o stronie ze współpracami: z kim mogę np. Filip z KKK odnośnie SEO, Designer Marcin Jakiel, etc.?
+-= literówka z Włocławka: "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej ze Włocławka."
+-= usuń z portfolio ZenBarber — Salon fryzjerski
+-= dodaj info o bezpieczeństwie jak np. honeypot w formularzach
+-= zastanów się gdzie umieścić sekcję o mnie czy na pewno tak daleko?
+- wygeneruj jakieś zdjęcie jako main hero z moją osobą
+-= w formularzu kontaktu select nie działa płynnie z animacją kursora i ma brzydkie style (może zamienić na mały kafelek do zaznaczenia?)
+-= dodaj przedział cenowy 5-9
 - stwórz logo
-- stwórz podpis jaki będę umieszczał na stronach które robię
-- po najechaniu na scroll niech będzie widoczny kursor, bo aktualnie znika i nie widać gdzie się łapie scroll wertykalny
+-= stwórz podpis jaki będę umieszczał na stronach które robię
+-= po najechaniu na scroll niech będzie widoczny kursor, bo aktualnie znika i nie widać gdzie się łapie scroll wertykalny
 
 # Uporządkowana lista zadań (po polsku)
 
