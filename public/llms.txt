@@ -1,0 +1,45 @@
+# Producktive – llms.txt
+# AI-readable summary of content and services
+
+> Producktive to studio tworzenia stron internetowych i produktów cyfrowych
+> prowadzone przez Kamila Poniatowskiego, freelancera z Gdańska (Trójmiasto, Polska).
+
+## Usługi
+
+- Strona wizytówka / Business website – nowoczesna strona firmowa od 2 500 PLN
+- Landing page – strona sprzedażowa z CTA od 1 500 PLN
+- Blog & Content – blog z CMS od 2 000 PLN
+- Sklep internetowy / E-commerce – (wkrótce)
+- SaaS / Aplikacja webowa – (wkrótce)
+- UI/UX – projektowanie interfejsów
+
+## Technologie
+
+Vue 3, Nuxt, TypeScript, TailwindCSS, Supabase, Vercel, Figma
+
+## Portfolio
+
+- Miralive – strona dla agencji ubezpieczeniowej (live)
+- Neksus – strona dla serwisu komputerowego (live)
+- Producktive – ta strona (studio kreatywne)
+- ZenBarber – koncept strony dla barbershopu
+
+## Kontakt
+
+- Email: kontakt@producktive.pl
+- Lokalizacja: Gdańsk, Polska (obsługa zdalna – cała Polska i zagranica)
+- Konsultacja: bezpłatna, 30 min przez Google Meet / Calendly
+
+## Proces
+
+1. Konsultacja – rozmowa o celach i potrzebach
+2. Propozycja – strategia, wycena, harmonogram
+3. Design – projekt UI w Figma
+4. Development – kodowanie w Nuxt + TailwindCSS
+5. Launch – wdrożenie, testy, szkolenie
+
+## Gwarancje
+
+- Odpowiedź w ciągu 24h
+- Umowa przed startem
+- 100% satysfakcji lub zwrot pieniędzy

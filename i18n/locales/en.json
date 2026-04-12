@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "title": "Producktive — Websites & Digital Products | Gdańsk",
+    "description": "I build modern websites, landing pages and blogs for small businesses. Fast, secure and SEO-optimized. Gdańsk and surrounding areas.",
+    "ogTitle": "Producktive — Digital Solutions for Your Business",
+    "ogDescription": "Professional websites and digital products from an experienced developer. First consultation is free."
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "process": "Process",
+    "cta": "Let's talk",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
+  },
+  "hero": {
+    "badge": "Available for projects · 2026",
+    "titleLine1": "I build websites and products",
+    "titleLine2": "that work",
+    "titleLine3": "for your business.",
+    "subtitle": "For years I built systems for large corporations. Now I help {highlight} — delivering the same quality, processes and approach without corporate prices and anonymity.",
+    "subtitleHighlight": "small businesses and freelancers",
+    "ctaPrimary": "Free 30-min consultation",
+    "ctaSecondary": "My work",
+    "proof1": "Response within 24h",
+    "proof2": "Contract before start",
+    "proof3": "100% satisfaction or refund",
+    "mockupUrl": "yourbusiness.com",
+    "mockupLighthouse": "Lighthouse",
+    "mockupBadge1": "✅ Ready in 14 days",
+    "mockupBadge2": "🚀 Nuxt + Vue 3",
+    "scroll": "scroll"
+  },
+  "trustBar": {
+    "label": "Technologies I work with:"
+  },
+  "services": {
+    "badge": "How I can help",
+    "title": "Comprehensive",
+    "titleHighlight": "digital solutions",
+    "subtitle": "From a simple business card website to an advanced digital product — I treat every project as my own business.",
+    "askAbout": "Ask about this",
+    "popular": "⭐ Most popular",
+    "comingSoon": "🔜 Coming soon",
+    "customTitle": "Don't see what you're looking for?",
+    "customDesc": "Every project is different. Describe your idea and I'll provide a custom quote.",
+    "customCta": "Describe your idea →",
+    "items": {
+      "website": {
+        "title": "Business Website",
+        "desc": "Your company deserves a website that not only looks great but loads blazingly fast. Fast, mobile-first, SEO-optimized.",
+        "price": "from €500",
+        "days": "7–10 days"
+      },
+      "landing": {
+        "title": "Landing Page",
+        "desc": "One page, one goal — maximum conversion. Perfect for ad campaigns, product launches and lead generation.",
+        "price": "from €350",
+        "days": "5–7 days"
+      },
+      "blog": {
+        "title": "Blog & Content",
+        "desc": "Create content that positions your company as an expert. A CMS panel tailored for non-technical users — updating your site will take less time than making a coffee.",
+        "price": "from €600",
+        "days": "10–14 days"
+      },
+      "shop": {
+        "title": "Online Store",
+        "desc": "Sell 24/7 without geographical limits. Payments, product management, admin panel.",
+        "price": "from €950",
+        "days": "14–21 days"
+      },
+      "saas": {
+        "title": "Digital Product / SaaS",
+        "desc": "MVP of your idea in record time. Authentication, database, user dashboard — ready.",
+        "price": "from €1,400",
+        "days": "21–30 days"
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "desc": "Graphic design before implementation. Wireframes, design system, prototype for user testing.",
+        "price": "from €280",
+        "days": "5–7 days"
+      }
+    }
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "title": "Websites that",
+    "titleHighlight": "deliver",
+    "subtitle": "Every project solves a real client problem. No templates. Code written from scratch.",
+    "filterAll": "All",
+    "filterClient": "🏢 Client work",
+    "filterConcept": "🎨 Concept",
+    "filterPersonal": "⚡ Personal",
+    "viewDemo": "View site →",
+    "nda": "🔒 NDA — no demo",
+    "caseStudy": "Case study →",
+    "similarProject": "Similar project",
+    "ctaTitle": "Your project could be next",
+    "ctaDesc": "Looking for someone to build you a website with corporate quality at an accessible price? Let's talk about your project.",
+    "ctaButton": "Let's talk about your project →",
+    "projects": {
+      "miralive": {
+        "title": "Miralive — Insurance Agency",
+        "desc": "A modern business card website for an insurance agency from Włocławek. Priority was SEO and credibility — fully static site that loads in a fraction of a second.",
+        "label": "Client · Live",
+        "result1": "⚡ Lighthouse 95+",
+        "result2": "🔍 Schema.org SEO",
+        "result3": "🌙 Dark mode"
+      },
+      "neksus": {
+        "title": "Neksus — Computer Service",
+        "desc": "Digital transformation of a local business. From an outdated 2012 website to a modern business card with SEO, dark mode and a blog.",
+        "label": "Client · Live",
+        "result1": "⚡ 100% static",
+        "result2": "🤖 AI-ready (llms.txt)",
+        "result3": "💰 $0/mo hosting"
+      },
+      "producktive": {
+        "title": "Producktive.pl — This site",
+        "desc": "My service website, built from scratch as a quality benchmark. Contact form with notifications, PWA, i18n and Lighthouse 95+.",
+        "label": "Personal project",
+        "result1": "⚡ Lighthouse 95+",
+        "result2": "🌍 PL/EN i18n",
+        "result3": "📱 PWA"
+      },
+      "zenbarber": {
+        "title": "ZenBarber — Hair Salon",
+        "desc": "Concept project for a local salon. Online booking, work gallery, Google reviews.",
+        "label": "Concept project",
+        "result1": "⚡ Lighthouse 98",
+        "result2": "📱 Mobile-first",
+        "result3": "🔗 Demo available"
+      }
+    }
+  },
+  "about": {
+    "badge": "About me",
+    "title": "A corporate developer",
+    "titleHighlight": "who chose freedom.",
+    "paragraph1": "Hi, I'm the creator of {brand}. For several years I built web systems in large corporations — dashboards for tens of thousands of users, B2B portals, applications used daily.",
+    "paragraph2": "I learned one important thing there: {highlight}. I decided to change that.",
+    "paragraph2Highlight": "small businesses need the same quality as corporations, but don't have access to such resources",
+    "paragraph3": "Producktive is not an agency. It's {highlight} — I personally handle your project from the first conversation to deployment. No passing tasks between juniors. No forgotten arrangements.",
+    "paragraph3Highlight": "me — one person",
+    "paragraph4": "I value transparency. I don't offer everything — I offer what I'm good at. I use a modern tech stack because I believe smaller businesses deserve the same quality as the biggest players.",
+    "ctaPrimary": "Talk to me →",
+    "ctaLinkedIn": "LinkedIn",
+    "stackTitle": "Tech stack",
+    "howIWork": "How I work",
+    "skills": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "design": "Design",
+      "devops": "DevOps"
+    },
+    "values": {
+      "deadline": {
+        "title": "On-time delivery",
+        "desc": "Deadlines are contracts. I work with buffers — I deliver on time."
+      },
+      "quality": {
+        "title": "Code quality",
+        "desc": "The code I write must be expandable 2 years from now."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "desc": "I'm not just an executor. I speak up when something doesn't make sense."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "desc": "You know what I'm doing and how long it takes. No surprises."
+      }
+    },
+    "location": "📍 Gdańsk, Tricity",
+    "locationDesc": "Let's meet for a coffee and talk about your project."
+  },
+  "process": {
+    "badge": "How I work",
+    "title": "Transparent process from idea",
+    "titleHighlight": "to launch",
+    "subtitle": "I know that entrusting a project to someone requires trust. That's why every step is planned, clear and under your control.",
+    "steps": {
+      "consultation": {
+        "title": "Free consultation (30 min)",
+        "desc": "Tell me about your project. I'll get to know your goals, target audience and expectations. Zero obligations — just a concrete conversation.",
+        "bullet1": "Analysis of needs and business goals",
+        "bullet2": "Technical verification of the idea",
+        "bullet3": "Initial project scope outline"
+      },
+      "proposal": {
+        "title": "Proposal and quote",
+        "desc": "Within 48h you receive a detailed offer: scope of work, timeline, cost. No hidden fees.",
+        "bullet1": "Detailed scope of functionality",
+        "bullet2": "Realistic timeline in stages",
+        "bullet3": "Transparent pricing — no surprises"
+      },
+      "design": {
+        "title": "Design and approval",
+        "desc": "I show visualizations and mockups before writing any code. Your approval = full control over the result.",
+        "bullet1": "Wireframes of key views",
+        "bullet2": "Visual design matching your brand",
+        "bullet3": "Min. 2 rounds of revisions included"
+      },
+      "development": {
+        "title": "Development and testing",
+        "desc": "I code, test on various devices and browsers. I regularly inform you about progress.",
+        "bullet1": "Code following best practices",
+        "bullet2": "Cross-browser and mobile testing",
+        "bullet3": "Regular progress reports"
+      },
+      "launch": {
+        "title": "Launch and support",
+        "desc": "I launch the project on your domain. For 30 days after launch I'm available for fixes and questions.",
+        "bullet1": "Domain and hosting configuration",
+        "bullet2": "System operation training",
+        "bullet3": "30 days of free support after launch"
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Have a project?",
+    "titleHighlight": "Let's talk.",
+    "subtitle": "The first 30-min consultation is free and non-binding. I respond within 24 hours.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "John Smith",
+      "email": "Email",
+      "emailPlaceholder": "john{'@'}company.com",
+      "service": "What do you need?",
+      "servicePlaceholder": "Select a service",
+      "budget": "Budget",
+      "budgetPlaceholder": "Select a range",
+      "message": "Project description",
+      "messagePlaceholder": "Describe what your company does and what you need. The more details, the more accurate the quote.",
+      "submit": "Send message →",
+      "submitting": "Sending...",
+      "privacy": "🔒 Your data is safe. I don't share it with third parties.",
+      "required": "*"
+    },
+    "services": {
+      "website": "Business Website",
+      "landing": "Landing Page",
+      "shop": "Online Store",
+      "blog": "Blog / Content",
+      "saas": "Digital Product / SaaS",
+      "design": "UI/UX Design",
+      "other": "Other"
+    },
+    "budgets": {
+      "under2k": "up to €500",
+      "2k5k": "€500 – €1,200",
+      "5k15k": "€1,200 – €3,500",
+      "over15k": "over €3,500",
+      "unknown": "Not sure yet"
+    },
+    "validation": {
+      "nameRequired": "Please enter your name",
+      "emailInvalid": "Invalid email address",
+      "serviceRequired": "Please select a service type",
+      "budgetRequired": "Please select a budget range",
+      "messageMin": "Please describe your project in at least 20 characters",
+      "messageMax": "Message cannot exceed 2000 characters"
+    },
+    "success": {
+      "title": "Message sent!",
+      "desc": "I'll get back to you within 24 hours. Check your spam folder too — sometimes messages end up there."
+    },
+    "serverError": "Something went wrong. Write directly to kontakt{'@'}producktive.pl",
+    "calendar": {
+      "title": "Prefer to schedule a call right away?",
+      "desc": "Choose a free slot in the calendar — free 30-min consultation. Zero obligations.",
+      "cta": "Book a slot →",
+      "note": "Confirmation and reminder will be sent automatically to your email"
+    },
+    "direct": {
+      "title": "Prefer to write directly?",
+      "email": "kontakt{'@'}producktive.pl"
+    },
+    "guarantee": {
+      "title": "Satisfaction guarantee",
+      "desc": "If you're not satisfied with the project at the design stage, {highlight} I want you to recommend me to your friends, not regret it.",
+      "highlight": "I return 100% of the deposit."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "How long does it take?",
+      "a1": "Business website: 7–14 days. Online store: 14–21 days.",
+      "q2": "What do I need to prepare?",
+      "a2": "Text + logo (optional). I'll handle the rest.",
+      "q3": "Can I edit it myself afterwards?",
+      "a3": "Yes. You get CMS training and code access."
+    }
+  },
+  "footer": {
+    "desc": "I build websites and digital products that work for your business. Corporate quality, human approach.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "email": "kontakt{'@'}producktive.pl",
+    "copyright": "© {year} Producktive. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "location": "Gdańsk, Poland"
+  },
+  "cookie": {
+    "title": "This site uses cookies",
+    "desc": "We use cookies to ensure the best experience on our website. By continuing to browse, you agree to their use.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "learnMore": "Learn more"
+  },
+  "a11y": {
+    "logo": "Producktive — home page",
+    "viewProject": "View project {name}",
+    "externalLink": "opens in new window",
+    "scrollDown": "Scroll down",
+    "languageSwitch": "Change language",
+    "currentLanguage": "Current language: {lang}"
+  }
+}

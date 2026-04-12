@@ -1,5 +1,5 @@
 # Instrukcja wdrożeniowa dla Twojego portfolio: Vue 3, Tailwind & Directus
-
+!!!! WAŻNE zachowaj treści jak np. o mnie są one dobrze dopasowane ten plik to tylko szkic - musisz sam wybrać co z niego dopasować by przyniosło wartość!!!!
 Ten dokument służy jako bezpośredni wsad do Twojej strony. Zamiast szerokiej gamy usług, skupiamy się na tym, co robisz najlepiej „tu i teraz”, budując fundament pod przyszły rozwój.
 
 ---

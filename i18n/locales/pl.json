@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "title": "Producktive — Strony & Produkty Cyfrowe | Gdańsk",
+    "description": "Tworzę nowoczesne strony internetowe, landing pages i blogi dla małych firm. Szybkie, bezpieczne i zoptymalizowane pod SEO. Gdańsk i okolice.",
+    "ogTitle": "Producktive — Cyfrowe Rozwiązania dla Twojego Biznesu",
+    "ogDescription": "Profesjonalne strony i produkty cyfrowe od doświadczonego dewelopera. Pierwsza konsultacja bezpłatna."
+  },
+  "nav": {
+    "services": "Usługi",
+    "portfolio": "Realizacje",
+    "about": "O mnie",
+    "process": "Proces",
+    "cta": "Porozmawiajmy",
+    "skipToContent": "Przejdź do treści",
+    "openMenu": "Otwórz menu nawigacji",
+    "closeMenu": "Zamknij menu nawigacji"
+  },
+  "hero": {
+    "badge": "Dostępny na projekty · 2026",
+    "titleLine1": "Tworzę strony i produkty,",
+    "titleLine2": "które pracują",
+    "titleLine3": "na Twój biznes.",
+    "subtitle": "Przez lata budowałem systemy dla dużych korporacji. Teraz pomagam {highlight} — tę samą jakość, procesy i podejście dostarczam bez korporacyjnych cen i bez anonimowości.",
+    "subtitleHighlight": "małym firmom i freelancerom",
+    "ctaPrimary": "Bezpłatna konsultacja 30 min",
+    "ctaSecondary": "Moje realizacje",
+    "proof1": "Odpowiedź w 24h",
+    "proof2": "Umowa przed startem",
+    "proof3": "100% zadowolenia lub zwrot",
+    "mockupUrl": "twojafirma.pl",
+    "mockupLighthouse": "Lighthouse",
+    "mockupBadge1": "✅ Gotowe w 14 dni",
+    "mockupBadge2": "🚀 Nuxt + Vue 3",
+    "scroll": "przewiń"
+  },
+  "trustBar": {
+    "label": "Technologie, których używam:"
+  },
+  "services": {
+    "badge": "Czym mogę Ci pomóc",
+    "title": "Kompleksowe",
+    "titleHighlight": "rozwiązania cyfrowe",
+    "subtitle": "Od prostej strony wizytówki po zaawansowany produkt cyfrowy — każdy projekt traktuję jak własny biznes.",
+    "askAbout": "Zapytaj o projekt",
+    "popular": "⭐ Najczęściej wybierany",
+    "comingSoon": "🔜 Wkrótce",
+    "customTitle": "Nie widzisz tego, czego szukasz?",
+    "customDesc": "Każdy projekt jest inny. Opisz mi swój pomysł, a wycenię indywidualnie.",
+    "customCta": "Opisz mi swój pomysł →",
+    "items": {
+      "website": {
+        "title": "Strona wizytówka",
+        "desc": "Twoja firma zasługuje na stronę, która nie tylko dobrze wygląda, ale i błyskawicznie działa. Szybka, mobilna, optymalna pod SEO.",
+        "price": "od 2 000 zł",
+        "days": "7–10 dni"
+      },
+      "landing": {
+        "title": "Landing Page",
+        "desc": "Jedna strona, jeden cel — maksymalna konwersja. Idealna do kampanii reklamowych, premier produktów i generowania leadów.",
+        "price": "od 1 500 zł",
+        "days": "5–7 dni"
+      },
+      "blog": {
+        "title": "Blog & Content",
+        "desc": "Twórz treści, które pozycjonują Twoją firmę jako eksperta. Panel CMS dostosowany do osób nietechnicznych — aktualizacja strony zajmie mniej czasu niż zaparzenie kawy.",
+        "price": "od 2 500 zł",
+        "days": "10–14 dni"
+      },
+      "shop": {
+        "title": "Sklep online",
+        "desc": "Sprzedawaj 24/7 bez ograniczeń geograficznych. Płatności, zarządzanie produktami, panel admina.",
+        "price": "od 4 000 zł",
+        "days": "14–21 dni"
+      },
+      "saas": {
+        "title": "Produkt cyfrowy / SaaS",
+        "desc": "MVP Twojego pomysłu w rekordowym czasie. Autoryzacja, baza danych, panel użytkownika — gotowe.",
+        "price": "od 6 000 zł",
+        "days": "21–30 dni"
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "desc": "Projekt graficzny przed wdrożeniem. Makiety, system designu, prototyp do testów z użytkownikami.",
+        "price": "od 1 200 zł",
+        "days": "5–7 dni"
+      }
+    }
+  },
+  "portfolio": {
+    "badge": "Realizacje",
+    "title": "Strony, które",
+    "titleHighlight": "działają",
+    "subtitle": "Każdy projekt to rozwiązanie konkretnego problemu klienta. Nie szablony. Kod pisany od zera.",
+    "filterAll": "Wszystkie",
+    "filterClient": "🏢 Dla klientów",
+    "filterConcept": "🎨 Koncepcyjne",
+    "filterPersonal": "⚡ Własne",
+    "viewDemo": "Zobacz stronę →",
+    "nda": "🔒 NDA — brak demo",
+    "caseStudy": "Case study →",
+    "similarProject": "Podobny projekt",
+    "ctaTitle": "Twój projekt mógłby być następny",
+    "ctaDesc": "Szukasz kogoś, kto zbuduje Ci stronę z korporacyjną jakością w przystępnej cenie? Porozmawiajmy o Twoim projekcie.",
+    "ctaButton": "Porozmawiaj o projekcie →",
+    "projects": {
+      "miralive": {
+        "title": "Miralive — Agencja Ubezpieczeniowa",
+        "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej ze Włocławka. Priorytetem było SEO i wiarygodność — w pełni statyczna strona, która ładuje się w ułamku sekundy.",
+        "label": "Klient · Live",
+        "result1": "⚡ Lighthouse 95+",
+        "result2": "🔍 Schema.org SEO",
+        "result3": "🌙 Dark mode"
+      },
+      "neksus": {
+        "title": "Neksus — Serwis komputerowy",
+        "desc": "Transformacja cyfrowa lokalnego biznesu. Od przestarzałej strony z 2012 roku do nowoczesnej wizytówki z SEO, dark mode i blogiem.",
+        "label": "Klient · Live",
+        "result1": "⚡ 100% statyczna",
+        "result2": "🤖 AI-ready (llms.txt)",
+        "result3": "💰 0 zł/mies. hosting"
+      },
+      "producktive": {
+        "title": "Producktive.pl — Ta strona",
+        "desc": "Moja strona usługowa, zbudowana od zera jako wzorzec jakości. Formularz z powiadomieniami, PWA, i18n i Lighthouse 95+.",
+        "label": "Własny projekt",
+        "result1": "⚡ Lighthouse 95+",
+        "result2": "🌍 PL/EN i18n",
+        "result3": "📱 PWA"
+      },
+      "zenbarber": {
+        "title": "ZenBarber — Salon fryzjerski",
+        "desc": "Projekt koncepcyjny dla lokalnego salonu. Rezerwacja online, galeria prac, recenzje Google.",
+        "label": "Projekt koncepcyjny",
+        "result1": "⚡ Lighthouse 98",
+        "result2": "📱 Mobile-first",
+        "result3": "🔗 Demo dostępne"
+      }
+    }
+  },
+  "about": {
+    "badge": "O mnie",
+    "title": "Korporacyjny deweloper,",
+    "titleHighlight": "który wybrał wolność.",
+    "paragraph1": "Cześć, jestem twórcą {brand}. Przez kilka lat budowałem systemy webowe w dużych korporacjach — dashboardy dla dziesiątek tysięcy użytkowników, portale B2B, aplikacje używane codziennie.",
+    "paragraph2": "Nauczyłem się tam jednej ważnej rzeczy: {highlight}. Postanowiłem to zmienić.",
+    "paragraph2Highlight": "małe firmy potrzebują tej samej jakości co korporacje, ale nie mają dostępu do takich zasobów",
+    "paragraph3": "Producktive to nie agencja. To {highlight} — osobiście zajmuję się Twoim projektem od pierwszej rozmowy do wdrożenia. Żadnego przepychania między juniorami. Żadnego zapominania ustaleń.",
+    "paragraph3Highlight": "ja — jedna osoba",
+    "paragraph4": "Stawiam na transparentność. Nie oferuję wszystkiego — oferuję to, w czym czuję się mocny. Korzystam z nowoczesnego stacku technologicznego, bo wierzę, że mniejsze firmy zasługują na taką samą jakość jak najwięksi gracze.",
+    "ctaPrimary": "Porozmawiaj ze mną →",
+    "ctaLinkedIn": "LinkedIn",
+    "stackTitle": "Stack technologiczny",
+    "howIWork": "Jak pracuję",
+    "skills": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "design": "Design",
+      "devops": "DevOps"
+    },
+    "values": {
+      "deadline": {
+        "title": "Terminowość",
+        "desc": "Deadline to kontrakt. Pracuję z buforami — dostarczam na czas."
+      },
+      "quality": {
+        "title": "Jakość kodu",
+        "desc": "Kod, który napiszę, musisz być w stanie rozwinąć za 2 lata."
+      },
+      "partnership": {
+        "title": "Partnerstwo",
+        "desc": "Nie jestem tylko wykonawcą. Mówię, gdy coś nie ma sensu."
+      },
+      "transparency": {
+        "title": "Transparentność",
+        "desc": "Wiesz, co robię i ile czasu to zajmuje. Bez zaskoczeń."
+      }
+    },
+    "location": "📍 Gdańsk, Trójmiasto",
+    "locationDesc": "Spotkajmy się na kawę i porozmawiajmy o Twoim projekcie."
+  },
+  "process": {
+    "badge": "Jak działam",
+    "title": "Przejrzysty proces od pomysłu",
+    "titleHighlight": "do wdrożenia",
+    "subtitle": "Wiem, że oddanie projektu komuś wymaga zaufania. Dlatego każdy krok jest zaplanowany, jasny i pod Twoją kontrolą.",
+    "steps": {
+      "consultation": {
+        "title": "Bezpłatna konsultacja (30 min)",
+        "desc": "Opowiedz mi o swoim projekcie. Poznam Twoje cele, grupę docelową i oczekiwania. Zero zobowiązań — tylko konkretna rozmowa.",
+        "bullet1": "Analiza potrzeb i celów biznesowych",
+        "bullet2": "Weryfikacja techniczna pomysłu",
+        "bullet3": "Wstępny zarys zakresu projektu"
+      },
+      "proposal": {
+        "title": "Propozycja i wycena",
+        "desc": "W ciągu 48h otrzymujesz szczegółową ofertę: zakres prac, harmonogram, koszt. Bez ukrytych opłat.",
+        "bullet1": "Szczegółowy zakres funkcjonalności",
+        "bullet2": "Realistyczny harmonogram etapami",
+        "bullet3": "Transparentna wycena — żadnych niespodzianek"
+      },
+      "design": {
+        "title": "Projekt i akceptacja",
+        "desc": "Pokazuję wizualizacje i makiety zanim cokolwiek zakoduję. Twoja akceptacja = pełna kontrola nad wynikiem.",
+        "bullet1": "Makiety kluczowych widoków",
+        "bullet2": "Projekt wizualny zgodny z Twoją marką",
+        "bullet3": "Min. 2 rundy poprawek w cenie"
+      },
+      "development": {
+        "title": "Realizacja i testy",
+        "desc": "Koduję, testuję na różnych urządzeniach i przeglądarkach. Regularnie informuję o postępach.",
+        "bullet1": "Kod zgodny z najlepszymi praktykami",
+        "bullet2": "Testy cross-browser i mobile",
+        "bullet3": "Regularne raporty postępu prac"
+      },
+      "launch": {
+        "title": "Wdrożenie i wsparcie",
+        "desc": "Uruchamiam projekt na Twojej domenie. Przez 30 dni po wdrożeniu jestem dostępny na poprawki i pytania.",
+        "bullet1": "Konfiguracja domeny i hostingu",
+        "bullet2": "Szkolenie z obsługi systemu",
+        "bullet3": "30 dni bezpłatnego wsparcia po starcie"
+      }
+    }
+  },
+  "contact": {
+    "badge": "Kontakt",
+    "title": "Masz projekt?",
+    "titleHighlight": "Porozmawiajmy.",
+    "subtitle": "Pierwsza konsultacja 30 min jest bezpłatna i niezobowiązująca. Odpowiadam w ciągu 24 godzin.",
+    "form": {
+      "name": "Imię i nazwisko",
+      "namePlaceholder": "Jan Kowalski",
+      "email": "Email",
+      "emailPlaceholder": "jan{'@'}firma.pl",
+      "service": "Czego potrzebujesz?",
+      "servicePlaceholder": "Wybierz usługę",
+      "budget": "Budżet",
+      "budgetPlaceholder": "Wybierz przedział",
+      "message": "Opis projektu",
+      "messagePlaceholder": "Opisz czym zajmuje się Twoja firma i czego potrzebujesz. Im więcej szczegółów, tym precyzyjniejsza wycena.",
+      "submit": "Wyślij wiadomość →",
+      "submitting": "Wysyłanie...",
+      "privacy": "🔒 Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim.",
+      "required": "*"
+    },
+    "services": {
+      "website": "Strona wizytówka",
+      "landing": "Landing Page",
+      "shop": "Sklep online",
+      "blog": "Blog / Content",
+      "saas": "Produkt cyfrowy / SaaS",
+      "design": "UI/UX Design",
+      "other": "Inne"
+    },
+    "budgets": {
+      "under2k": "do 2 000 zł",
+      "2k5k": "2 000 – 5 000 zł",
+      "5k15k": "5 000 – 15 000 zł",
+      "over15k": "ponad 15 000 zł",
+      "unknown": "Nie wiem jeszcze"
+    },
+    "validation": {
+      "nameRequired": "Podaj imię i nazwisko",
+      "emailInvalid": "Nieprawidłowy adres email",
+      "serviceRequired": "Wybierz rodzaj usługi",
+      "budgetRequired": "Wybierz przedział budżetu",
+      "messageMin": "Opisz projekt w co najmniej 20 znakach",
+      "messageMax": "Wiadomość nie może przekroczyć 2000 znaków"
+    },
+    "success": {
+      "title": "Wiadomość wysłana!",
+      "desc": "Odezwę się w ciągu 24 godzin. Sprawdź też folder spam — niekiedy tam ląduje."
+    },
+    "serverError": "Coś poszło nie tak. Napisz bezpośrednio na kontakt{'@'}producktive.pl",
+    "calendar": {
+      "title": "Wolisz od razu umówić rozmowę?",
+      "desc": "Wybierz wolny termin w kalendarzu — bezpłatna konsultacja 30 min. Zero zobowiązań.",
+      "cta": "Zarezerwuj termin →",
+      "note": "Potwierdzenie i przypomnienie przyjdą automatycznie na email"
+    },
+    "direct": {
+      "title": "Wolisz pisać bezpośrednio?",
+      "email": "kontakt{'@'}producktive.pl"
+    },
+    "guarantee": {
+      "title": "Gwarancja satysfakcji",
+      "desc": "Jeśli nie będziesz zadowolony z projektu na etapie designu, {highlight} Chcę, żebyś polecił mnie swoim znajomym, nie żałował.",
+      "highlight": "zwracam 100% zaliczki."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Ile trwa realizacja?",
+      "a1": "Strona wizytówka: 7–14 dni. Sklep: 14–21 dni.",
+      "q2": "Co potrzebuję przygotować?",
+      "a2": "Tekst + logo (opcjonalnie). Resztą się zajmę.",
+      "q3": "Czy mogę potem samodzielnie edytować?",
+      "a3": "Tak. Dostajesz szkolenie z CMS i dostęp do kodu."
+    }
+  },
+  "footer": {
+    "desc": "Tworzę strony i produkty cyfrowe, które pracują na Twój biznes. Korporacyjna jakość, ludzkie podejście.",
+    "navTitle": "Nawigacja",
+    "contactTitle": "Kontakt",
+    "email": "kontakt{'@'}producktive.pl",
+    "copyright": "© {year} Producktive. Wszelkie prawa zastrzeżone.",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "location": "Gdańsk, Polska"
+  },
+  "cookie": {
+    "title": "Ta strona używa plików cookies",
+    "desc": "Używamy plików cookies, aby zapewnić najlepsze doświadczenia na naszej stronie. Kontynuując przeglądanie, zgadzasz się na ich użycie.",
+    "accept": "Akceptuję",
+    "reject": "Odrzuć",
+    "learnMore": "Dowiedz się więcej"
+  },
+  "a11y": {
+    "logo": "Producktive — strona główna",
+    "viewProject": "Zobacz projekt {name}",
+    "externalLink": "otwiera się w nowym oknie",
+    "scrollDown": "Przewiń w dół",
+    "languageSwitch": "Zmień język",
+    "currentLanguage": "Aktualny język: {lang}"
+  }
+}
