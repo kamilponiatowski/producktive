@@ -6,3 +6,6 @@ dist/
 nokeel.md
 SUPABASE-SETUP.md
 sketch.md
+.vercel
+.nuxt/
+.vercel/output/

@@ -12,8 +12,11 @@
 - TODO dodaj dla neksus i miralive znaczniki zgodne z schema.org
 - TODO stwórz podpis jaki będę umieszczał na stronach które robię
 <!-- - w prawym dolnym rogu mamy przyciski od przewijania strony gdy klikam na przycisk w dół i zjedzie do dołu to znika to jest dobre zachowanie, natomiast ten górny przycisk od przewijania do góry obniża się w miejsce znikniętego przycisku to już nie jest dobre zachowanie, powinny być te przyciski na sztywno w tym samym miejscu się pojawiać niezależnie czy drugi jest zamontowany czy nie upewnij się ze używasz dyrektywy v-show a nie if, -->
+- zmień formularz tak by użytkownik mógł wybrac kilka opcji tego czego potrzebuje np. Strana wizytówka + Landing Page
+- zmień limit znaków na 5000 i daj funkcjonalność do przesyłania załączników - dostosuj też wszystko co jest do tego potrzebne jak baza danych supabase czy potrzebne sql query czy edge functions którę powiniennem dodać w supabase,
 
-feat: add cookies policy, avatar, fix flickering UI, change nav order and sections
+
+feat: migration to cal.eu, Guarantee temporarily hidden, fix post contact
 # Uporządkowana lista zadań (po polsku)
 
 ## Personalizacja

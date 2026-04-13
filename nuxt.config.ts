@@ -3,6 +3,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
+  // ── Static Site Generation ────────────────────────────────
+  nitro: {
+    preset: 'static',
+  },
+  routeRules: {
+    '/**': { prerender: true },
+    '/api/**': { prerender: false },
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',

@@ -1,7 +1,7 @@
 {
-  "buildCommand": "nuxt build",
+  "buildCommand": "nuxt generate",
   "outputDirectory": ".output/public",
-  "framework": "nuxtjs",
+  "framework": null,
   "headers": [
     {
       "source": "/(.*)",
