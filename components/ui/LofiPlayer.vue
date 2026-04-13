@@ -20,6 +20,7 @@ const tryPlay = async (fromAutoplay = false) => {
   error.value = false
   loading.value = true
   try {
+    audioRef.value.volume = 0.4 // soft background level — 40% so it doesn't startle
     audioRef.value.src = STREAM_URL
     await audioRef.value.play()
     playing.value = true

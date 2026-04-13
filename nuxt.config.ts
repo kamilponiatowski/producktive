@@ -3,9 +3,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
-  // ── Static Site Generation ────────────────────────────────
+  // ── Nitro ────────────────────────────────────────────────
   nitro: {
-    preset: 'static',
+    preset: 'vercel',
+    compressPublicAssets: true,
   },
   routeRules: {
     '/**': { prerender: true },
@@ -175,12 +176,6 @@ export default defineNuxtConfig({
     client: {
       installPrompt: true,
     },
-  },
-
-  // ── Nitro (server) ──────────────────────────────────────
-  nitro: {
-    preset: 'vercel',
-    compressPublicAssets: true,
   },
 
   // ── Experimental ────────────────────────────────────────

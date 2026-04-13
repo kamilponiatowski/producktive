@@ -163,8 +163,8 @@ const scrollToAbout = () => {
           </div>
         </div>
 
-        <!-- Right: Glassmorphism image card -->
-        <div class="hidden lg:flex justify-center items-center reveal">
+        <!-- Right: Glassmorphism image card — full on desktop, compact floating on mobile -->
+        <div class="flex justify-center items-center reveal">
           <div class="relative motion-safe:animate-float">
             <!-- Glassmorphism frame -->
             <div
@@ -174,7 +174,7 @@ const scrollToAbout = () => {
               <img
                 :src="producktiveGlass"
                 alt="Producktive — dynamika i charakter strony"
-                class="w-96 rounded-2xl object-cover"
+                class="w-48 lg:w-96 rounded-2xl object-cover"
                 width="384"
                 loading="eager"
               />

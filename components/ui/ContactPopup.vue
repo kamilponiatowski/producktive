@@ -16,11 +16,11 @@ onMounted(() => {
   if (typeof localStorage === 'undefined') return
   const lastShown = Number(localStorage.getItem(POPUP_STORAGE_KEY) || 0)
   if (Date.now() - lastShown > ONE_DAY_MS) {
-    // Slight delay so it doesn't pop up the instant the page loads
+    // UX best practice: 35s lets the user read content before being interrupted
     setTimeout(() => {
       show.value = true
       localStorage.setItem(POPUP_STORAGE_KEY, String(Date.now()))
-    }, 8000)
+    }, 35_000)
   }
 })
 
