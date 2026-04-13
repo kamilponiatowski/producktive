@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import producktiveGlass from '~/assets/producktive-glass.png'
 const { t } = useI18n()
+
+const scrollToAbout = () => {
+  const el = document.getElementById('o-mnie')
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+    history.replaceState(null, '', '#o-mnie')
+  }
+}
 </script>
 
 <template>
@@ -188,10 +196,10 @@ const { t } = useI18n()
     </div>
 
     <!-- Scroll indicator -->
-    <div
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-muted text-xs motion-safe:animate-bounce"
+    <button
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-muted text-xs motion-safe:animate-bounce cursor-pointer hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg p-1"
       :aria-label="t('a11y.scrollDown')"
-      aria-hidden="true"
+      @click="scrollToAbout"
     >
       <span>{{ t('hero.scroll') }}</span>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,6 +210,6 @@ const { t } = useI18n()
           d="M19 9l-7 7-7-7"
         />
       </svg>
-    </div>
+    </button>
   </section>
 </template>

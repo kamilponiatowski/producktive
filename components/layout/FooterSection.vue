@@ -1,18 +1,30 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const year = new Date().getFullYear()
+const route = useRoute()
 
 const links = computed(() => [
-  { label: t('nav.services'), href: '#uslugi' },
-  { label: t('nav.portfolio'), href: '#portfolio' },
   { label: t('nav.about'), href: '#o-mnie' },
+  { label: t('nav.services'), href: '#uslugi' },
+  { label: t('nav.process'), href: '#proces' },
+  { label: t('nav.portfolio'), href: '#portfolio' },
+  { label: t('nav.community'), href: '#siec' },
   { label: t('contact.badge'), href: '#kontakt' },
 ])
 
 const legal = computed(() => [
   { label: t('footer.privacy'), href: '/polityka-prywatnosci' },
-  { label: t('footer.terms'), href: '/terms' },
+  { label: t('footer.cookies'), href: '/polityka-cookies' },
 ])
+
+const navigateToSection = (href: string) => {
+  const isHome = route.path === '/' || route.path === ''
+  if (isHome) {
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    navigateTo(`/${href}`)
+  }
+}
 </script>
 
 <template>
@@ -48,7 +60,8 @@ const legal = computed(() => [
               v-for="link in links"
               :key="link.href"
               :href="link.href"
-              class="block text-brand-muted hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+              class="block text-brand-muted hover:text-white transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded cursor-pointer"
+              @click.prevent="navigateToSection(link.href)"
             >
               {{ link.label }}
             </a>
@@ -93,14 +106,14 @@ const legal = computed(() => [
       >
         <span>{{ t('footer.copyright', { year }) }}</span>
         <div class="flex gap-4">
-          <a
+          <NuxtLink
             v-for="l in legal"
             :key="l.href"
-            :href="l.href"
+            :to="l.href"
             class="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
           >
             {{ l.label }}
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>

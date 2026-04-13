@@ -15,6 +15,13 @@ type ProjectType = 'client' | 'concept' | 'personal' | 'all'
 
 const activeFilter = ref<ProjectType>('all')
 
+const filterIcons: Record<string, string> = {
+  all: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
+  client: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  concept: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
+  personal: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+}
+
 const filters = computed<{ key: ProjectType; label: string }[]>(() => [
   { key: 'all', label: t('portfolio.filterAll') },
   { key: 'client', label: t('portfolio.filterClient') },
@@ -42,7 +49,7 @@ const projects = computed(() => [
   {
     type: 'personal' as ProjectType,
     key: 'producktive',
-    tags: ['Nuxt 3', 'TailwindCSS', 'Supabase', 'PWA', 'i18n'],
+    tags: ['Nuxt 3', 'TailwindCSS', 'Supabase', 'PWA', 'PL/EN'],
     demoUrl: 'https://producktive.pl',
     labelType: 'badge',
     initial: 'P',
@@ -54,6 +61,13 @@ const filtered = computed(() =>
     ? projects.value
     : projects.value.filter((p) => p.type === activeFilter.value)
 )
+
+watch(activeFilter, async () => {
+  await nextTick()
+  document.querySelectorAll('#portfolio article.reveal:not(.visible)').forEach((el) => {
+    el.classList.add('visible')
+  })
+})
 </script>
 
 <template>
@@ -86,7 +100,7 @@ const filtered = computed(() =>
           :key="f.key"
           role="tab"
           :aria-selected="activeFilter === f.key"
-          class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary inline-flex items-center gap-1.5"
           :class="
             activeFilter === f.key
               ? 'bg-gradient-brand text-white shadow-brand'
@@ -94,6 +108,7 @@ const filtered = computed(() =>
           "
           @click="activeFilter = f.key"
         >
+          <span v-html="filterIcons[f.key]" />
           {{ f.label }}
         </button>
       </div>
@@ -217,7 +232,11 @@ const filtered = computed(() =>
       <!-- CTA -->
       <div class="mt-12 text-center reveal">
         <div class="card-gradient p-8 rounded-2xl">
-          <div class="text-4xl mb-3" aria-hidden="true">🤝</div>
+          <div class="flex justify-center mb-3" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-brand-primary">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.96a19.79 19.79 0 01-3.07-8.7A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
           <h3 class="font-display text-xl font-bold text-white mb-2">
             {{ t('portfolio.ctaTitle') }}
           </h3>

@@ -10,6 +10,7 @@
     "portfolio": "Realizacje",
     "about": "O mnie",
     "process": "Proces",
+    "community": "1-All-1",
     "cta": "Porozmawiajmy",
     "skipToContent": "Przejdź do treści",
     "openMenu": "Otwórz menu nawigacji",
@@ -26,7 +27,7 @@
     "ctaSecondary": "Moje realizacje",
     "proof1": "Odpowiedź w 24h",
     "proof2": "Umowa przed startem",
-    "proof3": "Gwarancja satysfakcji",
+    "proof3": "Błyskawiczna realizacja",
     "mockupUrl": "twojafirma.pl",
     "mockupLighthouse": "Lighthouse",
     "mockupBadge1": "✅ Gotowe w 14 dni",
@@ -50,7 +51,7 @@
     "items": {
       "website": {
         "title": "Strona wizytówka",
-        "desc": "Twoja firma zasługuje na stronę, która nie tylko dobrze wygląda, ale i błyskawicznie działa. Szybka, mobilna, optymalna pod SEO.",
+        "desc": "Twoja firma zasługuje na stronę, która nie tylko dobrze wygląda, ale i błyskawicznie działa. Szybka, mobilna, optymalna pod SEO oraz GEO — czyli wyniki wyszukiwania w Google oraz optymalizacja pod wyszukiwarki wspomagane przez AI (ChatGPT, Perplexity, Google AI Overviews, Claude itp.)",
         "price": "3 000 – 6 000 zł",
         "days": "7–10 dni"
       },
@@ -92,24 +93,24 @@
     "titleHighlight": "działają",
     "subtitle": "Każdy projekt to rozwiązanie konkretnego problemu klienta. Nie szablony. Kod pisany od zera.",
     "filterAll": "Wszystkie",
-    "filterClient": "🏢 Dla klientów",
-    "filterConcept": "🎨 Koncepcyjne",
-    "filterPersonal": "⚡ Własne",
+    "filterClient": "Dla klientów",
+    "filterConcept": "Koncepcyjne",
+    "filterPersonal": "Własne",
     "viewDemo": "Zobacz stronę →",
     "nda": "🔒 NDA — brak demo",
     "caseStudy": "Case study →",
     "similarProject": "Podobny projekt",
-    "ctaTitle": "Twój projekt mógłby być następny",
+    "ctaTitle": "Twój projekt może być następny",
     "ctaDesc": "Szukasz kogoś, kto zbuduje Ci stronę z korporacyjną jakością w przystępnej cenie? Porozmawiajmy o Twoim projekcie.",
     "ctaButton": "Porozmawiaj o projekcie →",
     "projects": {
       "miralive": {
         "title": "Miralive — Agencja Ubezpieczeniowa",
-        "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej z Włocławka. Priorytetem było SEO i wiarygodność — w pełni statyczna strona, która ładuje się w ułamku sekundy.",
+        "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej z Włocławka. Priorytetem była wiarygodność marki osobistej oraz szybka, mobilna strona optymalna pod SEO oraz GEO czyli wyniki wyszukiwania w google oraz optymalizacja pod wyszukiwarki wspomagane przez AI (ChatGPT, Perplexity, Google AI Overviews, Claude itp.)",
         "label": "Klient · Live",
-        "result1": "⚡ Lighthouse 95+",
-        "result2": "🔍 Schema.org SEO",
-        "result3": "🌙 Dark mode"
+        "result1": "⚡ Szybkość ładowania poniżej 1 sekundy",
+        "result2": "💳 Bezpośrednia możliwość zakupu ubezpieczenia",
+        "result3": "🎯 Przejrzysta strona z wieloma CTA — przyciskami wzywającymi do akcji"
       },
       "neksus": {
         "title": "Neksus — Serwis komputerowy",
@@ -117,15 +118,15 @@
         "label": "Klient · Live",
         "result1": "⚡ 100% statyczna",
         "result2": "🤖 AI-ready (llms.txt)",
-        "result3": "💰 0 zł/mies. hosting"
+        "result3": "🌙 Dark mode"
       },
       "producktive": {
-        "title": "Producktive.pl — Ta strona",
-        "desc": "Moja strona usługowa, zbudowana od zera jako wzorzec jakości. Formularz z powiadomieniami, PWA, i18n i Lighthouse 95+.",
+        "title": "Producktive.pl — \"Miło\", że tu jesteś :)",
+        "desc": "Moja strona usługowa, zbudowana od zera jako wzorzec jakości. Formularz z powiadomieniami, PWA (aplikacja progresywna działająca offline), tłumaczenia na inne języki i szybkość ładowania 95+ w audycie Lighthouse.",
         "label": "Własny projekt",
-        "result1": "⚡ Lighthouse 95+",
-        "result2": "🌍 PL/EN i18n",
-        "result3": "📱 PWA"
+        "result1": "⚡ Audyt wydajności Lighthouse 95+",
+        "result2": "🌍 Tłumaczenia PL/EN",
+        "result3": "📱 PWA — aplikacja progresywna"
       },
       "zenbarber": {
         "title": "ZenBarber — Salon fryzjerski",
@@ -141,7 +142,7 @@
     "badge": "O mnie",
     "title": "Korporacyjny deweloper,",
     "titleHighlight": "który wybrał wolność.",
-    "paragraph1": "Cześć, jestem twórcą {brand}. Przez kilka lat budowałem systemy webowe w dużych korporacjach — dashboardy dla dziesiątek tysięcy użytkowników, portale B2B, aplikacje używane codziennie.",
+    "paragraph1": "Cześć, jestem twórcą {brand}. Przez kilka lat budowałem systemy webowe w dużych korporacjach — dashboardy dla setek tysięcy użytkowników, portale B2B, aplikacje używane codziennie.",
     "paragraph2": "Nauczyłem się tam jednej ważnej rzeczy: {highlight}. Postanowiłem to zmienić.",
     "paragraph2Highlight": "małe firmy potrzebują tej samej jakości co korporacje, ale nie mają dostępu do takich zasobów",
     "paragraph3": "Producktive to nie agencja. To {highlight} — osobiście zajmuję się Twoim projektem od pierwszej rozmowy do wdrożenia. Żadnego przepychania między juniorami. Żadnego zapominania ustaleń.",
@@ -151,11 +152,13 @@
     "ctaLinkedIn": "LinkedIn",
     "stackTitle": "Stack technologiczny",
     "howIWork": "Jak pracuję",
+    "avatarAlt": "Kamil Poniatowski — twórca Producktive",
     "skills": {
       "frontend": "Frontend",
       "backend": "Backend",
       "design": "Design",
-      "devops": "DevOps"
+      "devops": "DevOps",
+      "standards": "Standardy"
     },
     "values": {
       "deadline": {
@@ -175,7 +178,7 @@
         "desc": "Wiesz, co robię i ile czasu to zajmuje. Bez zaskoczeń."
       }
     },
-    "location": "📍 Gdańsk, Trójmiasto",
+    "location": "Gdańsk, Trójmiasto",
     "locationDesc": "Spotkajmy się na kawę i porozmawiajmy o Twoim projekcie."
   },
   "process": {
@@ -239,8 +242,9 @@
       "messagePlaceholder": "Opisz czym zajmuje się Twoja firma i czego potrzebujesz. Im więcej szczegółów, tym precyzyjniejsza wycena.",
       "submit": "Wyślij wiadomość →",
       "submitting": "Wysyłanie...",
-      "privacy": "🔒 Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim.",
-      "required": "*"
+      "privacy": "Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim.",
+      "required": "*",
+      "comingSoonTooltip": "Dostępność wyboru wkrótce"
     },
     "services": {
       "website": "Strona wizytówka",
@@ -301,7 +305,7 @@
     "badge": "Sieć Producktive",
     "title": "Jeden za wszystkich,",
     "titleHighlight": "wszyscy za jednego.",
-    "subtitle": "Każdy klient Producktive dołącza do sieci przedsiębiorców, którzy wzajemnie sobie pomagają — priorytetowo, na atrakcyjnych warunkach, często poza standardowymi schematami.",
+    "subtitle": "Każdy klient Producktive ma możliwość dołączenia do \"1-All-1\" — czyli dołącza do sieci przedsiębiorców, którzy wzajemnie sobie pomagają — priorytetowo, na atrakcyjnych warunkach, często poza standardowymi schematami.",
     "networkTitle": "Co daje Ci sieć?",
     "benefit1Title": "Priorytetowy dostęp",
     "benefit1Desc": "Klienci Producktive obsługują się wzajemnie poza kolejką — szybciej i z lepszym podejściem.",
@@ -325,6 +329,7 @@
     "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. Wszelkie prawa zastrzeżone.",
     "privacy": "Polityka prywatności",
+    "cookies": "Polityka cookies",
     "terms": "Regulamin",
     "location": "Gdańsk, Polska"
   },

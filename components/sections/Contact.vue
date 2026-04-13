@@ -6,7 +6,8 @@ const { form, errors, loading, success, serverError, submit, validateField } = u
 
 const calendlyUrl = config.public.calendlyUrl as string
 
-const serviceKeys = ['website', 'landing', 'shop', 'blog', 'saas', 'design', 'other'] as const
+const serviceKeys = ['website', 'landing', 'blog', 'design', 'other', 'shop', 'saas'] as const
+const disabledServices = new Set(['shop', 'saas'])
 const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
 </script>
 
@@ -125,21 +126,30 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
                 aria-labelledby="service-label"
                 :aria-describedby="errors.service ? 'service-error' : undefined"
               >
-                <button
-                  v-for="key in serviceKeys"
-                  :key="key"
-                  type="button"
-                  class="px-3 py-1.5 rounded-xl text-xs font-medium border transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-                  :class="
-                    form.service === key
-                      ? 'bg-brand-primary/20 border-brand-primary text-brand-primary'
-                      : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-primary/50 hover:text-white'
-                  "
-                  :aria-pressed="form.service === key"
-                  @click="form.service = key; validateField('service')"
-                >
-                  {{ t(`contact.services.${key}`) }}
-                </button>
+                <div class="relative group/service" v-for="key in serviceKeys" :key="key">
+                  <button
+                    type="button"
+                    class="px-3 py-1.5 rounded-xl text-xs font-medium border transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+                    :class="[
+                      disabledServices.has(key)
+                        ? 'bg-brand-dark border-white/5 text-brand-muted/40 cursor-not-allowed'
+                        : form.service === key
+                          ? 'bg-brand-primary/20 border-brand-primary text-brand-primary'
+                          : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-primary/50 hover:text-white',
+                    ]"
+                    :aria-pressed="form.service === key"
+                    :disabled="disabledServices.has(key)"
+                    @click="form.service = key; validateField('service')"
+                  >
+                    {{ t(`contact.services.${key}`) }}
+                  </button>
+                  <span
+                    v-if="disabledServices.has(key)"
+                    class="absolute -top-9 left-1/2 -translate-x-1/2 bg-brand-card border border-brand-primary/20 text-brand-muted text-xs rounded-lg px-2 py-1 whitespace-nowrap opacity-0 group-hover/service:opacity-100 transition-opacity duration-200 pointer-events-none z-20 shadow-card"
+                  >
+                    {{ t('contact.form.comingSoonTooltip') }}
+                  </span>
+                </div>
               </div>
               <p v-if="errors.service" id="service-error" class="text-red-400 text-xs mt-1" role="alert">
                 {{ errors.service }}
@@ -235,7 +245,11 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
               <span>Formularz zabezpieczony honeypot + walidacja serwerowa</span>
             </div>
 
-            <p class="text-brand-muted text-xs text-center">
+            <p class="text-brand-muted text-xs text-center flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-brand-primary/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
               {{ t('contact.form.privacy') }}
             </p>
           </form>
@@ -300,8 +314,8 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
             </a>
           </div>
 
-          <!-- Guarantee -->
-          <div class="card-gradient p-5">
+          <!-- Guarantee — temporarily hidden -->
+          <!-- <div class="card-gradient p-5">
             <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/15 mb-3" aria-hidden="true">
               <svg class="w-5 h-5 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -311,7 +325,7 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
             <p class="text-brand-muted text-sm leading-relaxed">
               {{ t('contact.guarantee.desc', { highlight: t('contact.guarantee.highlight') }).split(t('contact.guarantee.highlight'))[0] }}<strong class="text-white">{{ t('contact.guarantee.highlight') }}</strong>{{ t('contact.guarantee.desc', { highlight: t('contact.guarantee.highlight') }).split(t('contact.guarantee.highlight')).slice(1).join(t('contact.guarantee.highlight')) }}
             </p>
-          </div>
+          </div> -->
 
           <!-- FAQ -->
           <div class="card p-5 space-y-3">

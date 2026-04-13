@@ -4,6 +4,10 @@ export const pathToI18nConfig = {
     "pl": "/",
     "en": "/"
   },
+  "/polityka-cookies": {
+    "pl": "/polityka-cookies",
+    "en": "/polityka-cookies"
+  },
   "/polityka-prywatnosci": {
     "pl": "/polityka-prywatnosci",
     "en": "/polityka-prywatnosci"
@@ -15,6 +19,7 @@ export const pathToI18nConfig = {
 };
 export const i18nPathToPath = {
   "/": "/",
+  "/polityka-cookies": "/polityka-cookies",
   "/polityka-prywatnosci": "/polityka-prywatnosci",
   "/ndefined": "/ndefined"
 };

@@ -13,6 +13,7 @@ onMounted(() => {
 const accept = () => {
   accepted.value = 'accepted'
   show.value = false
+  window.dispatchEvent(new CustomEvent('cookie-consent-accepted'))
 }
 
 const reject = () => {
@@ -44,7 +45,7 @@ const reject = () => {
           <p class="text-brand-muted text-xs leading-relaxed">
             {{ t('cookie.desc') }}
             <NuxtLink
-              to="/polityka-prywatnosci"
+              to="/polityka-cookies"
               class="text-brand-primary hover:underline ml-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-primary rounded"
             >
               {{ t('cookie.learnMore') }}

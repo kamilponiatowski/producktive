@@ -1,21 +1,24 @@
 <script setup lang="ts">
-const { t, locale, setLocale, locales } = useI18n()
+const { t, locale } = useI18n()
 
 const isScrolled = ref(false)
 const isMobileOpen = ref(false)
 
 const navLinks = computed(() => [
-  { href: '#uslugi', label: t('nav.services') },
-  { href: '#portfolio', label: t('nav.portfolio') },
   { href: '#o-mnie', label: t('nav.about') },
+  { href: '#uslugi', label: t('nav.services') },
   { href: '#proces', label: t('nav.process') },
+  { href: '#portfolio', label: t('nav.portfolio') },
+  { href: '#siec', label: t('nav.community') },
 ])
 
-const availableLocales = computed(() =>
-  (locales.value as Array<{ code: string; name: string }>).filter(
-    (l) => l.code !== locale.value
-  )
-)
+const availableLocales = computed(() => {
+  const all = [
+    { code: 'pl', name: 'Polski' },
+    { code: 'en', name: 'English' },
+  ]
+  return all.filter((l) => l.code !== locale.value)
+})
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 40
@@ -26,15 +29,39 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
 const scrollTo = (href: string) => {
   isMobileOpen.value = false
+  const route = useRoute()
+  const isHome = route.path === '/' || route.path === '' || route.path === '/en' || route.path === '/en/'
+
   if (href === '#') {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (isHome) {
+      const scrollingToTop = useState<boolean>('scrollingToTop')
+      scrollingToTop.value = true
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      history.replaceState(null, '', window.location.pathname)
+      setTimeout(() => { scrollingToTop.value = false }, 1200)
+    } else {
+      navigateTo('/')
+    }
     return
   }
-  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+
+  if (isHome) {
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    history.replaceState(null, '', href)
+  } else {
+    navigateTo(`/${href}`)
+  }
 }
 
 const switchLocale = (code: string) => {
-  setLocale(code)
+  const currentHash = window.location.hash
+  // Set i18n cookie so detectBrowserLanguage doesn't immediately redirect back
+  document.cookie = `i18n_lang=${code}; path=/; max-age=63072000; SameSite=Lax`
+  if (code === 'en') {
+    window.location.href = '/en' + currentHash
+  } else {
+    window.location.href = '/' + currentHash
+  }
 }
 </script>
 
@@ -85,17 +112,6 @@ const switchLocale = (code: string) => {
       </div>
 
       <div class="hidden md:flex items-center gap-3">
-        <!-- Language switcher -->
-        <button
-          v-for="loc in availableLocales"
-          :key="loc.code"
-          class="text-xs font-mono text-brand-muted hover:text-white transition-colors px-2 py-1 rounded border border-white/10 hover:border-brand-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-          :aria-label="`${t('a11y.languageSwitch')}: ${loc.name}`"
-          @click="switchLocale(loc.code)"
-        >
-          {{ loc.code.toUpperCase() }}
-        </button>
-
         <!-- Desktop CTA -->
         <button
           class="btn-primary text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
@@ -116,6 +132,17 @@ const switchLocale = (code: string) => {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
+        </button>
+
+        <!-- Language switcher -->
+        <button
+          v-for="loc in availableLocales"
+          :key="loc.code"
+          class="text-xs font-mono text-brand-muted hover:text-white transition-colors px-2 py-1 rounded border border-white/10 hover:border-brand-primary/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          :aria-label="`${t('a11y.languageSwitch')}: ${loc.name}`"
+          @click="switchLocale(loc.code)"
+        >
+          {{ loc.code.toUpperCase() }}
         </button>
       </div>
 

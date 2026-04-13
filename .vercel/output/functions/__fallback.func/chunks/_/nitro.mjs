@@ -6296,7 +6296,7 @@ var about$1 = {
 	badge: "O mnie",
 	title: "Korporacyjny deweloper,",
 	titleHighlight: "który wybrał wolność.",
-	paragraph1: "Cześć, jestem twórcą {brand}. Przez kilka lat budowałem systemy webowe w dużych korporacjach — dashboardy dla dziesiątek tysięcy użytkowników, portale B2B, aplikacje używane codziennie.",
+	paragraph1: "Cześć, jestem twórcą {brand}. Przez kilka lat budowałem systemy webowe w dużych korporacjach — dashboardy dla setek tysięcy użytkowników, portale B2B, aplikacje używane codziennie.",
 	paragraph2: "Nauczyłem się tam jednej ważnej rzeczy: {highlight}. Postanowiłem to zmienić.",
 	paragraph2Highlight: "małe firmy potrzebują tej samej jakości co korporacje, ale nie mają dostępu do takich zasobów",
 	paragraph3: "Producktive to nie agencja. To {highlight} — osobiście zajmuję się Twoim projektem od pierwszej rozmowy do wdrożenia. Żadnego przepychania między juniorami. Żadnego zapominania ustaleń.",

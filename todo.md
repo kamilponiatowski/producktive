@@ -10,9 +10,10 @@ Uruchom npx nuxt-seo-utils icons --source <logo.svg> dla ikon PWA
 - [ ] Zbadaj i stwórz profil na agencjach freelancerskich
 - stwórz
     - [ ] wynajem domków - Jarema
+    - [ ] fotografia/filmy - Jarema
     - [ ] usługi kosmetyczne - Ilona
     - [ ] strona/sklep/blog - Patyk
     - [ ] strona Rolnicza - Marek
     - [ ] meble - Agnieszka
-    - [ ] lego - Łukasz - wizytówka
+    - [ ] lego - wizytówka Łukasz
     - [ ] strona dla KKK - Piotr

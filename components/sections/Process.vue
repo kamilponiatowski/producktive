@@ -2,11 +2,31 @@
 const { t } = useI18n()
 
 const steps = [
-  { number: '01', icon: '🎯', key: 'consultation' },
-  { number: '02', icon: '📋', key: 'proposal' },
-  { number: '03', icon: '🎨', key: 'design' },
-  { number: '04', icon: '⚙️', key: 'development' },
-  { number: '05', icon: '🚀', key: 'launch' },
+  {
+    number: '01',
+    key: 'consultation',
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`,
+  },
+  {
+    number: '02',
+    key: 'proposal',
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+  },
+  {
+    number: '03',
+    key: 'design',
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+  },
+  {
+    number: '04',
+    key: 'development',
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    number: '05',
+    key: 'launch',
+    svgPath: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+  },
 ]
 </script>
 
@@ -46,8 +66,8 @@ const steps = [
           <li
             v-for="(step, i) in steps"
             :key="step.key"
-            class="relative reveal lg:flex lg:items-center lg:min-h-[140px] lg:py-8"
-            :class="i % 2 !== 0 ? 'lg:-mt-24' : ''"
+            class="relative reveal lg:flex lg:items-center lg:min-h-[100px] lg:py-3"
+            :class="i % 2 !== 0 ? 'lg:-mt-16' : ''"
             :style="{ transitionDelay: `${i * 100}ms` }"
           >
             <!-- Number dot -->
@@ -58,6 +78,14 @@ const steps = [
               {{ step.number }}
             </div>
 
+            <!-- Horizontal dashed connector (desktop only) -->
+            <div
+              class="absolute hidden lg:block top-1/2"
+              :class="i % 2 === 0 ? 'left-[45%] right-[50%]' : 'left-[50%] right-[45%]'"
+              style="height: 1px; border-top: 1px dashed rgba(0, 229, 255, 0.22); transform: translateY(-0.5px);"
+              aria-hidden="true"
+            />
+
             <!-- Card -->
             <div
               class="pl-10 lg:pl-0 lg:w-[45%]"
@@ -67,7 +95,7 @@ const steps = [
                 class="card p-5 lg:p-6 hover:border-brand-primary/40 transition-colors duration-300"
               >
                 <div class="flex items-start gap-3 mb-2">
-                  <span class="text-2xl" aria-hidden="true">{{ step.icon }}</span>
+                  <span class="text-brand-primary shrink-0 mt-0.5" v-html="step.svgPath" />
                   <h3 class="text-base lg:text-lg font-semibold text-white leading-snug">
                     {{ t(`process.steps.${step.key}.title`) }}
                   </h3>

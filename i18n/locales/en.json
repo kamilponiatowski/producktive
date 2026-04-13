@@ -10,6 +10,7 @@
     "portfolio": "Portfolio",
     "about": "About",
     "process": "Process",
+    "community": "1-All-1",
     "cta": "Let's talk",
     "skipToContent": "Skip to content",
     "openMenu": "Open navigation menu",
@@ -26,7 +27,7 @@
     "ctaSecondary": "My work",
     "proof1": "Response within 24h",
     "proof2": "Contract before start",
-    "proof3": "Satisfaction guarantee",
+    "proof3": "Fast delivery",
     "mockupUrl": "yourbusiness.com",
     "mockupLighthouse": "Lighthouse",
     "mockupBadge1": "✅ Ready in 14 days",
@@ -50,7 +51,7 @@
     "items": {
       "website": {
         "title": "Business Website",
-        "desc": "Your company deserves a website that not only looks great but loads blazingly fast. Fast, mobile-first, SEO-optimized.",
+        "desc": "Your company deserves a website that not only looks great but loads blazingly fast. Fast, mobile-first, SEO and GEO-optimized — search results in Google and optimization for AI-powered search engines (ChatGPT, Perplexity, Google AI Overviews, Claude, etc.)",
         "price": "€700 – €1,400",
         "days": "7–10 days"
       },
@@ -92,9 +93,9 @@
     "titleHighlight": "deliver",
     "subtitle": "Every project solves a real client problem. No templates. Code written from scratch.",
     "filterAll": "All",
-    "filterClient": "🏢 Client work",
-    "filterConcept": "🎨 Concept",
-    "filterPersonal": "⚡ Personal",
+    "filterClient": "Client work",
+    "filterConcept": "Concept",
+    "filterPersonal": "Personal",
     "viewDemo": "View site →",
     "nda": "🔒 NDA — no demo",
     "caseStudy": "Case study →",
@@ -105,11 +106,11 @@
     "projects": {
       "miralive": {
         "title": "Miralive — Insurance Agency",
-        "desc": "A modern business card website for an insurance agency from Włocławek. Priority was SEO and credibility — fully static site that loads in a fraction of a second.",
+        "desc": "A modern business card website for an insurance agency from Włocławek. The priority was personal brand credibility and a fast, mobile-first site optimized for SEO and GEO — Google search results and optimization for AI-powered search engines (ChatGPT, Perplexity, Google AI Overviews, Claude, etc.)",
         "label": "Client · Live",
-        "result1": "⚡ Lighthouse 95+",
-        "result2": "🔍 Schema.org SEO",
-        "result3": "🌙 Dark mode"
+        "result1": "⚡ Sub-1-second load time",
+        "result2": "💳 Direct insurance purchase option",
+        "result3": "🎯 Clean layout with multiple CTAs — call-to-action buttons"
       },
       "neksus": {
         "title": "Neksus — Computer Service",
@@ -117,15 +118,15 @@
         "label": "Client · Live",
         "result1": "⚡ 100% static",
         "result2": "🤖 AI-ready (llms.txt)",
-        "result3": "💰 $0/mo hosting"
+        "result3": "🌙 Dark mode"
       },
       "producktive": {
-        "title": "Producktive.pl — This site",
-        "desc": "My service website, built from scratch as a quality benchmark. Contact form with notifications, PWA, i18n and Lighthouse 95+.",
+        "title": "Producktive.pl — \"Nice\" to have you here :)",
+        "desc": "My service website, built from scratch as a quality benchmark. Contact form with notifications, PWA (progressive web app working offline), multi-language translations and Lighthouse 95+ performance score.",
         "label": "Personal project",
-        "result1": "⚡ Lighthouse 95+",
-        "result2": "🌍 PL/EN i18n",
-        "result3": "📱 PWA"
+        "result1": "⚡ Lighthouse 95+ performance audit",
+        "result2": "🌍 PL/EN translations",
+        "result3": "📱 PWA — progressive web app"
       },
       "zenbarber": {
         "title": "ZenBarber — Hair Salon",
@@ -151,11 +152,13 @@
     "ctaLinkedIn": "LinkedIn",
     "stackTitle": "Tech stack",
     "howIWork": "How I work",
+    "avatarAlt": "Kamil Poniatowski — creator of Producktive",
     "skills": {
       "frontend": "Frontend",
       "backend": "Backend",
       "design": "Design",
-      "devops": "DevOps"
+      "devops": "DevOps",
+      "standards": "Standards"
     },
     "values": {
       "deadline": {
@@ -175,7 +178,7 @@
         "desc": "You know what I'm doing and how long it takes. No surprises."
       }
     },
-    "location": "📍 Gdańsk, Tricity",
+    "location": "Gdańsk, Tricity",
     "locationDesc": "Let's meet for a coffee and talk about your project."
   },
   "process": {
@@ -239,8 +242,9 @@
       "messagePlaceholder": "Describe what your company does and what you need. The more details, the more accurate the quote.",
       "submit": "Send message →",
       "submitting": "Sending...",
-      "privacy": "🔒 Your data is safe. I don't share it with third parties.",
-      "required": "*"
+      "privacy": "Your data is safe. I don't share it with third parties.",
+      "required": "*",
+      "comingSoonTooltip": "Available soon"
     },
     "services": {
       "website": "Business Website",
@@ -301,7 +305,7 @@
     "badge": "Producktive Network",
     "title": "One for all,",
     "titleHighlight": "all for one.",
-    "subtitle": "Every Producktive client joins a network of entrepreneurs who support each other — with priority service, preferential rates, and collaborations beyond standard market norms.",
+    "subtitle": "Every Producktive client can join \"1-All-1\" — a network of entrepreneurs who support each other — with priority service, preferential rates, and collaborations beyond standard market norms.",
     "networkTitle": "What does the network give you?",
     "benefit1Title": "Priority access",
     "benefit1Desc": "Producktive clients serve each other ahead of the queue — faster and with a better approach.",
@@ -325,6 +329,7 @@
     "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. All rights reserved.",
     "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
     "terms": "Terms of Service",
     "location": "Gdańsk, Poland"
   },

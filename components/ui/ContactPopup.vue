@@ -6,6 +6,7 @@ const phone = ref('')
 const consent = ref(false)
 const submitting = ref(false)
 const submitted = ref(false)
+const submitError = ref(false)
 const phoneError = ref('')
 
 const POPUP_STORAGE_KEY = 'popup-last-shown'
@@ -47,6 +48,7 @@ const handleSubmit = async () => {
   if (!consent.value) return
 
   submitting.value = true
+  submitError.value = false
   try {
     await $fetch('/api/contact', {
       method: 'POST',
@@ -59,11 +61,11 @@ const handleSubmit = async () => {
         honeypot: '',
       },
     })
+    submitted.value = true
   } catch {
-    // Silently fail — still show success to not frustrate user
+    submitError.value = true
   } finally {
     submitting.value = false
-    submitted.value = true
   }
 }
 
@@ -204,6 +206,25 @@ onMounted(() => {
               </svg>
               {{ submitting ? t('popup.submitting') : t('popup.submit') }}
             </button>
+
+            <!-- Error state -->
+            <Transition name="fade">
+              <div
+                v-if="submitError"
+                class="flex items-start gap-2 p-3 rounded-xl bg-red-500/10 border border-red-500/20"
+                role="alert"
+              >
+                <svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <p class="text-red-400 text-xs leading-relaxed">
+                  Coś poszło nie tak. Napisz bezpośrednio na
+                  <a href="mailto:kontakt@producktive.pl" class="underline hover:text-red-300 transition-colors">kontakt@producktive.pl</a>
+                </p>
+              </div>
+            </Transition>
 
             <p class="text-brand-muted/50 text-xs text-center flex items-center justify-center gap-1.5">
               <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

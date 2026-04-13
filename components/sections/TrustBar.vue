@@ -42,6 +42,16 @@ const items = [
     tooltip: 'Server-Side Rendering / Static Site Generation — strony generowane po stronie serwera lub statycznie',
     svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>`,
   },
+  {
+    label: 'WCAG 2.1',
+    tooltip: 'Web Content Accessibility Guidelines — standard dostępności stron internetowych',
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>`,
+  },
+  {
+    label: 'Schema.org',
+    tooltip: 'Dane strukturalne ułatwiające wyszukiwarkom zrozumienie treści strony',
+    svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>`,
+  },
 ]
 </script>
 

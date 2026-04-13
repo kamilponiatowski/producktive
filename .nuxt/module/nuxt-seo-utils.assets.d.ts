@@ -9,7 +9,7 @@ declare module '#app' {
 }
 declare module '@unhead/schema' {
 
-  type PublicFiles = '/llms.txt' | (string & Record<never, never>)
+  type PublicFiles = '/favicon.svg' | '/llms.txt' | (string & Record<never, never>)
   type JsFiles = (string & Record<never, never>)
 
   interface SchemaAugmentations {

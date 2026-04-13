@@ -35,32 +35,36 @@ const scrollToBottom = () => {
     role="navigation"
   >
     <!-- Scroll to top -->
-    <Transition name="scroll-btn">
-      <button
-        v-if="showTop"
-        class="w-10 h-10 rounded-xl bg-brand-card/90 border border-brand-primary/30 text-brand-primary hover:bg-brand-primary/15 hover:border-brand-primary transition-all duration-200 backdrop-blur-sm flex items-center justify-center shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-        aria-label="Przewiń do góry"
-        @click="scrollToTop"
-      >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="18 15 12 9 6 15"/>
-        </svg>
-      </button>
-    </Transition>
+    <div class="w-10 h-10">
+      <Transition name="scroll-btn">
+        <button
+          v-show="showTop"
+          class="w-full h-full rounded-xl bg-brand-card/90 border border-brand-primary/30 text-brand-primary hover:bg-brand-primary/15 hover:border-brand-primary transition-all duration-200 backdrop-blur-sm flex items-center justify-center shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          aria-label="Przewiń do góry"
+          @click="scrollToTop"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+          </svg>
+        </button>
+      </Transition>
+    </div>
 
     <!-- Scroll to bottom -->
-    <Transition name="scroll-btn">
-      <button
-        v-if="showBottom"
-        class="w-10 h-10 rounded-xl bg-brand-card/90 border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white hover:border-brand-primary/30 transition-all duration-200 backdrop-blur-sm flex items-center justify-center shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-        aria-label="Przewiń do dołu"
-        @click="scrollToBottom"
-      >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-    </Transition>
+    <div class="w-10 h-10">
+      <Transition name="scroll-btn">
+        <button
+          v-show="showBottom"
+          class="w-full h-full rounded-xl bg-brand-card/90 border border-white/10 text-brand-muted hover:bg-white/5 hover:text-white hover:border-brand-primary/30 transition-all duration-200 backdrop-blur-sm flex items-center justify-center shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          aria-label="Przewiń do dołu"
+          @click="scrollToBottom"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+      </Transition>
+    </div>
   </div>
 </template>
 

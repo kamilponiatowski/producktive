@@ -43,6 +43,7 @@ export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '../n
 export { useI18n } from 'vue-i18n';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
 export { usePWA, useTransparentPwaIcon, useMaskablePwaIcon, useFaviconPwaIcon, useApplePwaIcon, useAppleSplashScreenPwaIcon } from '../node_modules/@vite-pwa/nuxt/dist/runtime/composables/index';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { useRobotsRule } from '../node_modules/@nuxtjs/robots/dist/runtime/app/composables/useRobotsRule';
 export { useBotDetection } from '../node_modules/@nuxtjs/robots/dist/runtime/app/composables/useBotDetection';
 export { defineOgImage, defineOgImageComponent, defineOgImageScreenshot } from '../node_modules/nuxt-og-image/dist/runtime/app/composables/mock';

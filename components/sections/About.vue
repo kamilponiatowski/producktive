@@ -18,6 +18,10 @@ const skills = [
     categoryKey: 'devops',
     items: ['Vercel', 'GitHub Actions', 'Docker', 'CI/CD'],
   },
+  {
+    categoryKey: 'standards',
+    items: ['WCAG 2.1', 'SEO', 'Schema.org', 'Core Web Vitals', 'PWA'],
+  },
 ]
 
 const values = [
@@ -63,6 +67,24 @@ const values = [
             <span class="text-gradient">{{ t('about.titleHighlight') }}</span>
           </h2>
 
+          <!-- Avatar + signature -->
+          <div class="flex items-center gap-5 mb-6">
+            <img
+              src="~/assets/avatar.jpg"
+              :alt="t('about.avatarAlt')"
+              class="w-20 h-20 rounded-full object-cover border-2 border-brand-primary/40 shadow-brand shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <p class="font-display font-bold text-lg text-brand-accent">
+                Kamil Poniatowski
+              </p>
+              <p class="text-brand-muted text-sm">
+                {{ t('about.titleHighlight') }}
+              </p>
+            </div>
+          </div>
+
           <div class="space-y-4 text-brand-muted leading-relaxed">
             <p>
               {{ t('about.paragraph1', { brand: 'Producktive' }).split('Producktive')[0] }}<strong class="text-white">Producktive</strong>{{ t('about.paragraph1', { brand: 'Producktive' }).split('Producktive').slice(1).join('Producktive') }}
@@ -78,7 +100,13 @@ const values = [
 
           <!-- Location badge -->
           <div class="mt-6 card p-4 inline-flex flex-col gap-1">
-            <span class="text-white font-semibold text-sm">{{ t('about.location') }}</span>
+            <span class="text-white font-semibold text-sm flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-brand-primary shrink-0" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              {{ t('about.location') }}
+            </span>
             <span class="text-brand-muted text-xs">{{ t('about.locationDesc') }}</span>
           </div>
 
