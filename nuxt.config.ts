@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY || '',
-      calendlyUrl: process.env.NUXT_PUBLIC_CALENDLY_URL || 'https://calendly.com',
+      calUrl: process.env.NUXT_PUBLIC_CAL_URL || 'https://cal.eu/producktive/15min',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://producktive.pl',
     },
   },

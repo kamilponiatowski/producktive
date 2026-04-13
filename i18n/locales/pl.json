@@ -23,7 +23,7 @@
     "titleLine3": "na Twój biznes.",
     "subtitle": "Przez lata budowałem systemy dla dużych korporacji. Teraz pomagam {highlight} — tę samą jakość, procesy i podejście dostarczam bez korporacyjnych cen i bez anonimowości.",
     "subtitleHighlight": "małym firmom i freelancerom",
-    "ctaPrimary": "Bezpłatna konsultacja 30 min",
+    "ctaPrimary": "Bezpłatna konsultacja 15 min",
     "ctaSecondary": "Moje realizacje",
     "proof1": "Odpowiedź w 24h",
     "proof2": "Umowa przed startem",
@@ -108,33 +108,33 @@
         "title": "Miralive — Agencja Ubezpieczeniowa",
         "desc": "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej z Włocławka. Priorytetem była wiarygodność marki osobistej oraz szybka, mobilna strona optymalna pod SEO oraz GEO czyli wyniki wyszukiwania w google oraz optymalizacja pod wyszukiwarki wspomagane przez AI (ChatGPT, Perplexity, Google AI Overviews, Claude itp.)",
         "label": "Klient · Live",
-        "result1": "⚡ Szybkość ładowania poniżej 1 sekundy",
-        "result2": "💳 Bezpośrednia możliwość zakupu ubezpieczenia",
-        "result3": "🎯 Przejrzysta strona z wieloma CTA — przyciskami wzywającymi do akcji"
+        "result1": "Szybkość ładowania poniżej 1 sekundy",
+        "result2": "Bezpośrednia możliwość zakupu ubezpieczenia",
+        "result3": "Przejrzysta strona z wieloma CTA — przyciskami wzywającymi do akcji"
       },
       "neksus": {
         "title": "Neksus — Serwis komputerowy",
         "desc": "Transformacja cyfrowa lokalnego biznesu. Od przestarzałej strony z 2012 roku do nowoczesnej wizytówki z SEO, dark mode i blogiem.",
         "label": "Klient · Live",
-        "result1": "⚡ 100% statyczna",
-        "result2": "🤖 AI-ready (llms.txt)",
-        "result3": "🌙 Dark mode"
+        "result1": "100% statyczna",
+        "result2": "AI-ready (llms.txt)",
+        "result3": "Dark mode"
       },
       "producktive": {
         "title": "Producktive.pl — \"Miło\", że tu jesteś :)",
         "desc": "Moja strona usługowa, zbudowana od zera jako wzorzec jakości. Formularz z powiadomieniami, PWA (aplikacja progresywna działająca offline), tłumaczenia na inne języki i szybkość ładowania 95+ w audycie Lighthouse.",
         "label": "Własny projekt",
-        "result1": "⚡ Audyt wydajności Lighthouse 95+",
-        "result2": "🌍 Tłumaczenia PL/EN",
-        "result3": "📱 PWA — aplikacja progresywna"
+        "result1": "Audyt wydajności Lighthouse 95+",
+        "result2": "Tłumaczenia PL/EN",
+        "result3": "PWA — aplikacja progresywna"
       },
       "zenbarber": {
         "title": "ZenBarber — Salon fryzjerski",
         "desc": "Projekt koncepcyjny dla lokalnego salonu. Rezerwacja online, galeria prac, recenzje Google.",
         "label": "Projekt koncepcyjny",
-        "result1": "⚡ Lighthouse 98",
-        "result2": "📱 Mobile-first",
-        "result3": "🔗 Demo dostępne"
+        "result1": "Lighthouse 98",
+        "result2": "Mobile-first",
+        "result3": "Demo dostępne"
       }
     }
   },
@@ -188,7 +188,7 @@
     "subtitle": "Wiem, że oddanie projektu komuś wymaga zaufania. Dlatego każdy krok jest zaplanowany, jasny i pod Twoją kontrolą.",
     "steps": {
       "consultation": {
-        "title": "Bezpłatna konsultacja (30 min)",
+        "title": "Bezpłatna konsultacja (15 min)",
         "desc": "Opowiedz mi o swoim projekcie. Poznam Twoje cele, grupę docelową i oczekiwania. Zero zobowiązań — tylko konkretna rozmowa.",
         "bullet1": "Analiza potrzeb i celów biznesowych",
         "bullet2": "Weryfikacja techniczna pomysłu",
@@ -228,7 +228,7 @@
     "badge": "Kontakt",
     "title": "Masz projekt?",
     "titleHighlight": "Porozmawiajmy.",
-    "subtitle": "Pierwsza konsultacja 30 min jest bezpłatna i niezobowiązująca. Odpowiadam w ciągu 24 godzin.",
+    "subtitle": "Pierwsza konsultacja 15 min jest bezpłatna i niezobowiązująca. Odpowiadam w ciągu 24 godzin.",
     "form": {
       "name": "Imię i nazwisko",
       "namePlaceholder": "Jan Kowalski",
@@ -244,7 +244,16 @@
       "submitting": "Wysyłanie...",
       "privacy": "Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim.",
       "required": "*",
-      "comingSoonTooltip": "Dostępność wyboru wkrótce"
+      "comingSoonTooltip": "Dostępność wyboru wkrótce",
+      "serviceHint": "(możesz wybrać kilka)",
+      "attachment": "Załącznik",
+      "attachmentHint": "opcjonalnie · PDF, JPG, PNG, DOC/DOCX · max 5 MB",
+      "attachFile": "Kliknij by załączyć plik",
+      "fileTooLarge": "Plik za duży. Maksymalna wielkość: 5 MB",
+      "fileTypeError": "Niedozwolony format. Dozwolone: PDF, JPG, PNG, DOC, DOCX",
+      "fileUploadError": "Błąd przesyłania. Spróbuj ponownie.",
+      "fileUploaded": "Plik przesłany pomyślnie",
+      "removeFile": "Usuń załącznik"
     },
     "services": {
       "website": "Strona wizytówka",
@@ -268,7 +277,7 @@
       "serviceRequired": "Wybierz rodzaj usługi",
       "budgetRequired": "Wybierz przedział budżetu",
       "messageMin": "Opisz projekt w co najmniej 20 znakach",
-      "messageMax": "Wiadomość nie może przekroczyć 2000 znaków"
+      "messageMax": "Wiadomość nie może przekroczyć 5000 znaków"
     },
     "success": {
       "title": "Wiadomość wysłana!",
@@ -277,7 +286,7 @@
     "serverError": "Coś poszło nie tak. Napisz bezpośrednio na kontakt{'@'}producktive.pl",
     "calendar": {
       "title": "Wolisz od razu umówić rozmowę?",
-      "desc": "Wybierz wolny termin w kalendarzu — bezpłatna konsultacja 30 min. Zero zobowiązań.",
+      "desc": "Wybierz wolny termin w kalendarzu — bezpłatna konsultacja 15 min. Zero zobowiązań.",
       "cta": "Zarezerwuj termin →",
       "note": "Potwierdzenie i przypomnienie przyjdą automatycznie na email"
     },

@@ -4,7 +4,10 @@ import { z } from 'zod'
 const contactSchema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email().max(254),
-  message: z.string().min(10).max(5000),
+  services: z.array(z.string().max(100)).min(1).max(10),
+  budget: z.string().min(1).max(50),
+  message: z.string().min(20).max(5000),
+  attachment_url: z.string().url().optional().nullable(),
   honeypot: z.string().max(0).optional(),
 })
 
@@ -29,15 +32,18 @@ export default defineEventHandler(async (event) => {
 
   const supabase = createClient(
     config.supabaseUrl,
-    config.supabaseAnonKey,
+    config.supabaseServiceKey,
   )
 
   const { error } = await supabase
-    .from('contact_submissions')
+    .from('contact_messages')
     .insert({
       name: result.data.name,
       email: result.data.email,
+      service: result.data.services.join(', '),
+      budget: result.data.budget,
       message: result.data.message,
+      attachment_url: result.data.attachment_url ?? null,
     })
 
   if (error) {

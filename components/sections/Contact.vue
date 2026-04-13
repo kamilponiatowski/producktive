@@ -4,11 +4,74 @@ const config = useRuntimeConfig()
 
 const { form, errors, loading, success, serverError, submit, validateField } = useContactForm()
 
-const calendlyUrl = config.public.calendlyUrl as string
+const calUrl = config.public.calUrl as string
 
 const serviceKeys = ['website', 'landing', 'blog', 'design', 'other', 'shop', 'saas'] as const
 const disabledServices = new Set(['shop', 'saas'])
 const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
+
+// ── File attachment ───────────────────────────────────────
+const attachmentFile = ref<File | null>(null)
+const attachmentUrl = ref('')
+const uploadLoading = ref(false)
+const uploadError = ref('')
+const fileInputRef = ref<HTMLInputElement | null>(null)
+
+const ALLOWED_TYPES = [
+  'application/pdf',
+  'image/jpeg', 'image/png', 'image/webp',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]
+const MAX_FILE_SIZE = 5 * 1024 * 1024
+
+const handleFileChange = async (event: Event) => {
+  const file = (event.target as HTMLInputElement).files?.[0]
+  if (!file) return
+
+  uploadError.value = ''
+  if (file.size > MAX_FILE_SIZE) {
+    uploadError.value = t('contact.form.fileTooLarge')
+    return
+  }
+  if (!ALLOWED_TYPES.includes(file.type)) {
+    uploadError.value = t('contact.form.fileTypeError')
+    return
+  }
+
+  attachmentFile.value = file
+  uploadLoading.value = true
+  try {
+    const fd = new FormData()
+    fd.append('file', file)
+    const result = await $fetch<{ url: string }>('/api/upload', { method: 'POST', body: fd })
+    attachmentUrl.value = result.url
+  } catch {
+    uploadError.value = t('contact.form.fileUploadError')
+    attachmentFile.value = null
+  } finally {
+    uploadLoading.value = false
+  }
+}
+
+const removeAttachment = () => {
+  attachmentFile.value = null
+  attachmentUrl.value = ''
+  uploadError.value = ''
+  if (fileInputRef.value) fileInputRef.value.value = ''
+}
+
+const toggleService = (key: string) => {
+  const idx = form.services.indexOf(key)
+  if (idx === -1) {
+    form.services.push(key)
+  } else {
+    form.services.splice(idx, 1)
+  }
+  validateField('services')
+}
+
+const handleSubmit = () => submit(attachmentUrl.value || undefined)
 </script>
 
 <template>
@@ -60,7 +123,7 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
             v-if="!success"
             class="space-y-5 card p-6"
             novalidate
-            @submit.prevent="submit"
+            @submit.prevent="handleSubmit"
           >
             <!-- Honeypot (anti-bot) -->
             <input
@@ -119,12 +182,13 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
             <div>
               <div class="block text-sm text-white/70 mb-2" id="service-label">
                 {{ t('contact.form.service') }} {{ t('contact.form.required') }}
+                <span class="text-xs text-brand-muted/60 font-normal ml-1">{{ t('contact.form.serviceHint') }}</span>
               </div>
               <div
                 class="flex flex-wrap gap-2"
                 role="group"
                 aria-labelledby="service-label"
-                :aria-describedby="errors.service ? 'service-error' : undefined"
+                :aria-describedby="errors.services ? 'service-error' : undefined"
               >
                 <div class="relative group/service" v-for="key in serviceKeys" :key="key">
                   <button
@@ -133,13 +197,13 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
                     :class="[
                       disabledServices.has(key)
                         ? 'bg-brand-dark border-white/5 text-brand-muted/40 cursor-not-allowed'
-                        : form.service === key
+                        : form.services.includes(key)
                           ? 'bg-brand-primary/20 border-brand-primary text-brand-primary'
                           : 'bg-brand-dark border-white/10 text-brand-muted hover:border-brand-primary/50 hover:text-white',
                     ]"
-                    :aria-pressed="form.service === key"
+                    :aria-pressed="form.services.includes(key)"
                     :disabled="disabledServices.has(key)"
-                    @click="form.service = key; validateField('service')"
+                    @click="toggleService(key)"
                   >
                     {{ t(`contact.services.${key}`) }}
                   </button>
@@ -151,8 +215,8 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
                   </span>
                 </div>
               </div>
-              <p v-if="errors.service" id="service-error" class="text-red-400 text-xs mt-1" role="alert">
-                {{ errors.service }}
+              <p v-if="errors.services" id="service-error" class="text-red-400 text-xs mt-1" role="alert">
+                {{ errors.services }}
               </p>
             </div>
 
@@ -208,10 +272,68 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
                 <p v-if="errors.message" id="message-error" class="text-red-400 text-xs" role="alert">
                   {{ errors.message }}
                 </p>
-                <p id="message-counter" class="text-brand-muted text-xs ml-auto">
-                  {{ form.message.length }}/2000
+                <p id="message-counter" class="text-brand-muted text-xs ml-auto" :class="{ 'text-yellow-400': form.message.length > 4500 }">
+                  {{ form.message.length }}/5000
                 </p>
               </div>
+            </div>
+
+            <!-- Attachment -->
+            <div>
+              <label for="contact-attachment" class="block text-sm text-white/70 mb-1.5">
+                {{ t('contact.form.attachment') }}
+                <span class="text-xs text-brand-muted/60 font-normal ml-1">{{ t('contact.form.attachmentHint') }}</span>
+              </label>
+
+              <!-- Empty state: dashed drop zone -->
+              <div v-if="!attachmentFile">
+                <input
+                  id="contact-attachment"
+                  ref="fileInputRef"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx"
+                  class="sr-only"
+                  @change="handleFileChange"
+                />
+                <label
+                  for="contact-attachment"
+                  class="flex items-center gap-3 w-full bg-brand-dark border border-dashed border-white/10 rounded-xl px-4 py-3 text-brand-muted text-sm hover:border-brand-primary/50 hover:text-white transition-colors"
+                >
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
+                  </svg>
+                  {{ t('contact.form.attachFile') }}
+                </label>
+              </div>
+
+              <!-- File selected -->
+              <div
+                v-else
+                class="flex items-center gap-3 bg-brand-dark border rounded-xl px-4 py-3"
+                :class="uploadLoading ? 'border-white/10' : attachmentUrl ? 'border-brand-primary/30' : 'border-white/10'"
+              >
+                <svg v-if="uploadLoading" class="w-4 h-4 animate-spin text-brand-primary shrink-0" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                </svg>
+                <svg v-else class="w-4 h-4 text-brand-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-sm text-white/80 flex-1 truncate">{{ attachmentFile.name }}</span>
+                <button
+                  type="button"
+                  class="text-brand-muted hover:text-red-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+                  :aria-label="t('contact.form.removeFile')"
+                  @click="removeAttachment"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+
+              <p v-if="uploadError" class="text-red-400 text-xs mt-1" role="alert">{{ uploadError }}</p>
+              <p v-else-if="attachmentUrl && !uploadLoading" class="text-brand-primary/80 text-xs mt-1">{{ t('contact.form.fileUploaded') }}</p>
             </div>
 
             <!-- Server error -->
@@ -274,10 +396,10 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
               {{ t('contact.calendar.desc') }}
             </p>
             <a
-              :href="calendlyUrl"
+              :href="calUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-primary w-full justify-center py-3.5 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="btn-primary w-full justify-center py-3.5 text-sm animate-pulse-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <span>{{ t('contact.calendar.cta') }}</span>
             </a>
@@ -314,7 +436,7 @@ const budgetKeys = ['3k5k', '5k9k', '9k15k', 'over15k', 'unknown'] as const
             </a>
           </div>
 
-          <!-- Guarantee — temporarily hidden -->
+          <!-- TODO Guarantee — temporarily hidden -->
           <!-- <div class="card-gradient p-5">
             <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary/15 mb-3" aria-hidden="true">
               <svg class="w-5 h-5 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

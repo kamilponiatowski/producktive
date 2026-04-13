@@ -194,15 +194,10 @@ watch(activeFilter, async () => {
             </p>
 
             <!-- Results -->
-            <ul class="space-y-1" :aria-label="t('portfolio.badge')">
-              <li class="text-xs text-brand-muted/80">
-                {{ t(`portfolio.projects.${project.key}.result1`) }}
-              </li>
-              <li class="text-xs text-brand-muted/80">
-                {{ t(`portfolio.projects.${project.key}.result2`) }}
-              </li>
-              <li class="text-xs text-brand-muted/80">
-                {{ t(`portfolio.projects.${project.key}.result3`) }}
+            <ul class="space-y-1.5" :aria-label="t('portfolio.badge')">
+              <li v-for="n in 3" :key="n" class="flex items-start gap-1.5 text-xs text-brand-muted/80">
+                <svg class="w-3 h-3 text-brand-primary shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {{ t(`portfolio.projects.${project.key}.result${n}`) }}
               </li>
             </ul>
 

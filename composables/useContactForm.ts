@@ -1,13 +1,12 @@
 import { ref, reactive } from 'vue'
 import { z } from 'zod'
-import { createClient } from '@supabase/supabase-js'
 
 const ContactSchema = z.object({
   name: z.string().min(2, 'nameRequired').max(100),
   email: z.string().email('emailInvalid'),
-  service: z.string().min(1, 'serviceRequired'),
+  services: z.array(z.string()).min(1, 'serviceRequired'),
   budget: z.string().min(1, 'budgetRequired'),
-  message: z.string().min(20, 'messageMin').max(2000, 'messageMax'),
+  message: z.string().min(20, 'messageMin').max(5000, 'messageMax'),
   honeypot: z.string().max(0, 'Bot detected'),
 })
 
@@ -15,12 +14,11 @@ export type ContactForm = z.infer<typeof ContactSchema>
 
 export function useContactForm() {
   const { t } = useI18n()
-  const config = useRuntimeConfig()
 
   const form = reactive<ContactForm>({
     name: '',
     email: '',
-    service: '',
+    services: [],
     budget: '',
     message: '',
     honeypot: '',
@@ -53,7 +51,7 @@ export function useContactForm() {
     }
   }
 
-  const submit = async () => {
+  const submit = async (attachmentUrl?: string) => {
     serverError.value = ''
 
     const result = ContactSchema.safeParse(form)
@@ -67,26 +65,24 @@ export function useContactForm() {
 
     loading.value = true
     try {
-      const supabase = createClient(
-        config.public.supabaseUrl as string,
-        config.public.supabaseAnonKey as string
-      )
-
-      const { error } = await supabase.from('contact_messages').insert({
-        name: form.name,
-        email: form.email,
-        service: form.service,
-        budget: form.budget,
-        message: form.message,
+      await $fetch('/api/contact', {
+        method: 'POST',
+        body: {
+          name: form.name,
+          email: form.email,
+          services: form.services,
+          budget: form.budget,
+          message: form.message,
+          honeypot: form.honeypot,
+          ...(attachmentUrl ? { attachment_url: attachmentUrl } : {}),
+        },
       })
-
-      if (error) throw error
 
       success.value = true
       Object.assign(form, {
         name: '',
         email: '',
-        service: '',
+        services: [],
         budget: '',
         message: '',
       })

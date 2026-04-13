@@ -23,7 +23,7 @@
     "titleLine3": "for your business.",
     "subtitle": "For years I built systems for large corporations. Now I help {highlight} — delivering the same quality, processes and approach without corporate prices and anonymity.",
     "subtitleHighlight": "small businesses and freelancers",
-    "ctaPrimary": "Free 30-min consultation",
+    "ctaPrimary": "Free 15-min consultation",
     "ctaSecondary": "My work",
     "proof1": "Response within 24h",
     "proof2": "Contract before start",
@@ -108,33 +108,33 @@
         "title": "Miralive — Insurance Agency",
         "desc": "A modern business card website for an insurance agency from Włocławek. The priority was personal brand credibility and a fast, mobile-first site optimized for SEO and GEO — Google search results and optimization for AI-powered search engines (ChatGPT, Perplexity, Google AI Overviews, Claude, etc.)",
         "label": "Client · Live",
-        "result1": "⚡ Sub-1-second load time",
-        "result2": "💳 Direct insurance purchase option",
-        "result3": "🎯 Clean layout with multiple CTAs — call-to-action buttons"
+        "result1": "Sub-1-second load time",
+        "result2": "Direct insurance purchase option",
+        "result3": "Clean layout with multiple CTAs — call-to-action buttons"
       },
       "neksus": {
         "title": "Neksus — Computer Service",
         "desc": "Digital transformation of a local business. From an outdated 2012 website to a modern business card with SEO, dark mode and a blog.",
         "label": "Client · Live",
-        "result1": "⚡ 100% static",
-        "result2": "🤖 AI-ready (llms.txt)",
-        "result3": "🌙 Dark mode"
+        "result1": "100% static",
+        "result2": "AI-ready (llms.txt)",
+        "result3": "Dark mode"
       },
       "producktive": {
         "title": "Producktive.pl — \"Nice\" to have you here :)",
         "desc": "My service website, built from scratch as a quality benchmark. Contact form with notifications, PWA (progressive web app working offline), multi-language translations and Lighthouse 95+ performance score.",
         "label": "Personal project",
-        "result1": "⚡ Lighthouse 95+ performance audit",
-        "result2": "🌍 PL/EN translations",
-        "result3": "📱 PWA — progressive web app"
+        "result1": "Lighthouse 95+ performance audit",
+        "result2": "PL/EN translations",
+        "result3": "PWA — progressive web app"
       },
       "zenbarber": {
         "title": "ZenBarber — Hair Salon",
         "desc": "Concept project for a local salon. Online booking, work gallery, Google reviews.",
         "label": "Concept project",
-        "result1": "⚡ Lighthouse 98",
-        "result2": "📱 Mobile-first",
-        "result3": "🔗 Demo available"
+        "result1": "Lighthouse 98",
+        "result2": "Mobile-first",
+        "result3": "Demo available"
       }
     }
   },
@@ -188,7 +188,7 @@
     "subtitle": "I know that entrusting a project to someone requires trust. That's why every step is planned, clear and under your control.",
     "steps": {
       "consultation": {
-        "title": "Free consultation (30 min)",
+        "title": "Free consultation (15 min)",
         "desc": "Tell me about your project. I'll get to know your goals, target audience and expectations. Zero obligations — just a concrete conversation.",
         "bullet1": "Analysis of needs and business goals",
         "bullet2": "Technical verification of the idea",
@@ -228,7 +228,7 @@
     "badge": "Contact",
     "title": "Have a project?",
     "titleHighlight": "Let's talk.",
-    "subtitle": "The first 30-min consultation is free and non-binding. I respond within 24 hours.",
+    "subtitle": "The first 15-min consultation is free and non-binding. I respond within 24 hours.",
     "form": {
       "name": "Full name",
       "namePlaceholder": "John Smith",
@@ -244,7 +244,16 @@
       "submitting": "Sending...",
       "privacy": "Your data is safe. I don't share it with third parties.",
       "required": "*",
-      "comingSoonTooltip": "Available soon"
+      "comingSoonTooltip": "Available soon",
+      "serviceHint": "(you can select multiple)",
+      "attachment": "Attachment",
+      "attachmentHint": "optional · PDF, JPG, PNG, DOC/DOCX · max 5 MB",
+      "attachFile": "Click to attach a file",
+      "fileTooLarge": "File too large. Maximum size: 5 MB",
+      "fileTypeError": "Unsupported format. Allowed: PDF, JPG, PNG, DOC, DOCX",
+      "fileUploadError": "Upload failed. Please try again.",
+      "fileUploaded": "File uploaded successfully",
+      "removeFile": "Remove attachment"
     },
     "services": {
       "website": "Business Website",
@@ -268,7 +277,7 @@
       "serviceRequired": "Please select a service type",
       "budgetRequired": "Please select a budget range",
       "messageMin": "Please describe your project in at least 20 characters",
-      "messageMax": "Message cannot exceed 2000 characters"
+      "messageMax": "Message cannot exceed 5000 characters"
     },
     "success": {
       "title": "Message sent!",
@@ -277,7 +286,7 @@
     "serverError": "Something went wrong. Write directly to kontakt{'@'}producktive.pl",
     "calendar": {
       "title": "Prefer to schedule a call right away?",
-      "desc": "Choose a free slot in the calendar — free 30-min consultation. Zero obligations.",
+      "desc": "Choose a free slot in the calendar — free 15-min consultation. Zero obligations.",
       "cta": "Book a slot →",
       "note": "Confirmation and reminder will be sent automatically to your email"
     },

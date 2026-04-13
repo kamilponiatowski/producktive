@@ -152,6 +152,13 @@ const services = computed(() => [
 
       <!-- Custom project CTA -->
       <div class="mt-8 card-gradient p-6 text-center reveal">
+        <div class="flex justify-center mb-3" aria-hidden="true">
+          <svg class="w-10 h-10 text-brand-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18h6"/>
+            <path d="M10 22h4"/>
+            <path d="M12 2a7 7 0 014 12.73V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.27A7 7 0 0112 2z"/>
+          </svg>
+        </div>
         <p class="text-white font-semibold mb-2">{{ t('services.customTitle') }}</p>
         <p class="text-brand-muted text-sm mb-4">{{ t('services.customDesc') }}</p>
         <a

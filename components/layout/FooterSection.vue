@@ -45,8 +45,12 @@ const navigateToSection = (href: string) => {
           <p class="text-brand-muted text-sm leading-relaxed">
             {{ t('footer.desc') }}
           </p>
-          <p class="text-brand-muted/60 text-xs mt-3 flex items-center gap-1">
-            📍 {{ t('footer.location') }}
+          <p class="text-brand-muted/60 text-xs mt-3 flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-brand-primary/60 shrink-0" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            {{ t('footer.location') }}
           </p>
         </div>
 

@@ -208,7 +208,7 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
 
    supabaseAnonKey: string,
 
-   calendlyUrl: string,
+   calUrl: string,
 
    siteUrl: string,
 

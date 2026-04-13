@@ -3,7 +3,7 @@ import { Server } from 'node:http';
 import { resolve as resolve$1, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getRequestProtocol, getRequestHost, getQuery as getQuery$1, getCookie, setCookie, sanitizeStatusCode, removeResponseHeader, readBody, setHeader, getHeader, getRouterParam, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getResponseStatusText } from 'file://C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getRequestProtocol, getRequestHost, getQuery as getQuery$1, getCookie, setCookie, sanitizeStatusCode, removeResponseHeader, readBody, setHeader, getHeader, getRouterParam, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, readMultipartFormData, getResponseStatusText } from 'file://C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/h3/dist/index.mjs';
 import { escapeHtml } from 'file://C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/@vue/shared/dist/shared.cjs.js';
 import { createClient } from 'file://C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/@supabase/supabase-js/dist/index.mjs';
 import { z } from 'file://C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/zod/index.js';
@@ -695,7 +695,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "supabaseUrl": "",
     "supabaseAnonKey": "",
-    "calendlyUrl": "https://calendly.com",
+    "calUrl": "https://cal.eu/producktive/15min",
     "siteUrl": "https://producktive.pl",
     "nuxt-link-checker": {
       "version": "5.0.8",
@@ -3471,7 +3471,7 @@ var hero$1 = {
 	titleLine3: "na Twój biznes.",
 	subtitle: "Przez lata budowałem systemy dla dużych korporacji. Teraz pomagam {highlight} — tę samą jakość, procesy i podejście dostarczam bez korporacyjnych cen i bez anonimowości.",
 	subtitleHighlight: "małym firmom i freelancerom",
-	ctaPrimary: "Bezpłatna konsultacja 30 min",
+	ctaPrimary: "Bezpłatna konsultacja 15 min",
 	ctaSecondary: "Moje realizacje",
 	proof1: "Odpowiedź w 24h",
 	proof2: "Umowa przed startem",
@@ -3556,33 +3556,33 @@ var portfolio$1 = {
 			title: "Miralive — Agencja Ubezpieczeniowa",
 			desc: "Nowoczesna strona wizytówkowa dla agencji ubezpieczeniowej z Włocławka. Priorytetem była wiarygodność marki osobistej oraz szybka, mobilna strona optymalna pod SEO oraz GEO czyli wyniki wyszukiwania w google oraz optymalizacja pod wyszukiwarki wspomagane przez AI (ChatGPT, Perplexity, Google AI Overviews, Claude itp.)",
 			label: "Klient · Live",
-			result1: "⚡ Szybkość ładowania poniżej 1 sekundy",
-			result2: "💳 Bezpośrednia możliwość zakupu ubezpieczenia",
-			result3: "🎯 Przejrzysta strona z wieloma CTA — przyciskami wzywającymi do akcji"
+			result1: "Szybkość ładowania poniżej 1 sekundy",
+			result2: "Bezpośrednia możliwość zakupu ubezpieczenia",
+			result3: "Przejrzysta strona z wieloma CTA — przyciskami wzywającymi do akcji"
 		},
 		neksus: {
 			title: "Neksus — Serwis komputerowy",
 			desc: "Transformacja cyfrowa lokalnego biznesu. Od przestarzałej strony z 2012 roku do nowoczesnej wizytówki z SEO, dark mode i blogiem.",
 			label: "Klient · Live",
-			result1: "⚡ 100% statyczna",
-			result2: "🤖 AI-ready (llms.txt)",
-			result3: "🌙 Dark mode"
+			result1: "100% statyczna",
+			result2: "AI-ready (llms.txt)",
+			result3: "Dark mode"
 		},
 		producktive: {
 			title: "Producktive.pl — \"Miło\", że tu jesteś :)",
 			desc: "Moja strona usługowa, zbudowana od zera jako wzorzec jakości. Formularz z powiadomieniami, PWA (aplikacja progresywna działająca offline), tłumaczenia na inne języki i szybkość ładowania 95+ w audycie Lighthouse.",
 			label: "Własny projekt",
-			result1: "⚡ Audyt wydajności Lighthouse 95+",
-			result2: "🌍 Tłumaczenia PL/EN",
-			result3: "📱 PWA — aplikacja progresywna"
+			result1: "Audyt wydajności Lighthouse 95+",
+			result2: "Tłumaczenia PL/EN",
+			result3: "PWA — aplikacja progresywna"
 		},
 		zenbarber: {
 			title: "ZenBarber — Salon fryzjerski",
 			desc: "Projekt koncepcyjny dla lokalnego salonu. Rezerwacja online, galeria prac, recenzje Google.",
 			label: "Projekt koncepcyjny",
-			result1: "⚡ Lighthouse 98",
-			result2: "📱 Mobile-first",
-			result3: "🔗 Demo dostępne"
+			result1: "Lighthouse 98",
+			result2: "Mobile-first",
+			result3: "Demo dostępne"
 		}
 	}
 };
@@ -3636,7 +3636,7 @@ var process$2 = {
 	subtitle: "Wiem, że oddanie projektu komuś wymaga zaufania. Dlatego każdy krok jest zaplanowany, jasny i pod Twoją kontrolą.",
 	steps: {
 		consultation: {
-			title: "Bezpłatna konsultacja (30 min)",
+			title: "Bezpłatna konsultacja (15 min)",
 			desc: "Opowiedz mi o swoim projekcie. Poznam Twoje cele, grupę docelową i oczekiwania. Zero zobowiązań — tylko konkretna rozmowa.",
 			bullet1: "Analiza potrzeb i celów biznesowych",
 			bullet2: "Weryfikacja techniczna pomysłu",
@@ -3676,7 +3676,7 @@ var contact$1 = {
 	badge: "Kontakt",
 	title: "Masz projekt?",
 	titleHighlight: "Porozmawiajmy.",
-	subtitle: "Pierwsza konsultacja 30 min jest bezpłatna i niezobowiązująca. Odpowiadam w ciągu 24 godzin.",
+	subtitle: "Pierwsza konsultacja 15 min jest bezpłatna i niezobowiązująca. Odpowiadam w ciągu 24 godzin.",
 	form: {
 		name: "Imię i nazwisko",
 		namePlaceholder: "Jan Kowalski",
@@ -3692,7 +3692,16 @@ var contact$1 = {
 		submitting: "Wysyłanie...",
 		privacy: "Twoje dane są bezpieczne. Nie udostępniam ich osobom trzecim.",
 		required: "*",
-		comingSoonTooltip: "Dostępność wyboru wkrótce"
+		comingSoonTooltip: "Dostępność wyboru wkrótce",
+		serviceHint: "(możesz wybrać kilka)",
+		attachment: "Załącznik",
+		attachmentHint: "opcjonalnie · PDF, JPG, PNG, DOC/DOCX · max 5 MB",
+		attachFile: "Kliknij by załączyć plik",
+		fileTooLarge: "Plik za duży. Maksymalna wielkość: 5 MB",
+		fileTypeError: "Niedozwolony format. Dozwolone: PDF, JPG, PNG, DOC, DOCX",
+		fileUploadError: "Błąd przesyłania. Spróbuj ponownie.",
+		fileUploaded: "Plik przesłany pomyślnie",
+		removeFile: "Usuń załącznik"
 	},
 	services: {
 		website: "Strona wizytówka",
@@ -3716,7 +3725,7 @@ var contact$1 = {
 		serviceRequired: "Wybierz rodzaj usługi",
 		budgetRequired: "Wybierz przedział budżetu",
 		messageMin: "Opisz projekt w co najmniej 20 znakach",
-		messageMax: "Wiadomość nie może przekroczyć 2000 znaków"
+		messageMax: "Wiadomość nie może przekroczyć 5000 znaków"
 	},
 	success: {
 		title: "Wiadomość wysłana!",
@@ -3725,7 +3734,7 @@ var contact$1 = {
 	serverError: "Coś poszło nie tak. Napisz bezpośrednio na kontakt{'@'}producktive.pl",
 	calendar: {
 		title: "Wolisz od razu umówić rozmowę?",
-		desc: "Wybierz wolny termin w kalendarzu — bezpłatna konsultacja 30 min. Zero zobowiązań.",
+		desc: "Wybierz wolny termin w kalendarzu — bezpłatna konsultacja 15 min. Zero zobowiązań.",
 		cta: "Zarezerwuj termin →",
 		note: "Potwierdzenie i przypomnienie przyjdą automatycznie na email"
 	},
@@ -3848,7 +3857,7 @@ var hero = {
 	titleLine3: "for your business.",
 	subtitle: "For years I built systems for large corporations. Now I help {highlight} — delivering the same quality, processes and approach without corporate prices and anonymity.",
 	subtitleHighlight: "small businesses and freelancers",
-	ctaPrimary: "Free 30-min consultation",
+	ctaPrimary: "Free 15-min consultation",
 	ctaSecondary: "My work",
 	proof1: "Response within 24h",
 	proof2: "Contract before start",
@@ -3933,33 +3942,33 @@ var portfolio = {
 			title: "Miralive — Insurance Agency",
 			desc: "A modern business card website for an insurance agency from Włocławek. The priority was personal brand credibility and a fast, mobile-first site optimized for SEO and GEO — Google search results and optimization for AI-powered search engines (ChatGPT, Perplexity, Google AI Overviews, Claude, etc.)",
 			label: "Client · Live",
-			result1: "⚡ Sub-1-second load time",
-			result2: "💳 Direct insurance purchase option",
-			result3: "🎯 Clean layout with multiple CTAs — call-to-action buttons"
+			result1: "Sub-1-second load time",
+			result2: "Direct insurance purchase option",
+			result3: "Clean layout with multiple CTAs — call-to-action buttons"
 		},
 		neksus: {
 			title: "Neksus — Computer Service",
 			desc: "Digital transformation of a local business. From an outdated 2012 website to a modern business card with SEO, dark mode and a blog.",
 			label: "Client · Live",
-			result1: "⚡ 100% static",
-			result2: "🤖 AI-ready (llms.txt)",
-			result3: "🌙 Dark mode"
+			result1: "100% static",
+			result2: "AI-ready (llms.txt)",
+			result3: "Dark mode"
 		},
 		producktive: {
 			title: "Producktive.pl — \"Nice\" to have you here :)",
 			desc: "My service website, built from scratch as a quality benchmark. Contact form with notifications, PWA (progressive web app working offline), multi-language translations and Lighthouse 95+ performance score.",
 			label: "Personal project",
-			result1: "⚡ Lighthouse 95+ performance audit",
-			result2: "🌍 PL/EN translations",
-			result3: "📱 PWA — progressive web app"
+			result1: "Lighthouse 95+ performance audit",
+			result2: "PL/EN translations",
+			result3: "PWA — progressive web app"
 		},
 		zenbarber: {
 			title: "ZenBarber — Hair Salon",
 			desc: "Concept project for a local salon. Online booking, work gallery, Google reviews.",
 			label: "Concept project",
-			result1: "⚡ Lighthouse 98",
-			result2: "📱 Mobile-first",
-			result3: "🔗 Demo available"
+			result1: "Lighthouse 98",
+			result2: "Mobile-first",
+			result3: "Demo available"
 		}
 	}
 };
@@ -4013,7 +4022,7 @@ var process$1 = {
 	subtitle: "I know that entrusting a project to someone requires trust. That's why every step is planned, clear and under your control.",
 	steps: {
 		consultation: {
-			title: "Free consultation (30 min)",
+			title: "Free consultation (15 min)",
 			desc: "Tell me about your project. I'll get to know your goals, target audience and expectations. Zero obligations — just a concrete conversation.",
 			bullet1: "Analysis of needs and business goals",
 			bullet2: "Technical verification of the idea",
@@ -4053,7 +4062,7 @@ var contact = {
 	badge: "Contact",
 	title: "Have a project?",
 	titleHighlight: "Let's talk.",
-	subtitle: "The first 30-min consultation is free and non-binding. I respond within 24 hours.",
+	subtitle: "The first 15-min consultation is free and non-binding. I respond within 24 hours.",
 	form: {
 		name: "Full name",
 		namePlaceholder: "John Smith",
@@ -4069,7 +4078,16 @@ var contact = {
 		submitting: "Sending...",
 		privacy: "Your data is safe. I don't share it with third parties.",
 		required: "*",
-		comingSoonTooltip: "Available soon"
+		comingSoonTooltip: "Available soon",
+		serviceHint: "(you can select multiple)",
+		attachment: "Attachment",
+		attachmentHint: "optional · PDF, JPG, PNG, DOC/DOCX · max 5 MB",
+		attachFile: "Click to attach a file",
+		fileTooLarge: "File too large. Maximum size: 5 MB",
+		fileTypeError: "Unsupported format. Allowed: PDF, JPG, PNG, DOC, DOCX",
+		fileUploadError: "Upload failed. Please try again.",
+		fileUploaded: "File uploaded successfully",
+		removeFile: "Remove attachment"
 	},
 	services: {
 		website: "Business Website",
@@ -4093,7 +4111,7 @@ var contact = {
 		serviceRequired: "Please select a service type",
 		budgetRequired: "Please select a budget range",
 		messageMin: "Please describe your project in at least 20 characters",
-		messageMax: "Message cannot exceed 2000 characters"
+		messageMax: "Message cannot exceed 5000 characters"
 	},
 	success: {
 		title: "Message sent!",
@@ -4102,7 +4120,7 @@ var contact = {
 	serverError: "Something went wrong. Write directly to kontakt{'@'}producktive.pl",
 	calendar: {
 		title: "Prefer to schedule a call right away?",
-		desc: "Choose a free slot in the calendar — free 30-min consultation. Zero obligations.",
+		desc: "Choose a free slot in the calendar — free 15-min consultation. Zero obligations.",
 		cta: "Book a slot →",
 		note: "Confirmation and reminder will be sent automatically to your email"
 	},
@@ -5171,7 +5189,7 @@ const _RIvJzxT6nZhEcCHAegTyCTPxDjV7CUPpnau7KSuhrc = defineNitroPlugin(async (nit
     const localeSegment = detector.route(event.path);
     const pathLocale = isSupportedLocale(localeSegment) && localeSegment || void 0;
     const path = (pathLocale && url.pathname.slice(pathLocale.length + 1)) ?? url.pathname;
-    if (!url.pathname.includes("/_i18n/zhmPVCpJ") && !isExistingNuxtRoute(path)) {
+    if (!url.pathname.includes("/_i18n/29KTxe-1") && !isExistingNuxtRoute(path)) {
       return;
     }
     const resolved = resolveRedirectPath(event, path, pathLocale, ctx.vueI18nOptions.defaultLocale, detector);
@@ -5286,22 +5304,7 @@ _qDQg_HYLRvJUQ61kfTIcYrh1WtqBdDw95QLDjCj8JxI,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"56682-ltn8arnKMbfjLbyLiT83L24X1gQ\"",
-    "mtime": "2026-04-13T12:00:34.163Z",
-    "size": 353922,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"13d323-0J7ZrIboHSKahGAxShhzad37kQA\"",
-    "mtime": "2026-04-13T12:00:34.165Z",
-    "size": 1299235,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -8980,196 +8983,6 @@ const pagePaths = [
     "title": "",
     "link": "/en/sitemap.xml",
     "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/en",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/en/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/en",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/en/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/en",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/en/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/en",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-cookies",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-cookies.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/en/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/en",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/index.vue"
-  },
-  {
-    "title": "",
-    "link": "/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/en/polityka-prywatnosci",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/pages/polityka-prywatnosci.vue"
-  },
-  {
-    "title": "",
-    "link": "/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
-  },
-  {
-    "title": "",
-    "link": "/en/sitemap.xml",
-    "file": "C:/Users/pelac/Desktop/kam-pela/MakeSite/producktive/node_modules/nuxt/dist/pages/runtime/component-stub.js"
   }
 ];
 
@@ -9397,6 +9210,7 @@ const _UqzUbe = lazyEventHandler(() => {
 });
 
 const _lazy_cDnx8G = () => Promise.resolve().then(function () { return contact_post$1; });
+const _lazy_yj_ke8 = () => Promise.resolve().then(function () { return upload_post$1; });
 const _lazy_LHQcUv = () => Promise.resolve().then(function () { return renderer; });
 const _lazy_d_AG3a = () => Promise.resolve().then(function () { return sitemap_index_xml$1; });
 const _lazy_8qrWue = () => Promise.resolve().then(function () { return _sitemap__xml$1; });
@@ -9404,6 +9218,7 @@ const _lazy_8qrWue = () => Promise.resolve().then(function () { return _sitemap_
 const handlers = [
   { route: '', handler: _qMWuef, lazy: false, middleware: true, method: undefined },
   { route: '/api/contact', handler: _lazy_cDnx8G, lazy: true, middleware: false, method: "post" },
+  { route: '/api/upload', handler: _lazy_yj_ke8, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_LHQcUv, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
   { route: '', handler: _PppOHh, lazy: false, middleware: true, method: undefined },
@@ -9740,6 +9555,42 @@ const sources$1 = [
                 ]
             },
             {
+                "loc": "/polityka-cookies",
+                "_sitemap": "pl-PL",
+                "alternatives": [
+                    {
+                        "hreflang": "pl-PL",
+                        "href": "/polityka-cookies"
+                    },
+                    {
+                        "hreflang": "en-US",
+                        "href": "/en/polityka-cookies"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/polityka-cookies"
+                    }
+                ]
+            },
+            {
+                "loc": "/en/polityka-cookies",
+                "_sitemap": "en-US",
+                "alternatives": [
+                    {
+                        "hreflang": "pl-PL",
+                        "href": "/polityka-cookies"
+                    },
+                    {
+                        "hreflang": "en-US",
+                        "href": "/en/polityka-cookies"
+                    },
+                    {
+                        "hreflang": "x-default",
+                        "href": "/polityka-cookies"
+                    }
+                ]
+            },
+            {
                 "loc": "/polityka-prywatnosci",
                 "_sitemap": "pl-PL",
                 "alternatives": [
@@ -9798,10 +9649,14 @@ const childSources = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProper
 const contactSchema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email().max(254),
-  message: z.string().min(10).max(5e3),
+  services: z.array(z.string().max(100)).min(1).max(10),
+  budget: z.string().min(1).max(50),
+  message: z.string().min(20).max(5e3),
+  attachment_url: z.string().url().optional().nullable(),
   honeypot: z.string().max(0).optional()
 });
 const contact_post = defineEventHandler(async (event) => {
+  var _a;
   const config = useRuntimeConfig();
   const body = await readBody(event);
   if (body == null ? void 0 : body.honeypot) {
@@ -9817,12 +9672,15 @@ const contact_post = defineEventHandler(async (event) => {
   }
   const supabase = createClient(
     config.supabaseUrl,
-    config.supabaseAnonKey
+    config.supabaseServiceKey
   );
-  const { error } = await supabase.from("contact_submissions").insert({
+  const { error } = await supabase.from("contact_messages").insert({
     name: result.data.name,
     email: result.data.email,
-    message: result.data.message
+    service: result.data.services.join(", "),
+    budget: result.data.budget,
+    message: result.data.message,
+    attachment_url: (_a = result.data.attachment_url) != null ? _a : null
   });
   if (error) {
     throw createError({
@@ -9836,6 +9694,48 @@ const contact_post = defineEventHandler(async (event) => {
 const contact_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: contact_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const ALLOWED_MIME = /* @__PURE__ */ new Set([
+  "application/pdf",
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+]);
+const MAX_SIZE = 5 * 1024 * 1024;
+const upload_post = defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
+  const parts = await readMultipartFormData(event);
+  if (!parts || parts.length === 0) {
+    throw createError({ statusCode: 400, statusMessage: "No file provided." });
+  }
+  const file = parts.find((p) => p.name === "file");
+  if (!file || !file.filename || !file.data) {
+    throw createError({ statusCode: 400, statusMessage: "Missing file field." });
+  }
+  if (file.data.length > MAX_SIZE) {
+    throw createError({ statusCode: 413, statusMessage: "File too large. Max 5 MB." });
+  }
+  const mime = file.type || "application/octet-stream";
+  if (!ALLOWED_MIME.has(mime)) {
+    throw createError({ statusCode: 415, statusMessage: "Unsupported file type." });
+  }
+  const supabase = createClient(config.supabaseUrl, config.supabaseServiceKey);
+  const safeName = file.filename.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 200);
+  const storagePath = `${Date.now()}-${safeName}`;
+  const { error } = await supabase.storage.from("contact-attachments").upload(storagePath, file.data, { contentType: mime, upsert: false });
+  if (error) {
+    throw createError({ statusCode: 500, statusMessage: "Storage upload failed." });
+  }
+  const { data: { publicUrl } } = supabase.storage.from("contact-attachments").getPublicUrl(storagePath);
+  return { url: publicUrl };
+});
+
+const upload_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: upload_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

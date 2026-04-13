@@ -2,14 +2,14 @@ import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')!
 const NOTIFY_EMAIL   = Deno.env.get('NOTIFY_EMAIL')!    // Twój email
-const CALENDLY_URL   = Deno.env.get('CALENDLY_URL')!    // https://calendly.com/producktive/30min
+const CAL_URL = Deno.env.get('CAL_URL')!    // https://cal.eu/producktive/15min
 
 const budgetLabels: Record<string, string> = {
-  'under-2k': 'do 2 000 zł',
-  '2k-5k':    '2 000 – 5 000 zł',
-  '5k-15k':   '5 000 – 15 000 zł',
-  'over-15k': 'ponad 15 000 zł',
-  'unknown':  'Nie określony',
+  '3k5k':    '3 000 – 5 000 zł',
+  '5k9k':    '5 000 – 9 000 zł',
+  '9k15k':   '9 000 – 15 000 zł',
+  'over15k': 'ponad 15 000 zł',
+  'unknown': 'Nie określony',
 }
 
 serve(async (req) => {
@@ -89,11 +89,11 @@ serve(async (req) => {
                 </a>
               </td>
               <td align="center" style="padding:0 0 0 8px;" width="50%">
-                <a href="${CALENDLY_URL}"
+                <a href="${CAL_URL}"
                    style="display:block;background:#1A1A2E;color:#6C63FF;border:1px solid #6C63FF;
                           padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:600;
                           font-size:14px;text-align:center;">
-                  📅 Twój Calendly
+                  📅 Twój kalendarz
                 </a>
               </td>
             </tr>
@@ -155,11 +155,11 @@ serve(async (req) => {
           <!-- CTA Główny -->
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:32px;">
             <tr><td align="center">
-              <a href="${CALENDLY_URL}"
+              <a href="${CAL_URL}"
                  style="display:inline-block;background:linear-gradient(135deg,#6C63FF,#FF6584);
                         color:white;padding:18px 40px;border-radius:12px;text-decoration:none;
                         font-weight:700;font-size:16px;letter-spacing:0.3px;">
-                📅 Zarezerwuj bezpłatną rozmowę 30 min
+                📅 Zarezerwuj bezpłatną rozmowę 15 min
               </a>
               <div style="color:#8B8BA7;font-size:12px;margin-top:10px;">
                 Wybierz datę i godzinę która Ci odpowiada — potwierdzenie przyjdzie automatycznie
@@ -187,7 +187,7 @@ serve(async (req) => {
                               text-align:center;line-height:28px;font-size:13px;font-weight:700;color:#6C63FF;">2</div>
                 </td>
                 <td style="padding-bottom:16px;padding-left:12px;">
-                  <div style="color:white;font-size:14px;font-weight:600;">Rozmowa 30 min (opcjonalnie)</div>
+                  <div style="color:white;font-size:14px;font-weight:600;">Rozmowa 15 min (opcjonalnie)</div>
                   <div style="color:#8B8BA7;font-size:13px;margin-top:2px;">Poznajemy się, doprecyzowujemy projekt — zero zobowiązań</div>
                 </td>
               </tr>

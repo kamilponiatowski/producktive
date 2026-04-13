@@ -6,6 +6,9 @@ declare module "nitropack/types" {
     '/api/contact': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/contact.post').default>>>>
     }
+    '/api/upload': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/upload.post').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/handlers/renderer').default>>>>
     }
