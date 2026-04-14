@@ -142,6 +142,7 @@
     "badge": "About me",
     "title": "A corporate developer",
     "titleHighlight": "who chose freedom.",
+    "titleHighlightAvatar": "Everything is connected.",
     "paragraph1": "Hi, I'm the creator of {brand}. For several years I built web systems in large corporations — dashboards for tens of thousands of users, B2B portals, applications used daily.",
     "paragraph2": "I learned one important thing there: {highlight}. I decided to change that.",
     "paragraph2Highlight": "small businesses need the same quality as corporations, but don't have access to such resources",

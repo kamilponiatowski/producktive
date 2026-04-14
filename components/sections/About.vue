@@ -80,7 +80,7 @@ const values = [
                 Kamil Poniatowski
               </p>
               <p class="text-brand-muted text-sm">
-                {{ t('about.titleHighlight') }}
+                {{ t('about.titleHighlightAvatar') }}
               </p>
             </div>
           </div>
