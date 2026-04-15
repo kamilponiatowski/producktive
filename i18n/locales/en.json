@@ -10,8 +10,10 @@
     "portfolio": "Portfolio",
     "about": "About",
     "process": "Process",
-    "community": "1-All-1",
+    "community": "One-4-All",
     "cta": "Let's talk",
+    "knowledge": "Knowledge",
+    "collaboration": "Collaboration",
     "skipToContent": "Skip to content",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu"
@@ -315,7 +317,7 @@
     "badge": "Producktive Network",
     "title": "One for all,",
     "titleHighlight": "all for one.",
-    "subtitle": "Every Producktive client can join \"1-All-1\" — a network of entrepreneurs who support each other — with priority service, preferential rates, and collaborations beyond standard market norms.",
+    "subtitle": "Every Producktive client can join \"One-4-All\" — a network of entrepreneurs who support each other — with priority service, preferential rates, and collaborations beyond standard market norms.",
     "networkTitle": "What does the network give you?",
     "benefit1Title": "Priority access",
     "benefit1Desc": "Producktive clients serve each other ahead of the queue — faster and with a better approach.",
@@ -368,5 +370,34 @@
     "scrollDown": "Scroll down",
     "languageSwitch": "Change language",
     "currentLanguage": "Current language: {lang}"
+  },
+  "home": {
+    "subtitle": "Websites, digital products and technical knowledge – all in one place.",
+    "knowledgeTitle": "Knowledge",
+    "knowledgeDesc": "Technical articles, tutorials and educational series. Currently: Pinia from A to Z – a complete Vue state management course.",
+    "knowledgeCta": "Browse materials →",
+    "collabTitle": "Collaboration",
+    "collabDesc": "I build modern websites and digital products for small businesses. Check my offer, portfolio and book a free consultation.",
+    "collabCta": "Learn more →"
+  },
+  "knowledge": {
+    "badge": "Knowledge",
+    "title": "Learn ",
+    "titleHighlight": "step by step",
+    "subtitle": "Educational series and technical articles – simple, concrete and with a sense of humor.",
+    "metaDescription": "Producktive knowledge base – Vue, Pinia, Nuxt tutorials and more.",
+    "posts": "materials",
+    "progress": "Progress",
+    "startLearning": "Start learning →",
+    "continueLearning": "Continue learning →",
+    "backToKnowledge": "← Back to knowledge base",
+    "markAsRead": "Mark as read",
+    "markAsUnread": "Mark as unread",
+    "markAsReadCta": "Got it, let's move on",
+    "readyToContinue": "Ready for the next step?",
+    "alreadyRead": "You've already completed this one! 🎉",
+    "prevPost": "← Previous",
+    "nextPost": "Next →",
+    "postNavigation": "Post navigation"
   }
 }

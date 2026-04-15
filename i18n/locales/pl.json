@@ -10,8 +10,10 @@
     "portfolio": "Realizacje",
     "about": "O mnie",
     "process": "Proces",
-    "community": "1-All-1",
+    "community": "One-4-All",
     "cta": "Porozmawiajmy",
+    "knowledge": "Wiedza",
+    "collaboration": "Współpraca",
     "skipToContent": "Przejdź do treści",
     "openMenu": "Otwórz menu nawigacji",
     "closeMenu": "Zamknij menu nawigacji"
@@ -315,7 +317,7 @@
     "badge": "Sieć Producktive",
     "title": "Jeden za wszystkich,",
     "titleHighlight": "wszyscy za jednego.",
-    "subtitle": "Każdy klient Producktive ma możliwość dołączenia do \"1-All-1\" — czyli dołącza do sieci przedsiębiorców, którzy wzajemnie sobie pomagają — priorytetowo, na atrakcyjnych warunkach, często poza standardowymi schematami.",
+    "subtitle": "Każdy klient Producktive ma możliwość dołączenia do \"One-4-All\" — czyli dołącza do sieci przedsiębiorców, którzy wzajemnie sobie pomagają — priorytetowo, na atrakcyjnych warunkach, często poza standardowymi schematami.",
     "networkTitle": "Co daje Ci sieć?",
     "benefit1Title": "Priorytetowy dostęp",
     "benefit1Desc": "Klienci Producktive obsługują się wzajemnie poza kolejką — szybciej i z lepszym podejściem.",
@@ -368,5 +370,34 @@
     "scrollDown": "Przewiń w dół",
     "languageSwitch": "Zmień język",
     "currentLanguage": "Aktualny język: {lang}"
+  },
+  "home": {
+    "subtitle": "Strony, produkty cyfrowe i wiedza techniczna – wszystko w jednym miejscu.",
+    "knowledgeTitle": "Wiedza",
+    "knowledgeDesc": "Artykuły techniczne, tutoriale i serie edukacyjne. Aktualnie: Pinia od A do Z – kompletny kurs zarządzania stanem w Vue.",
+    "knowledgeCta": "Przeglądaj materiały →",
+    "collabTitle": "Współpraca",
+    "collabDesc": "Tworzę nowoczesne strony internetowe i produkty cyfrowe dla małych firm. Sprawdź moją ofertę, realizacje i umów się na bezpłatną konsultację.",
+    "collabCta": "Dowiedz się więcej →"
+  },
+  "knowledge": {
+    "badge": "Wiedza",
+    "title": "Ucz się ",
+    "titleHighlight": "krok po kroku",
+    "subtitle": "Serie edukacyjne i artykuły techniczne – prosto, konkretnie i z humorem.",
+    "metaDescription": "Baza wiedzy Producktive – tutoriale Vue, Pinia, Nuxt i więcej.",
+    "posts": "materiałów",
+    "progress": "Postęp",
+    "startLearning": "Zacznij naukę →",
+    "continueLearning": "Kontynuuj naukę →",
+    "backToKnowledge": "← Wróć do bazy wiedzy",
+    "markAsRead": "Oznacz jako przeczytany",
+    "markAsUnread": "Oznacz jako nieprzeczytany",
+    "markAsReadCta": "Materiał pochłonięty, idę dalej",
+    "readyToContinue": "Gotowy na następny krok?",
+    "alreadyRead": "Ten materiał już pochłonąłeś! 🎉",
+    "prevPost": "← Poprzedni",
+    "nextPost": "Następny →",
+    "postNavigation": "Nawigacja między materiałami"
   }
 }

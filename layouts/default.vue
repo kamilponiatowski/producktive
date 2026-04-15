@@ -1,23 +1,37 @@
 <script setup lang="ts">
-import { onMounted, nextTick } from 'vue'
-
 const { t } = useI18n()
+const router = useRouter()
 
-onMounted(async () => {
-  await nextTick()
+let currentObserver: IntersectionObserver | null = null
 
-  // ── Scroll reveal (respects prefers-reduced-motion) ──────
-  const observer = new IntersectionObserver(
+function setupRevealObserver() {
+  currentObserver?.disconnect()
+  currentObserver = new IntersectionObserver(
     (entries) =>
       entries.forEach((e) => {
         if (e.isIntersecting) {
           e.target.classList.add('visible')
-          observer.unobserve(e.target)
+          currentObserver?.unobserve(e.target)
         }
       }),
     { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
   )
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+  document.querySelectorAll('.reveal:not(.visible)').forEach((el) => currentObserver!.observe(el))
+}
+
+onMounted(async () => {
+  await nextTick()
+  setupRevealObserver()
+})
+
+onUnmounted(() => {
+  currentObserver?.disconnect()
+  currentObserver = null
+})
+
+router.afterEach(async () => {
+  await nextTick()
+  requestAnimationFrame(() => requestAnimationFrame(setupRevealObserver))
 })
 </script>
 

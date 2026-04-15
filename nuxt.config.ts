@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': { prerender: true },
     '/api/**': { prerender: false },
+    '/wiedza/**': { prerender: false, ssr: true },
   },
   modules: [
     '@nuxtjs/tailwindcss',
@@ -47,6 +48,7 @@ export default defineNuxtConfig({
       supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY || '',
       calUrl: process.env.NUXT_PUBLIC_CAL_URL || 'https://cal.eu/producktive/15min',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://producktive.pl',
+      directusUrl: process.env.NUXT_PUBLIC_DIRECTUS_URL || '',
     },
   },
 

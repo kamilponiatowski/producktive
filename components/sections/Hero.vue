@@ -2,7 +2,7 @@
 import producktiveGlass from '~/assets/producktive-glass.png'
 const { t } = useI18n()
 
-const scrollToAbout = () => {
+function scrollToAbout() {
   const el = document.getElementById('o-mnie')
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' })
@@ -14,7 +14,7 @@ const scrollToAbout = () => {
 <template>
   <section
     id="hero"
-    class="relative min-h-screen flex items-center pt-16 overflow-hidden"
+    class="relative min-h-dvh flex flex-col pt-16 overflow-hidden"
     aria-labelledby="hero-heading"
   >
     <!-- Glow orbs -->
@@ -38,7 +38,7 @@ const scrollToAbout = () => {
       aria-hidden="true"
     />
 
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 sm:py-24 w-full flex-1 flex items-center">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <!-- Left: Content -->
         <div class="flex flex-col gap-6">
@@ -197,7 +197,7 @@ const scrollToAbout = () => {
 
     <!-- Scroll indicator -->
     <button
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-muted text-xs motion-safe:animate-bounce cursor-pointer hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg p-1"
+      class="relative z-10 mb-6 self-center flex flex-col items-center gap-2 text-brand-muted text-xs motion-safe:animate-bounce cursor-pointer hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-lg p-2"
       :aria-label="t('a11y.scrollDown')"
       @click="scrollToAbout"
     >

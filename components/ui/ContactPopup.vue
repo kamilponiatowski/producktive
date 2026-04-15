@@ -55,7 +55,7 @@ const handleSubmit = async () => {
       body: {
         name: 'Popup',
         email: 'popup@popup.pl',
-        service: 'other',
+        services: ['other'],
         budget: 'unknown',
         message: `Numer telefonu z popupu: ${phone.value}`,
         honeypot: '',

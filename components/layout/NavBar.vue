@@ -1,10 +1,32 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const route = useRoute()
+const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 
 const isScrolled = ref(false)
 const isMobileOpen = ref(false)
 
-const navLinks = computed(() => [
+const isHomePage = computed(() => {
+  const path = route.path.replace(/\/$/, '') || '/'
+  return path === '/' || path === '/en'
+})
+
+const isKnowledgePage = computed(() => route.path.includes('/wiedza'))
+
+// Context links — always show both navigation targets
+const contextLinks = computed(() => {
+  const links = []
+  if (!isKnowledgePage.value) {
+    links.push({ to: localePath('/wiedza'), label: t('nav.knowledge') })
+  }
+  if (!isHomePage.value) {
+    links.push({ to: localePath('/'), label: t('nav.collaboration') })
+  }
+  return links
+})
+
+const sectionLinks = computed(() => [
   { href: '#o-mnie', label: t('nav.about') },
   { href: '#uslugi', label: t('nav.services') },
   { href: '#proces', label: t('nav.process') },
@@ -13,55 +35,48 @@ const navLinks = computed(() => [
 ])
 
 const availableLocales = computed(() => {
-  const all = [
+  const all: { code: 'pl' | 'en'; name: string }[] = [
     { code: 'pl', name: 'Polski' },
     { code: 'en', name: 'English' },
   ]
   return all.filter((l) => l.code !== locale.value)
 })
 
-const handleScroll = () => {
+function handleScroll() {
   isScrolled.value = window.scrollY > 40
 }
 
 onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
-const scrollTo = (href: string) => {
+function scrollTo(href: string) {
   isMobileOpen.value = false
-  const route = useRoute()
-  const isHome = route.path === '/' || route.path === '' || route.path === '/en' || route.path === '/en/'
 
   if (href === '#') {
-    if (isHome) {
+    if (isHomePage.value) {
       const scrollingToTop = useState<boolean>('scrollingToTop')
       scrollingToTop.value = true
       window.scrollTo({ top: 0, behavior: 'smooth' })
       history.replaceState(null, '', window.location.pathname)
       setTimeout(() => { scrollingToTop.value = false }, 1200)
     } else {
-      navigateTo('/')
+      navigateTo(localePath('/'))
     }
     return
   }
 
-  if (isHome) {
+  if (isHomePage.value) {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
     history.replaceState(null, '', href)
   } else {
-    navigateTo(`/${href}`)
+    navigateTo(localePath(`/${href}`))
   }
 }
 
-const switchLocale = (code: string) => {
-  const currentHash = window.location.hash
-  // Set i18n cookie so detectBrowserLanguage doesn't immediately redirect back
-  document.cookie = `i18n_lang=${code}; path=/; max-age=63072000; SameSite=Lax`
-  if (code === 'en') {
-    window.location.href = '/en' + currentHash
-  } else {
-    window.location.href = '/' + currentHash
-  }
+function switchLocale(code: 'pl' | 'en') {
+  // Full page reload on locale switch to avoid stale content
+  document.cookie = `i18n_lang=${code}; path=/; max-age=63072000; SameSite=Lax; Secure`
+  window.location.href = switchLocalePath(code)
 }
 </script>
 
@@ -77,43 +92,58 @@ const switchLocale = (code: string) => {
   >
     <nav
       class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
-      :aria-label="t('nav.services')"
+      aria-label="Main navigation"
     >
-      <!-- Logo -->
-      <a
-        href="#"
-        class="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-lg"
-        :aria-label="t('a11y.logo')"
-        @click.prevent="scrollTo('#')"
-      >
-        <div
-          class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center font-bold text-white text-sm font-mono"
-          aria-hidden="true"
+      <!-- Logo + context links -->
+      <div class="flex items-center gap-3">
+        <NuxtLink
+          :to="localePath('/')"
+          class="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-lg"
+          :aria-label="t('a11y.logo')"
         >
-          P
-        </div>
-        <span
-          class="font-display font-bold text-lg text-white group-hover:text-gradient transition-all"
+          <div
+            class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center font-bold text-white text-sm font-mono"
+            aria-hidden="true"
+          >
+            P
+          </div>
+          <span
+            class="font-display font-bold text-lg text-white group-hover:text-gradient transition-all"
+          >
+            Producktive
+          </span>
+        </NuxtLink>
+
+        <!-- Context links: always visible -->
+        <NuxtLink
+          v-for="link in contextLinks"
+          :key="link.to"
+          :to="link.to"
+          class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors px-2 py-1 rounded border border-white/10 hover:border-brand-primary/30"
         >
-          Producktive
-        </span>
-      </a>
+          {{ link.label }}
+        </NuxtLink>
+      </div>
 
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-1" role="navigation">
-        <button
-          v-for="link in navLinks"
-          :key="link.href"
-          class="btn-ghost focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-lg"
-          @click="scrollTo(link.href)"
-        >
-          {{ link.label }}
-        </button>
+        <!-- Section-based nav (only on homepage) -->
+        <template v-if="isHomePage">
+          <button
+            v-for="link in sectionLinks"
+            :key="link.href"
+            class="btn-ghost focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark rounded-lg"
+            @click="scrollTo(link.href)"
+          >
+            {{ link.label }}
+          </button>
+        </template>
       </div>
 
       <div class="hidden md:flex items-center gap-3">
         <!-- Desktop CTA -->
         <button
+          v-if="isHomePage"
           class="btn-primary text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
           @click="scrollTo('#kontakt')"
         >
@@ -146,7 +176,7 @@ const switchLocale = (code: string) => {
         </button>
       </div>
 
-      <!-- Mobile hamburger -->
+      <!-- Mobile controls -->
       <div class="md:hidden flex items-center gap-2">
         <!-- Mobile language -->
         <button
@@ -191,20 +221,23 @@ const switchLocale = (code: string) => {
         role="navigation"
       >
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2">
-          <button
-            v-for="link in navLinks"
-            :key="link.href"
-            class="text-left px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-            @click="scrollTo(link.href)"
-          >
-            {{ link.label }}
-          </button>
-          <button
-            class="btn-primary mt-2 justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            @click="scrollTo('#kontakt')"
-          >
-            {{ t('nav.cta') }} →
-          </button>
+          <!-- Section links (homepage) -->
+          <template v-if="isHomePage">
+            <button
+              v-for="link in sectionLinks"
+              :key="link.href"
+              class="text-left px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+              @click="scrollTo(link.href)"
+            >
+              {{ link.label }}
+            </button>
+            <button
+              class="btn-primary mt-2 justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              @click="scrollTo('#kontakt')"
+            >
+              {{ t('nav.cta') }} →
+            </button>
+          </template>
         </div>
       </div>
     </Transition>
