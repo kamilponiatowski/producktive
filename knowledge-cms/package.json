@@ -1,0 +1,19 @@
+{
+  "name": "knowledge-cms",
+  "version": "1.0.0",
+  "description": "Directus CMS + Supabase PostgreSQL backend for producktive",
+  "scripts": {
+    "start": "npx directus start",
+    "bootstrap": "npx directus bootstrap",
+    "dev": "npx directus start",
+    "seed": "npx directus schema apply ./snapshots/latest.yaml --yes",
+    "snapshot": "npx directus schema snapshot ./snapshots/latest.yaml --yes"
+  },
+  "keywords": ["directus", "cms", "supabase"],
+  "author": "producktive",
+  "license": "ISC",
+  "dependencies": {
+    "directus": "^11.17.3",
+    "pg": "^8.20.0"
+  }
+}

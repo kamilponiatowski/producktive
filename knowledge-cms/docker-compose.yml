@@ -1,0 +1,17 @@
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./snapshots:/directus/snapshots
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8055/server/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

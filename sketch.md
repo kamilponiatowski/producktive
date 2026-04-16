@@ -15,6 +15,13 @@
 - zmień formularz tak by użytkownik mógł wybrac kilka opcji tego czego potrzebuje np. Strana wizytówka + Landing Page
 - zmień limit znaków na 5000 i daj funkcjonalność do przesyłania załączników - dostosuj też wszystko co jest do tego potrzebne jak baza danych supabase czy potrzebne sql query czy edge functions którę powiniennem dodać w supabase,
 
+===
+- Aktualny projekt jest pod adresem '/' czyli startowa strona dla https://producktive.pl, czeka nas spora zmiana. Chcę by na stronie głównej były na razie dwa kafelki blog i współpraca. Pamiętaj w całym projekcie o dobrych praktykach i wzorcach programowania, ponieważ będzie to projekt wizytówka do CV i rozmów kwalifikacyjnych. Pamiętaj o dostępności, CEO, schema.org i tłumaczeniach. Nacis na UX i spójny design.
+- w blog chce stworzyć serię postów "Pinia od A do Z", użytkownik będzie widział wiele kafelków od początkowych tematów do zaawansowanych oraz będzie miał możliwość kliknięcia w przycisk w kafelku (bardziej kółko/checkbox) które będzie odpowiadało za oznaczenie posta jako przeczytany i zrozumiany - ta funkcjonalność powinna być też dostępna pod postem jako "Materiał pochłonięty, idę dale" i wtedy użytkownik będzie miał odznaczony post i będzie on widoczny jako wyszażony na głównym widoku serii i przejdzie do kolejnego posta by zaznajomić się z wiedzą,
+- podczas tego tworzenie chcę użyć directus jako CMS dla tych artykułów, mam przygotowane wstępne instrukcje, ale CHCĘ byś podejmował własne dobre decyzję przy projektowaniu dlatego przejrzyj materiał #directus-posts-pinia.md czy #directus-nuxt-guide.md Podczas tej pracy chce się nauczyć z niego korzystać także zostaw mi pod koniec plik z przewodnikiem jak i co mam robić by się nauczyć tym zarządzać,
+- meteriały które myślałem użyć są w pinia_post.md na górze jest spis treści, myślałem by z każdego odnośnika stworzyć mały post dzięki czemu uczeń będzie mógł szybko wrócić do materiałów i nie będzie przytłoczony ilością tekstu od razu. Piszę posty w stylu z pliku #prompt-Maj-Stajla.md,
+- przeanalizuj wszystko, ułóż w całość i wykonaj pracę pamiętając o początkowych założeniach,
+
 
 feat: migration to cal.eu, Guarantee temporarily hidden, fix post contact
 # Uporządkowana lista zadań (po polsku)

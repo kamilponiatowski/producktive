@@ -1,0 +1,14 @@
+# Environment variables (zawiera hasła!)
+.env
+
+# Node
+node_modules/
+
+# Directus
+uploads/
+database/
+extensions/.registry/
+
+# OS
+.DS_Store
+Thumbs.db
