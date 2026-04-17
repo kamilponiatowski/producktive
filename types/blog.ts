@@ -1,5 +1,13 @@
+export interface BlogCategory {
+  id: string
+  slug: string
+  name: string
+  nameEn: string
+  emoji: string
+}
+
 export interface BlogPost {
-  id: number
+  id: number | string
   slug: string
   title: string
   titleEn?: string

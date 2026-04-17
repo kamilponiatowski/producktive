@@ -26,6 +26,7 @@ const postIsRead = computed(() => isRead(postSlug))
 const postTitle = computed(() => locale.value === 'en' && post.titleEn ? post.titleEn : post.title)
 const postExcerpt = computed(() => locale.value === 'en' && post.excerptEn ? post.excerptEn : post.excerpt)
 const postSeriesName = computed(() => locale.value === 'en' && post.seriesNameEn ? post.seriesNameEn : post.seriesName)
+const postContent = computed(() => locale.value === 'en' && post.contentEn ? post.contentEn : post.content)
 
 function handleMarkAsRead() {
   markAsRead(postSlug)
@@ -94,7 +95,7 @@ useSchemaOrg([
         <p class="mt-3 text-lg text-brand-muted">{{ postExcerpt }}</p>
       </header>
 
-      <BlogMarkdownContent :content="post.content" />
+      <BlogMarkdownContent :content="postContent" />
 
       <div class="mt-12 border-t border-white/10 pt-8">
         <div class="flex flex-col items-center gap-4 rounded-2xl bg-brand-card p-6 text-center">

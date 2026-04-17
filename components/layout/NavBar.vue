@@ -12,18 +12,9 @@ const isHomePage = computed(() => {
   return path === '/' || path === '/en'
 })
 
-const isKnowledgePage = computed(() => route.path.includes('/wiedza'))
-
-// Context links — always show both navigation targets
-const contextLinks = computed(() => {
-  const links = []
-  if (!isKnowledgePage.value) {
-    links.push({ to: localePath('/wiedza'), label: t('nav.knowledge') })
-  }
-  if (!isHomePage.value) {
-    links.push({ to: localePath('/'), label: t('nav.collaboration') })
-  }
-  return links
+const isKnowledgePage = computed(() => {
+  const path = route.path.replace(/\/$/, '') || '/'
+  return path === '/wiedza' || path === '/en/wiedza'
 })
 
 const sectionLinks = computed(() => [
@@ -114,14 +105,22 @@ function switchLocale(code: 'pl' | 'en') {
           </span>
         </NuxtLink>
 
-        <!-- Context links: always visible -->
+        <!-- Context links: conditional, v-show avoids SSR mismatch -->
+        <!-- Link do Wiedza: widoczny tylko na stronie głównej -->
         <NuxtLink
-          v-for="link in contextLinks"
-          :key="link.to"
-          :to="link.to"
+          v-if="isHomePage"
+          :to="localePath('/wiedza')"
           class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors px-2 py-1 rounded border border-white/10 hover:border-brand-primary/30"
         >
-          {{ link.label }}
+          {{ t('nav.knowledge') }}
+        </NuxtLink>
+        <!-- Link do Współpraca: widoczny tylko na stronie wiedza -->
+        <NuxtLink
+          v-if="isKnowledgePage"
+          :to="localePath('/')"
+          class="text-xs font-mono text-brand-muted hover:text-brand-primary transition-colors px-2 py-1 rounded border border-white/10 hover:border-brand-primary/30"
+        >
+          {{ t('nav.collaboration') }}
         </NuxtLink>
       </div>
 
@@ -221,6 +220,26 @@ function switchLocale(code: 'pl' | 'en') {
         role="navigation"
       >
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2">
+          <!-- Context links: conditional -->
+          <!-- Link do Wiedza: widoczny tylko na stronie głównej -->
+          <NuxtLink
+            v-if="isHomePage"
+            :to="localePath('/wiedza')"
+            class="px-4 py-3 rounded-xl transition-colors text-white/80 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+            @click="isMobileOpen = false"
+          >
+            {{ t('nav.knowledge') }}
+          </NuxtLink>
+          <!-- Link do Współpraca: widoczny tylko na stronie wiedza -->
+          <NuxtLink
+            v-if="isKnowledgePage"
+            :to="localePath('/')"
+            class="px-4 py-3 rounded-xl transition-colors text-white/80 hover:text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+            @click="isMobileOpen = false"
+          >
+            {{ t('nav.collaboration') }}
+          </NuxtLink>
+
           <!-- Section links (homepage) -->
           <template v-if="isHomePage">
             <button

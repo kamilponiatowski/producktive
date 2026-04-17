@@ -93,6 +93,7 @@ useSchemaOrg([
           :post="post"
           :series-slug="seriesSlug"
           :is-read="isRead(post.slug)"
+          :total-posts="posts.length"
           @toggle-read="toggleRead"
         />
       </div>

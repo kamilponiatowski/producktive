@@ -5,6 +5,7 @@ const props = defineProps<{
   post: BlogPost
   seriesSlug: string
   isRead: boolean
+  totalPosts?: number
 }>()
 
 const emit = defineEmits<{
@@ -56,7 +57,7 @@ const localePath = useLocalePath()
       <!-- Emoji + sort order -->
       <div class="mb-1 flex items-center gap-3">
         <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary/10 text-2xl text-brand-primary" aria-hidden="true">{{ post.emoji }}</span>
-        <span class="badge text-[10px]">{{ post.sortOrder }}/12</span>
+        <span class="badge text-[10px]">{{ post.sortOrder }}/{{ totalPosts ?? '?' }}</span>
       </div>
 
       <!-- Reading time -->
