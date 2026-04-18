@@ -36,6 +36,7 @@ export interface BlogSeries {
   descriptionEn: string
   emoji: string
   category: string
+  subcategory?: string
   totalPosts: number
   coverColor: string
 }

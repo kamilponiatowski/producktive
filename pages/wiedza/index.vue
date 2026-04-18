@@ -1,36 +1,73 @@
+
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+import type { BlogSeries } from '~/types/blog'
+
 const { t, locale } = useI18n()
 const { fetchSeries, fetchSeriesPostSlugs, fetchCategories } = useDirectus()
 const { getSeriesProgress, getReadCount } = useReadProgress()
 
-const [series, postSlugsBySeries, categories] = await Promise.all([
+const [allSeries, postSlugsBySeries, categories] = await Promise.all([
   fetchSeries(),
   fetchSeriesPostSlugs(),
   fetchCategories(),
 ])
 
-// Categories that have at least one matching series
-const categoriesWithSeries = computed(() =>
-  categories
-    .map(cat => ({
-      ...cat,
-      displayName: locale.value === 'en' ? cat.nameEn : cat.name,
-      seriesList: series.filter(s => s.category === cat.slug),
-    }))
-    .filter(cat => cat.seriesList.length > 0),
-)
+// ---------------------------------------------------------------------------
+// Category → subcategory → series hierarchy
+// ---------------------------------------------------------------------------
 
-// Series whose category doesn't match any Directus category (e.g. hardcoded with category:'vue')
-const knownCategorySlugs = computed(() => new Set(categories.map(c => c.slug)))
-const standaloneSeries = computed(() =>
-  series.filter(s => !knownCategorySlugs.value.has(s.category)),
-)
+interface SubcategoryGroup {
+  label: string
+  seriesList: BlogSeries[]
+}
+
+interface CategorySection {
+  slug: string
+  displayName: string
+  emoji: string
+  subcategories: SubcategoryGroup[]
+}
+
+const categorySections = computed<CategorySection[]>(() => {
+  return categories
+    .map(cat => {
+      const matchingSeries = allSeries.filter(s => s.category === cat.slug)
+      if (!matchingSeries.length) return null
+
+      // Group series by subcategory (e.g. "vue", "nuxt")
+      const grouped = new Map<string, BlogSeries[]>()
+      for (const s of matchingSeries) {
+        const key = s.subcategory || ''
+        const list = grouped.get(key) ?? []
+        list.push(s)
+        grouped.set(key, list)
+      }
+
+      const subcategories: SubcategoryGroup[] = [...grouped.entries()].map(([label, seriesList]) => ({
+        label,
+        seriesList,
+      }))
+
+      return {
+        slug: cat.slug,
+        displayName: locale.value === 'en' ? cat.nameEn : cat.name,
+        emoji: cat.emoji,
+        subcategories,
+      } satisfies CategorySection
+    })
+    .filter((cat): cat is CategorySection => cat !== null)
+})
+
+// Series that don't belong to any known category (safety net)
+const uncategorizedSeries = computed(() => {
+  const knownSlugs = new Set(categories.map(c => c.slug))
+  return allSeries.filter(s => !knownSlugs.has(s.category))
+})
 
 useHead({
   title: `${t('nav.knowledge')} | Producktive`,
-  meta: [
-    { name: 'description', content: t('knowledge.metaDescription') },
-  ],
+  meta: [{ name: 'description', content: t('knowledge.metaDescription') }],
 })
 
 useSchemaOrg([
@@ -47,6 +84,7 @@ useSchemaOrg([
 <template>
   <div class="min-h-[80vh] px-4 py-20 md:px-8">
     <div class="mx-auto max-w-5xl">
+      <!-- Page header -->
       <header class="mb-12 text-center">
         <span class="badge mb-4">{{ t('knowledge.badge') }}</span>
         <h1 class="section-title mb-4">
@@ -58,30 +96,39 @@ useSchemaOrg([
         </p>
       </header>
 
-      <!-- Categorized series (from Directus) -->
-      <template v-for="cat in categoriesWithSeries" :key="cat.slug">
-        <section class="mb-12">
-          <div class="mb-6 flex items-center gap-3">
-            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-primary/10 text-2xl" aria-hidden="true">{{ cat.emoji }}</span>
-            <h2 class="text-xl font-display font-bold text-white">{{ cat.displayName }}</h2>
-          </div>
+      <!-- Category sections -->
+      <section v-for="cat in categorySections" :key="cat.slug" class="mb-12">
+        <!-- Category heading -->
+        <div class="mb-6 flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-primary/10 text-2xl" aria-hidden="true">{{ cat.emoji }}</span>
+          <h2 class="text-xl font-display font-bold text-white">{{ cat.displayName }}</h2>
+        </div>
+
+        <!-- Subcategory groups within category -->
+        <div v-for="sub in cat.subcategories" :key="sub.label" class="mb-8 last:mb-0">
+          <h3 v-if="sub.label" class="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brand-muted">
+            <span class="h-px flex-1 bg-white/10" />
+            <span>{{ sub.label }}</span>
+            <span class="h-px flex-1 bg-white/10" />
+          </h3>
+
           <div class="grid gap-6 md:grid-cols-2">
             <BlogSeriesCard
-              v-for="s in cat.seriesList"
+              v-for="s in sub.seriesList"
               :key="s.slug"
               :series="s"
               :progress="getSeriesProgress(postSlugsBySeries[s.slug] || [])"
               :read-count="getReadCount(postSlugsBySeries[s.slug] || [])"
             />
           </div>
-        </section>
-      </template>
+        </div>
+      </section>
 
-      <!-- Standalone series (no matching Directus category) -->
-      <div v-if="standaloneSeries.length" :class="categoriesWithSeries.length ? 'mt-4 pt-8 border-t border-white/10' : ''">
+      <!-- Uncategorized series (fallback) -->
+      <div v-if="uncategorizedSeries.length" class="mt-4 border-t border-white/10 pt-8">
         <div class="grid gap-6 md:grid-cols-2">
           <BlogSeriesCard
-            v-for="s in standaloneSeries"
+            v-for="s in uncategorizedSeries"
             :key="s.slug"
             :series="s"
             :progress="getSeriesProgress(postSlugsBySeries[s.slug] || [])"

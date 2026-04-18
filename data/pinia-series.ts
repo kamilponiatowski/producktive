@@ -1,4 +1,22 @@
-import type { BlogPost, BlogSeries } from '~/types/blog'
+import type { BlogPost, BlogSeries, BlogCategory } from '~/types/blog'
+
+// ---------------------------------------------------------------------------
+// Static fallback categories (used when Directus is not available)
+// ---------------------------------------------------------------------------
+
+export const FALLBACK_CATEGORIES: BlogCategory[] = [
+  {
+    id: 'technical',
+    slug: 'technical',
+    name: 'Techniczne',
+    nameEn: 'Technical',
+    emoji: '⚙️',
+  },
+]
+
+// ---------------------------------------------------------------------------
+// Static fallback series
+// ---------------------------------------------------------------------------
 
 export const piniaSeries: BlogSeries = {
   slug: 'pinia-od-a-do-z',
@@ -7,7 +25,8 @@ export const piniaSeries: BlogSeries = {
   description: 'Kompletny kurs zarządzania stanem w Vue z Pinią – od instalacji po zaawansowane wzorce. Uczy się lepiej krok po kroku!',
   descriptionEn: 'Complete Vue state management course with Pinia – from installation to advanced patterns. Learning step by step!',
   emoji: '🍍',
-  category: 'vue',
+  category: 'technical',
+  subcategory: 'vue',
   totalPosts: 12,
   coverColor: 'from-emerald-500/20 to-cyan-500/20',
 }

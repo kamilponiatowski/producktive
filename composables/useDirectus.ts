@@ -1,19 +1,35 @@
 import type { BlogPost, BlogSeries, BlogCategory } from '~/types/blog'
-import { piniaSeries, piniaPostsData } from '~/data/pinia-series'
+import { piniaSeries, piniaPostsData, FALLBACK_CATEGORIES } from '~/data/pinia-series'
 
 export function useDirectus() {
   const config = useRuntimeConfig()
   const directusUrl = config.public.directusUrl as string | undefined
 
-  const isDirectusConfigured = computed(() => Boolean(directusUrl))
-
   // ---------------------------------------------------------------------------
   // Helpers
   // ---------------------------------------------------------------------------
 
-  function getTr(translations: any[] | undefined, lang: string): Record<string, string> {
+  function getTranslation(translations: any[] | undefined, lang: string): Record<string, string> {
     if (!translations?.length) return {}
     return translations.find((t: any) => t.languages_code === lang) || translations[0] || {}
+  }
+
+  function resolveRelationSlug(field: unknown): string {
+    return typeof field === 'object' && field !== null ? (field as any)?.slug ?? '' : String(field || '')
+  }
+
+  // ---------------------------------------------------------------------------
+  // Directus API fetch wrapper (returns null on failure)
+  // ---------------------------------------------------------------------------
+
+  async function fetchFromDirectus<T>(path: string, params: Record<string, any>): Promise<T | null> {
+    if (!directusUrl) return null
+    try {
+      const result = await $fetch(`${directusUrl}${path}`, { params })
+      return result as T
+    } catch {
+      return null
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -21,59 +37,28 @@ export function useDirectus() {
   // ---------------------------------------------------------------------------
 
   async function fetchSeries(): Promise<BlogSeries[]> {
-    const allSeries: BlogSeries[] = [piniaSeries]
+    const staticSeries: BlogSeries[] = [piniaSeries]
 
-    if (directusUrl) {
-      try {
-        const [seriesRes, postsRes] = await Promise.all([
-          $fetch<{ data: any[] }>(`${directusUrl}/items/knowledge_series`, {
-            params: {
-              'filter[status][_eq]': 'published',
-              'fields': 'id,slug,emoji,cover_color,category.slug,translations.name,translations.description,translations.languages_code',
-              'sort': 'sort',
-            },
-          }),
-          $fetch<{ data: any[] }>(`${directusUrl}/items/knowledge_posts`, {
-            params: {
-              'filter[status][_eq]': 'published',
-              'fields': 'series',
-            },
-          }),
-        ])
+    const [seriesRes, postsRes] = await Promise.all([
+      fetchFromDirectus<{ data: any[] }>('/items/knowledge_series', {
+        'filter[status][_eq]': 'published',
+        'fields': 'id,slug,emoji,cover_color,subcategory,category.slug,translations.name,translations.description,translations.languages_code',
+        'sort': 'sort',
+      }),
+      fetchFromDirectus<{ data: any[] }>('/items/knowledge_posts', {
+        'filter[status][_eq]': 'published',
+        'fields': 'series',
+      }),
+    ])
 
-        if (seriesRes?.data?.length) {
-          // Count posts per series id
-          const postCounts: Record<string, number> = {}
-          postsRes?.data?.forEach((p: any) => {
-            const sid = typeof p.series === 'object' ? p.series?.id : p.series
-            if (sid) postCounts[sid] = (postCounts[sid] || 0) + 1
-          })
+    if (!seriesRes?.data?.length) return staticSeries
 
-          const directusSeries = seriesRes.data
-            .filter((item: any) => item.slug !== 'pinia-od-a-do-z') // avoid duplicating hardcoded
-            .map((item: any) => {
-              const pl = getTr(item.translations, 'pl-PL')
-              const en = getTr(item.translations, 'en-US')
-              return {
-                slug: item.slug,
-                name: pl.name || en.name || item.slug,
-                nameEn: en.name || pl.name || item.slug,
-                description: pl.description || en.description || '',
-                descriptionEn: en.description || pl.description || '',
-                emoji: item.emoji || '📚',
-                category: typeof item.category === 'object' ? item.category?.slug : item.category || '',
-                totalPosts: postCounts[item.id] || 0,
-                coverColor: item.cover_color || 'from-cyan-500/20 to-blue-500/20',
-              } satisfies BlogSeries
-            })
+    const postCounts = countPostsBySeries(postsRes?.data)
+    const directusSeries = seriesRes.data
+      .filter((item: any) => item.slug !== piniaSeries.slug)
+      .map((item: any) => mapDirectusSeries(item, postCounts))
 
-          allSeries.push(...directusSeries)
-        }
-      } catch {
-        // Directus not reachable – keep static data only
-      }
-    }
-    return allSeries
+    return [...staticSeries, ...directusSeries]
   }
 
   // ---------------------------------------------------------------------------
@@ -82,166 +67,146 @@ export function useDirectus() {
 
   async function fetchSeriesPostSlugs(): Promise<Record<string, string[]>> {
     const grouped: Record<string, string[]> = {
-      'pinia-od-a-do-z': piniaPostsData.map((p) => p.slug),
+      [piniaSeries.slug]: piniaPostsData.map((p) => p.slug),
     }
 
-    if (directusUrl) {
-      try {
-        const response = await $fetch<{ data: any[] }>(
-          `${directusUrl}/items/knowledge_posts`,
-          {
-            params: {
-              'filter[status][_eq]': 'published',
-              'fields': 'slug,series.slug',
-              'sort': 'sort',
-            },
-          },
-        )
-        if (response?.data) {
-          response.data.forEach((item: any) => {
-            const seriesSlug = typeof item.series === 'object' ? item.series?.slug : ''
-            if (seriesSlug) {
-              if (!grouped[seriesSlug]) grouped[seriesSlug] = []
-              grouped[seriesSlug].push(item.slug)
-            }
-          })
-        }
-      } catch {
-        // Fall back to static data only
+    const response = await fetchFromDirectus<{ data: any[] }>('/items/knowledge_posts', {
+      'filter[status][_eq]': 'published',
+      'fields': 'slug,series.slug',
+      'sort': 'sort',
+    })
+
+    response?.data?.forEach((item: any) => {
+      const seriesSlug = resolveRelationSlug(item.series)
+      if (seriesSlug) {
+        grouped[seriesSlug] ??= []
+        grouped[seriesSlug].push(item.slug)
       }
-    }
+    })
+
     return grouped
   }
 
   // ---------------------------------------------------------------------------
-  // Fetch posts by series slug (knowledge_posts – without content)
+  // Fetch posts by series slug (without content)
   // ---------------------------------------------------------------------------
 
+  const POST_LIST_FIELDS = [
+    'id', 'slug', 'emoji', 'sort', 'reading_time', 'tags', 'status',
+    'date_created', 'date_updated',
+    'series.slug', 'series.category.slug',
+    'series.translations.name', 'series.translations.languages_code',
+    'translations.title', 'translations.excerpt', 'translations.languages_code',
+  ].join(',')
+
   async function fetchPostsBySeries(seriesSlug: string): Promise<BlogPost[]> {
-    if (directusUrl) {
-      try {
-        const response = await $fetch<{ data: any[] }>(
-          `${directusUrl}/items/knowledge_posts`,
-          {
-            params: {
-              'filter[series][slug][_eq]': seriesSlug,
-              'filter[status][_eq]': 'published',
-              'sort': 'sort',
-              'fields': [
-                'id', 'slug', 'emoji', 'sort', 'reading_time', 'tags', 'status',
-                'date_created', 'date_updated',
-                'series.slug', 'series.category.slug',
-                'series.translations.name', 'series.translations.languages_code',
-                'translations.title', 'translations.excerpt', 'translations.languages_code',
-              ].join(','),
-            },
-          },
-        )
-        if (response?.data) {
-          return response.data.map((item: any) => mapDirectusPost(item, seriesSlug))
-        }
-      } catch {
-        // Fall back to static data
-      }
+    const response = await fetchFromDirectus<{ data: any[] }>('/items/knowledge_posts', {
+      'filter[series][slug][_eq]': seriesSlug,
+      'filter[status][_eq]': 'published',
+      'sort': 'sort',
+      'fields': POST_LIST_FIELDS,
+    })
+
+    if (response?.data?.length) {
+      return response.data.map((item: any) => mapDirectusPost(item, seriesSlug))
     }
 
-    if (seriesSlug === 'pinia-od-a-do-z') {
-      return piniaPostsData
-    }
+    if (seriesSlug === piniaSeries.slug) return piniaPostsData
     return []
   }
 
   // ---------------------------------------------------------------------------
-  // Fetch single post by slug (knowledge_posts – with content)
+  // Fetch single post by slug (with content)
   // ---------------------------------------------------------------------------
 
+  const POST_DETAIL_FIELDS = [
+    'id', 'slug', 'emoji', 'sort', 'reading_time', 'tags', 'status',
+    'date_created', 'date_updated',
+    'series.slug', 'series.category.slug',
+    'series.translations.name', 'series.translations.languages_code',
+    'translations.title', 'translations.excerpt', 'translations.content', 'translations.languages_code',
+  ].join(',')
+
   async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
-    if (directusUrl) {
-      try {
-        const response = await $fetch<{ data: any[] }>(
-          `${directusUrl}/items/knowledge_posts`,
-          {
-            params: {
-              'filter[slug][_eq]': slug,
-              'filter[status][_eq]': 'published',
-              'limit': 1,
-              'fields': [
-                'id', 'slug', 'emoji', 'sort', 'reading_time', 'tags', 'status',
-                'date_created', 'date_updated',
-                'series.slug', 'series.category.slug',
-                'series.translations.name', 'series.translations.languages_code',
-                'translations.title', 'translations.excerpt', 'translations.content', 'translations.languages_code',
-              ].join(','),
-            },
-          },
-        )
-        if (response?.data?.[0]) {
-          return mapDirectusPost(response.data[0])
-        }
-      } catch {
-        // Fall back to static data
-      }
+    const response = await fetchFromDirectus<{ data: any[] }>('/items/knowledge_posts', {
+      'filter[slug][_eq]': slug,
+      'filter[status][_eq]': 'published',
+      'limit': 1,
+      'fields': POST_DETAIL_FIELDS,
+    })
+
+    if (response?.data?.[0]) {
+      return mapDirectusPost(response.data[0])
     }
 
     return piniaPostsData.find((p) => p.slug === slug) ?? null
   }
 
   // ---------------------------------------------------------------------------
-  // Fetch categories (knowledge_categories)
+  // Fetch categories (knowledge_categories) — falls back to static categories
   // ---------------------------------------------------------------------------
 
   async function fetchCategories(): Promise<BlogCategory[]> {
-    if (!directusUrl) return []
-    try {
-      const response = await $fetch<{ data: any[] }>(
-        `${directusUrl}/items/knowledge_categories`,
-        {
-          params: {
-            'filter[status][_eq]': 'published',
-            'fields': 'id,slug,emoji,translations.name,translations.languages_code',
-            'sort': 'sort',
-          },
-        },
-      )
-      if (response?.data) {
-        return response.data.map((item: any) => {
-          const pl = getTr(item.translations, 'pl-PL')
-          const en = getTr(item.translations, 'en-US')
-          return {
-            id: String(item.id),
-            slug: item.slug,
-            name: pl.name || en.name || item.slug,
-            nameEn: en.name || pl.name || item.slug,
-            emoji: item.emoji || '📁',
-          } satisfies BlogCategory
-        })
-      }
-    } catch {
-      // Directus not reachable
+    const response = await fetchFromDirectus<{ data: any[] }>('/items/knowledge_categories', {
+      'filter[status][_eq]': 'published',
+      'fields': 'id,slug,emoji,translations.name,translations.languages_code',
+      'sort': 'sort',
+    })
+
+    if (response?.data?.length) {
+      return response.data.map((item: any) => {
+        const pl = getTranslation(item.translations, 'pl-PL')
+        const en = getTranslation(item.translations, 'en-US')
+        return {
+          id: String(item.id),
+          slug: item.slug,
+          name: pl.name || en.name || item.slug,
+          nameEn: en.name || pl.name || item.slug,
+          emoji: item.emoji || '📁',
+        } satisfies BlogCategory
+      })
     }
-    return []
+
+    return FALLBACK_CATEGORIES
   }
 
   // ---------------------------------------------------------------------------
-  // Image helper
+  // Internal mappers
   // ---------------------------------------------------------------------------
 
-  function getImageUrl(imageId: string): string {
-    if (!directusUrl) return ''
-    return `${directusUrl}/assets/${imageId}`
+  function countPostsBySeries(posts: any[] | undefined): Record<string, number> {
+    const counts: Record<string, number> = {}
+    posts?.forEach((p: any) => {
+      const sid = typeof p.series === 'object' ? p.series?.id : p.series
+      if (sid) counts[sid] = (counts[sid] || 0) + 1
+    })
+    return counts
   }
 
-  // ---------------------------------------------------------------------------
-  // Map Directus knowledge_post → BlogPost
-  // ---------------------------------------------------------------------------
+  function mapDirectusSeries(item: any, postCounts: Record<string, number>): BlogSeries {
+    const pl = getTranslation(item.translations, 'pl-PL')
+    const en = getTranslation(item.translations, 'en-US')
+    return {
+      slug: item.slug,
+      name: pl.name || en.name || item.slug,
+      nameEn: en.name || pl.name || item.slug,
+      description: pl.description || en.description || '',
+      descriptionEn: en.description || pl.description || '',
+      emoji: item.emoji || '📚',
+      category: resolveRelationSlug(item.category),
+      subcategory: item.subcategory || undefined,
+      totalPosts: postCounts[item.id] || 0,
+      coverColor: item.cover_color || 'from-cyan-500/20 to-blue-500/20',
+    }
+  }
 
   function mapDirectusPost(item: any, seriesSlugOverride?: string): BlogPost {
-    const pl = getTr(item.translations, 'pl-PL')
-    const en = getTr(item.translations, 'en-US')
+    const pl = getTranslation(item.translations, 'pl-PL')
+    const en = getTranslation(item.translations, 'en-US')
 
     const series = item.series || {}
-    const seriesPl = getTr(series.translations, 'pl-PL')
-    const seriesEn = getTr(series.translations, 'en-US')
+    const seriesPl = getTranslation(series.translations, 'pl-PL')
+    const seriesEn = getTranslation(series.translations, 'en-US')
 
     return {
       id: item.id,
@@ -252,7 +217,7 @@ export function useDirectus() {
       excerptEn: en.excerpt || '',
       content: pl.content || en.content || '',
       contentEn: en.content || '',
-      category: typeof series.category === 'object' ? series.category?.slug : series.category || '',
+      category: resolveRelationSlug(series.category),
       tags: Array.isArray(item.tags) ? item.tags : [],
       seriesName: seriesPl.name || seriesEn.name || '',
       seriesNameEn: seriesEn.name || '',
@@ -267,12 +232,10 @@ export function useDirectus() {
   }
 
   return {
-    isDirectusConfigured,
     fetchSeries,
     fetchSeriesPostSlugs,
     fetchCategories,
     fetchPostsBySeries,
     fetchPostBySlug,
-    getImageUrl,
   }
 }

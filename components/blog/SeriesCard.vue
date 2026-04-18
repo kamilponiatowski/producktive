@@ -20,7 +20,7 @@ const localePath = useLocalePath()
     <!-- Header -->
     <div class="mb-4 flex items-start justify-between">
       <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-primary/10 text-4xl text-brand-primary" aria-hidden="true">{{ series.emoji }}</span>
-      <span class="badge-accent">{{ series.category }}</span>
+      <span v-if="series.subcategory || series.category" class="badge-accent">{{ series.subcategory || series.category }}</span>
     </div>
 
     <!-- Title -->
