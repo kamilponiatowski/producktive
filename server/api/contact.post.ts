@@ -13,6 +13,14 @@ const contactSchema = z.object({
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
+
+  if (!config.supabaseUrl || !config.supabaseServiceKey) {
+    throw createError({
+      statusCode: 503,
+      statusMessage: 'Contact service not configured. Contact the site owner.',
+    })
+  }
+
   const body = await readBody(event)
 
   // Honeypot anti-spam check

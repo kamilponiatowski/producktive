@@ -14,6 +14,13 @@ const MAX_SIZE = 5 * 1024 * 1024 // 5 MB
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
+  if (!config.supabaseUrl || !config.supabaseServiceKey) {
+    throw createError({
+      statusCode: 503,
+      statusMessage: 'Storage service not configured. Contact the site owner.',
+    })
+  }
+
   const parts = await readMultipartFormData(event)
   if (!parts || parts.length === 0) {
     throw createError({ statusCode: 400, statusMessage: 'No file provided.' })

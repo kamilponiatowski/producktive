@@ -86,12 +86,12 @@ const switchLocale = (code: string) => {
         :aria-label="t('a11y.logo')"
         @click.prevent="scrollTo('#')"
       >
-        <div
-          class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center font-bold text-white text-sm font-mono"
+        <img
+          src="/assets/logo.svg"
+          alt="Logo"
+          class="w-8 h-8 rounded-lg"
           aria-hidden="true"
-        >
-          P
-        </div>
+        />
         <span
           class="font-display font-bold text-lg text-white group-hover:text-gradient transition-all"
         >

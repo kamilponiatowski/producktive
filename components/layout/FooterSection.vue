@@ -33,15 +33,13 @@ const navigateToSection = (href: string) => {
       <div class="grid sm:grid-cols-3 gap-8 mb-8">
         <!-- Brand -->
         <div>
-          <div class="flex items-center gap-2 mb-3">
-            <div
-              class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center font-bold text-white text-sm font-mono"
-              aria-hidden="true"
-            >
-              P
-            </div>
+          <NuxtLink
+            to="/"
+            class="inline-flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
+          >
+            <img src="~/assets/logo.svg" alt="Producktive" class="w-8 h-8" />
             <span class="font-display font-bold text-white">Producktive</span>
-          </div>
+          </NuxtLink>
           <p class="text-brand-muted text-sm leading-relaxed">
             {{ t('footer.desc') }}
           </p>
