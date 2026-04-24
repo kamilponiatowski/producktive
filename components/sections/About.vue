@@ -46,7 +46,7 @@ const values = [
 
 <template>
   <section
-    id="o-mnie"
+    :id="t('nav.anchors.about')"
     class="py-24 relative overflow-hidden"
     aria-labelledby="about-heading"
   >
@@ -113,7 +113,7 @@ const values = [
           <!-- CTA -->
           <div class="mt-8 flex flex-wrap gap-3">
             <a
-              href="#kontakt"
+              :href="`#${t('nav.anchors.contact')}`"
               class="btn-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               {{ t('about.ctaPrimary') }}

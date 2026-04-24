@@ -11,10 +11,19 @@
     "about": "About",
     "process": "Process",
     "community": "One-4-All",
+    "contact": "Contact",
     "cta": "Let's talk",
     "skipToContent": "Skip to content",
     "openMenu": "Open navigation menu",
-    "closeMenu": "Close navigation menu"
+    "closeMenu": "Close navigation menu",
+    "anchors": {
+      "about": "about",
+      "services": "services",
+      "process": "process",
+      "portfolio": "portfolio",
+      "community": "community",
+      "contact": "contact"
+    }
   },
   "hero": {
     "badge": "Available for projects · 2026",
@@ -282,7 +291,8 @@
     },
     "success": {
       "title": "Message sent!",
-      "desc": "I'll get back to you within 24 hours. Check your spam folder too — sometimes messages end up there."
+      "desc": "I'll get back to you within 24 hours. Check your spam folder too — sometimes messages end up there.",
+      "reset": "Send another message"
     },
     "serverError": "Something went wrong. Write directly to kontakt{'@'}producktive.pl",
     "calendar": {
@@ -338,6 +348,8 @@
     "email": "kontakt{'@'}producktive.pl",
     "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by",
     "privacy": "Privacy Policy",
     "cookies": "Cookie Policy",
     "terms": "Terms of Service",

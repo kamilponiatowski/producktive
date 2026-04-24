@@ -32,7 +32,7 @@ const steps = [
 
 <template>
   <section
-    id="proces"
+    :id="t('nav.anchors.process')"
     class="py-24 bg-brand-card/20"
     aria-labelledby="process-heading"
   >

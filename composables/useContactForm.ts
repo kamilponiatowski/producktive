@@ -93,5 +93,11 @@ export function useContactForm() {
     }
   }
 
-  return { form, errors, loading, success, serverError, submit, validateField }
+  const reset = () => {
+    success.value = false
+    serverError.value = ''
+    Object.assign(errors, { name: undefined, email: undefined, services: undefined, budget: undefined, message: undefined })
+  }
+
+  return { form, errors, loading, success, serverError, submit, validateField, reset }
 }

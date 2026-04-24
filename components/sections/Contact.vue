@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const config = useRuntimeConfig()
 
-const { form, errors, loading, success, serverError, submit, validateField } = useContactForm()
+const { form, errors, loading, success, serverError, submit, validateField, reset } = useContactForm()
 
 const calUrl = config.public.calUrl as string
 
@@ -76,7 +76,7 @@ const handleSubmit = () => submit(attachmentUrl.value || undefined)
 
 <template>
   <section
-    id="kontakt"
+    :id="t('nav.anchors.contact')"
     class="py-24 relative overflow-hidden"
     aria-labelledby="contact-heading"
   >
@@ -113,9 +113,16 @@ const handleSubmit = () => submit(attachmentUrl.value || undefined)
               <h3 class="font-display text-xl font-bold text-white mb-2">
                 {{ t('contact.success.title') }}
               </h3>
-              <p class="text-brand-muted">
+              <p class="text-brand-muted mb-6">
                 {{ t('contact.success.desc') }}
               </p>
+              <button
+                type="button"
+                class="btn-ghost text-sm"
+                @click="reset()"
+              >
+                {{ t('contact.success.reset') }}
+              </button>
             </div>
           </Transition>
 

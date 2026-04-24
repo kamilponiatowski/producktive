@@ -11,10 +11,19 @@
     "about": "O mnie",
     "process": "Proces",
     "community": "One-4-All",
+    "contact": "Kontakt",
     "cta": "Porozmawiajmy",
     "skipToContent": "Przejdź do treści",
     "openMenu": "Otwórz menu nawigacji",
-    "closeMenu": "Zamknij menu nawigacji"
+    "closeMenu": "Zamknij menu nawigacji",
+    "anchors": {
+      "about": "o-mnie",
+      "services": "uslugi",
+      "process": "proces",
+      "portfolio": "portfolio",
+      "community": "siec",
+      "contact": "kontakt"
+    }
   },
   "hero": {
     "badge": "Dostępny na projekty · 2026",
@@ -282,7 +291,8 @@
     },
     "success": {
       "title": "Wiadomość wysłana!",
-      "desc": "Odezwę się w ciągu 24 godzin. Sprawdź też folder spam — niekiedy tam ląduje."
+      "desc": "Odezwę się w ciągu 24 godzin. Sprawdź też folder spam — niekiedy tam ląduje.",
+      "reset": "Wyślij kolejną wiadomość"
     },
     "serverError": "Coś poszło nie tak. Napisz bezpośrednio na kontakt{'@'}producktive.pl",
     "calendar": {
@@ -338,6 +348,8 @@
     "email": "kontakt{'@'}producktive.pl",
     "phone": "+48 886 127 854",
     "copyright": "© {year} Producktive. Wszelkie prawa zastrzeżone.",
+    "madeWith": "Stworzone z",
+    "by": "przez",
     "privacy": "Polityka prywatności",
     "cookies": "Polityka cookies",
     "terms": "Regulamin",

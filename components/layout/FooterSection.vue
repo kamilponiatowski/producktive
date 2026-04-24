@@ -4,12 +4,12 @@ const year = new Date().getFullYear()
 const route = useRoute()
 
 const links = computed(() => [
-  { label: t('nav.about'), href: '#o-mnie' },
-  { label: t('nav.services'), href: '#uslugi' },
-  { label: t('nav.process'), href: '#proces' },
-  { label: t('nav.portfolio'), href: '#portfolio' },
-  { label: t('nav.community'), href: '#siec' },
-  { label: t('contact.badge'), href: '#kontakt' },
+  { label: t('nav.about'), href: `#${t('nav.anchors.about')}` },
+  { label: t('nav.services'), href: `#${t('nav.anchors.services')}` },
+  { label: t('nav.process'), href: `#${t('nav.anchors.process')}` },
+  { label: t('nav.portfolio'), href: `#${t('nav.anchors.portfolio')}` },
+  { label: t('nav.community'), href: `#${t('nav.anchors.community')}` },
+  { label: t('contact.badge'), href: `#${t('nav.anchors.contact')}` },
 ])
 
 const legal = computed(() => [
@@ -117,6 +117,25 @@ const navigateToSection = (href: string) => {
             {{ l.label }}
           </NuxtLink>
         </div>
+      </div>
+
+      <!-- Site signature -->
+      <div class="mt-6 flex justify-center">
+        <a
+          href="https://producktive.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                 border border-white/8 bg-white/[0.03] hover:bg-white/[0.06]
+                 text-brand-muted hover:text-white transition-all duration-200
+                 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary group"
+        >
+          {{ t('footer.madeWith') }}
+          <span class="text-[#D4AF37]">🧡</span>
+          {{ t('footer.by') }}
+          <img src="~/assets/logo.svg" alt="" class="w-4 h-4 opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+          <span class="font-semibold text-white/70 group-hover:text-brand-primary transition-colors">Producktive</span>
+        </a>
       </div>
     </div>
   </footer>

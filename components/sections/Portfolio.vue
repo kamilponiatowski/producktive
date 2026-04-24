@@ -72,7 +72,7 @@ watch(activeFilter, async () => {
 
 <template>
   <section
-    id="portfolio"
+    :id="t('nav.anchors.portfolio')"
     class="py-24 bg-brand-card/20"
     aria-labelledby="portfolio-heading"
   >
@@ -239,7 +239,7 @@ watch(activeFilter, async () => {
             {{ t('portfolio.ctaDesc') }}
           </p>
           <a
-            href="#kontakt"
+            :href="`#${t('nav.anchors.contact')}`"
             class="btn-primary inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             {{ t('portfolio.ctaButton') }}

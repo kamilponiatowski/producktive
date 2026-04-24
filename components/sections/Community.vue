@@ -33,7 +33,7 @@ const resourceIcons: Record<string, string> = {
 
 <template>
   <section
-    id="siec"
+    :id="t('nav.anchors.community')"
     class="py-24 relative overflow-hidden"
     aria-labelledby="community-heading"
   >
@@ -106,7 +106,7 @@ const resourceIcons: Record<string, string> = {
             <!-- CTA -->
             <div class="pt-4 border-t border-white/5">
               <a
-                href="#kontakt"
+                :href="`#${t('nav.anchors.contact')}`"
                 class="btn-primary w-full justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

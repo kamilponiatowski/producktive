@@ -3,10 +3,11 @@ import producktiveGlass from '~/assets/producktive-glass.png'
 const { t } = useI18n()
 
 const scrollToAbout = () => {
-  const el = document.getElementById('o-mnie')
+  const anchor = t('nav.anchors.about')
+  const el = document.getElementById(anchor)
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' })
-    history.replaceState(null, '', '#o-mnie')
+    history.replaceState(null, '', `#${anchor}`)
   }
 }
 </script>

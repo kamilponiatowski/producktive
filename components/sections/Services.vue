@@ -53,7 +53,7 @@ const services = computed(() => [
 </script>
 
 <template>
-  <section id="uslugi" class="py-24 relative" aria-labelledby="services-heading">
+  <section :id="t('nav.anchors.services')" class="py-24 relative" aria-labelledby="services-heading">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-16 reveal">
@@ -139,7 +139,7 @@ const services = computed(() => [
           <!-- CTA hover -->
           <a
             v-if="!service.comingSoon"
-            href="#kontakt"
+            :href="`#${t('nav.anchors.contact')}`"
             class="mt-auto flex items-center gap-2 text-sm font-medium text-brand-primary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded"
           >
             {{ t('services.askAbout') }}
@@ -162,7 +162,7 @@ const services = computed(() => [
         <p class="text-white font-semibold mb-2">{{ t('services.customTitle') }}</p>
         <p class="text-brand-muted text-sm mb-4">{{ t('services.customDesc') }}</p>
         <a
-          href="#kontakt"
+          :href="`#${t('nav.anchors.contact')}`"
           class="btn-primary inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
           {{ t('services.customCta') }}

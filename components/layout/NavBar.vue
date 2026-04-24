@@ -5,11 +5,12 @@ const isScrolled = ref(false)
 const isMobileOpen = ref(false)
 
 const navLinks = computed(() => [
-  { href: '#o-mnie', label: t('nav.about') },
-  { href: '#uslugi', label: t('nav.services') },
-  { href: '#proces', label: t('nav.process') },
-  { href: '#portfolio', label: t('nav.portfolio') },
-  { href: '#siec', label: t('nav.community') },
+  { href: `#${t('nav.anchors.about')}`, label: t('nav.about') },
+  { href: `#${t('nav.anchors.services')}`, label: t('nav.services') },
+  { href: `#${t('nav.anchors.process')}`, label: t('nav.process') },
+  { href: `#${t('nav.anchors.portfolio')}`, label: t('nav.portfolio') },
+  { href: `#${t('nav.anchors.community')}`, label: t('nav.community') },
+  { href: `#${t('nav.anchors.contact')}`, label: t('nav.contact') },
 ])
 
 const availableLocales = computed(() => {
@@ -115,7 +116,7 @@ const switchLocale = (code: string) => {
         <!-- Desktop CTA -->
         <button
           class="btn-primary text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
-          @click="scrollTo('#kontakt')"
+          @click="scrollTo(`#${t('nav.anchors.contact')}`)"
         >
           {{ t('nav.cta') }}
           <svg
@@ -201,7 +202,7 @@ const switchLocale = (code: string) => {
           </button>
           <button
             class="btn-primary mt-2 justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            @click="scrollTo('#kontakt')"
+            @click="scrollTo(`#${t('nav.anchors.contact')}`)"
           >
             {{ t('nav.cta') }} →
           </button>
